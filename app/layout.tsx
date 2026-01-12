@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Navigation from "./components/Navigation";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -23,70 +24,6 @@ export default function RootLayout({
         <Footer />
       </body>
     </html>
-  );
-}
-
-function Navigation() {
-  return (
-    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
-      <div className="max-w-6xl mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-2xl">🥋</span>
-            <span className="font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">
-              Symbiotic Thinking
-            </span>
-          </Link>
-
-          {/* Nav Links */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/learners" className="text-gray-600 hover:text-emerald-600 transition-colors">
-              For Learners
-            </Link>
-            <Link href="/educators" className="text-gray-600 hover:text-emerald-600 transition-colors">
-              For Educators
-            </Link>
-            <Link href="/portable" className="text-gray-600 hover:text-emerald-600 transition-colors">
-              Portable
-            </Link>
-            <Link href="/about" className="text-gray-600 hover:text-emerald-600 transition-colors">
-              About
-            </Link>
-            <Link href="/support" className="text-gray-600 hover:text-emerald-600 transition-colors">
-              Support
-            </Link>
-          </div>
-
-          {/* CTA */}
-          <a
-            href="https://dojo.symbioticthinking.ai"
-            className="bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-2 rounded-lg font-medium transition-colors"
-          >
-            Enter the Dojo
-          </a>
-        </div>
-
-        {/* Mobile menu */}
-        <div className="md:hidden flex gap-4 mt-4 pb-2 overflow-x-auto">
-          <Link href="/learners" className="text-sm text-gray-600 hover:text-emerald-600 whitespace-nowrap">
-            For Learners
-          </Link>
-          <Link href="/educators" className="text-sm text-gray-600 hover:text-emerald-600 whitespace-nowrap">
-            For Educators
-          </Link>
-          <Link href="/portable" className="text-sm text-gray-600 hover:text-emerald-600 whitespace-nowrap">
-            Portable
-          </Link>
-          <Link href="/about" className="text-sm text-gray-600 hover:text-emerald-600 whitespace-nowrap">
-            About
-          </Link>
-          <Link href="/support" className="text-sm text-gray-600 hover:text-emerald-600 whitespace-nowrap">
-            Support
-          </Link>
-        </div>
-      </div>
-    </nav>
   );
 }
 
