@@ -404,7 +404,7 @@ export default function HomePage() {
                 },
                 {
                   q: "Is my data private?",
-                  a: "Yes. The Dojo runs entirely in your browser. Your API key and conversations go directly from your browser to Google — nothing passes through our servers. We couldn't read your conversations even if we wanted to."
+                  a: "From us, yes — the Dojo runs entirely in your browser and nothing passes through our servers. However, your conversations are sent to Google's Gemini API, so Google's API privacy policy applies to that data. Also note: conversations are not saved between sessions. When you close or refresh the page, your conversation is gone."
                 },
                 {
                   q: "Can I use it offline?",
@@ -416,7 +416,7 @@ export default function HomePage() {
                 },
                 {
                   q: "Who made this and why?",
-                  a: "The Dojo was created by Dr. Sathya Narayanan and the Computing Talent Initiative at CSU Monterey Bay. It's part of research into how AI can enhance rather than replace human cognitive development. There's no hidden business model — it's an educational tool."
+                  a: "The Dojo was created by Dr. Sathya Narayanan and the Computing Talent Initiative at CSU Monterey Bay, with development done entirely using Claude Code (Anthropic's AI coding assistant). It's part of research into how AI can enhance rather than replace human cognitive development. There's no hidden business model — it's an educational tool."
                 },
                 {
                   q: "Can I use this for my class?",
@@ -456,11 +456,12 @@ export default function HomePage() {
                 Privacy First
               </div>
               <h2 className="text-3xl font-bold text-white mb-4">
-                Your conversations stay private
+                Your conversations stay private from us
               </h2>
               <p className="text-gray-300 text-lg mb-6">
                 The Dojo uses a client-side architecture. Your API key and conversations
-                never pass through our servers — they go directly from your browser to the AI.
+                never pass through our servers — they go directly from your browser to Google&apos;s Gemini API.
+                Google&apos;s API privacy policy applies to your conversations.
               </p>
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center gap-2">
@@ -473,7 +474,13 @@ export default function HomePage() {
                   <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  Zero server-side data storage
+                  Zero data storage on our servers
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Conversations not saved between sessions
                 </li>
                 <li className="flex items-center gap-2">
                   <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
