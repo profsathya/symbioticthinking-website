@@ -47,6 +47,9 @@ function Navigation() {
             <Link href="/educators" className="text-gray-600 hover:text-emerald-600 transition-colors">
               For Educators
             </Link>
+            <Link href="/portable" className="text-gray-600 hover:text-emerald-600 transition-colors">
+              Portable
+            </Link>
             <Link href="/about" className="text-gray-600 hover:text-emerald-600 transition-colors">
               About
             </Link>
@@ -71,6 +74,9 @@ function Navigation() {
           </Link>
           <Link href="/educators" className="text-sm text-gray-600 hover:text-emerald-600 whitespace-nowrap">
             For Educators
+          </Link>
+          <Link href="/portable" className="text-sm text-gray-600 hover:text-emerald-600 whitespace-nowrap">
+            Portable
           </Link>
           <Link href="/about" className="text-sm text-gray-600 hover:text-emerald-600 whitespace-nowrap">
             About
@@ -106,6 +112,7 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/learners" className="hover:text-emerald-400 transition-colors">For Learners</Link></li>
               <li><Link href="/educators" className="hover:text-emerald-400 transition-colors">For Educators</Link></li>
+              <li><Link href="/portable" className="hover:text-emerald-400 transition-colors">Portable Edition</Link></li>
               <li><Link href="/about" className="hover:text-emerald-400 transition-colors">About</Link></li>
               <li><Link href="/support" className="hover:text-emerald-400 transition-colors">Support This Effort</Link></li>
             </ul>

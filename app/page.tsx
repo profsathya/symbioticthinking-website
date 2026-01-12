@@ -444,6 +444,61 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Portable Edition */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-8 md:p-12">
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div className="inline-flex items-center gap-2 bg-blue-500/30 text-blue-100 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  </svg>
+                  New: Portable Edition
+                </div>
+                <h2 className="text-3xl font-bold text-white mb-4">
+                  Use the Dojo with any AI chatbot
+                </h2>
+                <p className="text-blue-100 text-lg mb-6">
+                  Prefer Claude, ChatGPT, or Gemini? Take the Symbiotic Thinking experience anywhere with our portable system prompt and knowledge base.
+                </p>
+                <a
+                  href="/portable"
+                  className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-blue-700 px-6 py-3 rounded-lg font-semibold transition-colors"
+                >
+                  Learn More
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                </a>
+              </div>
+              <div className="hidden md:block">
+                <div className="bg-blue-800/50 rounded-xl p-6 border border-blue-500/30">
+                  <div className="space-y-3 text-blue-100 text-sm">
+                    <div className="flex items-center gap-3">
+                      <span className="text-xl">🟣</span>
+                      <span>Claude Projects</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xl">🟢</span>
+                      <span>ChatGPT</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xl">🔵</span>
+                      <span>Google Gemini</span>
+                    </div>
+                    <div className="flex items-center gap-3">
+                      <span className="text-xl">💬</span>
+                      <span>Any AI with custom instructions</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Privacy Section */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
