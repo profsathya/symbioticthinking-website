@@ -5,7 +5,14 @@ import {
   ReflectionPrompt,
   KeyInsight,
   Collapsible,
+  AnalogTrigger,
+  SimulatorWrapper,
+  ScenarioBlock,
+  ComparisonCard,
+  FeatureList,
+  TakeawayBox,
 } from "@/app/components/learn";
+import { User, TrendingUp, Zap } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Activity 0: Your First Direct Report | Learn Symbiotic Thinking",
@@ -79,36 +86,48 @@ export default function Activity0Page() {
 function SimpleTier() {
   return (
     <div className="prose prose-gray max-w-none">
-      <h2>The Scenario</h2>
-      <p>
-        It&apos;s your first day at a new job. Your manager tells you: &quot;Congratulations! You&apos;ve been
-        assigned a direct report. They&apos;re eager to help and can work on almost anything you need.&quot;
-      </p>
+      <ScenarioBlock title="The Scenario" icon={User} variant="neutral">
+        <p>
+          It&apos;s your first day at a new job. Your manager tells you: &quot;Congratulations! You&apos;ve been
+          assigned a direct report. They&apos;re eager to help and can work on almost anything you need.&quot;
+        </p>
+      </ScenarioBlock>
 
-      <ReflectionPrompt title="Quick Reflection">
-        <p>What&apos;s the first thing you&apos;d want to know about your new direct report?</p>
-      </ReflectionPrompt>
+      <AnalogTrigger
+        task={{
+          title: "Manager A vs Manager B",
+          description: "Sketch a quick diagram (venn diagram, T-chart, etc.) showing the difference between these two manager types. Seeing it visually helps lock in the concept.",
+          activityId: "activity-0-simple"
+        }}
+        buttonText="Sketch the Difference"
+      />
 
-      <h2>The Escalation</h2>
-      <p>
-        A week later, your manager returns: &quot;Great news! You now have FIVE direct reports. Each has
-        different capabilities, but they&apos;re all ready to work.&quot;
-      </p>
+      <ScenarioBlock title="The Escalation" icon={TrendingUp} variant="escalation">
+        <p>
+          A week later, your manager returns: &quot;Great news! You now have FIVE direct reports. Each has
+          different capabilities, but they&apos;re all ready to work.&quot;
+        </p>
+      </ScenarioBlock>
 
-      <h2>The Reveal</h2>
-      <p>
-        <strong>Plot twist:</strong> Your &quot;direct reports&quot; are AI systems. And their capabilities are staggering:
-      </p>
+      <ScenarioBlock title="The Reveal" icon={Zap} variant="reveal">
+        <p>
+          <strong>Plot twist:</strong> Your &quot;direct reports&quot; are AI systems. And their capabilities are staggering:
+        </p>
+      </ScenarioBlock>
 
-      <ul>
-        <li>Solve International Math Olympiad problems</li>
-        <li>Write functional code in seconds</li>
-        <li>Analyze thousands of documents instantly</li>
-        <li>Generate professional-quality writing</li>
-        <li>Trained on essentially all publicly available human knowledge</li>
-        <li>Never tired, never forget, available 24/7</li>
-        <li>Getting dramatically better every few months</li>
-      </ul>
+      <FeatureList
+        title="AI Capabilities"
+        columns={2}
+        items={[
+          "Solve International Math Olympiad problems",
+          "Write functional code in seconds",
+          "Analyze thousands of documents instantly",
+          "Generate professional-quality writing",
+          "Trained on essentially all public knowledge",
+          "Never tired, never forget, available 24/7",
+          "Getting dramatically better every few months"
+        ]}
+      />
 
       <KeyInsight>
         <p>
@@ -120,69 +139,81 @@ function SimpleTier() {
 
       <h2>Two Types of Managers</h2>
 
-      <div className="grid md:grid-cols-2 gap-6 not-prose my-8">
-        <div className="bg-red-50 border border-red-200 rounded-xl p-6">
-          <h3 className="font-semibold text-red-800 mb-3">Manager A</h3>
-          <ul className="space-y-2 text-red-900 text-sm">
-            <li>• Asks AI to &quot;do the task&quot;</li>
-            <li>• Accepts whatever output comes back</li>
-            <li>• Doesn&apos;t evaluate quality</li>
-            <li>• Becomes dependent on AI</li>
-            <li>• Stagnates over time</li>
-          </ul>
-        </div>
-        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6">
-          <h3 className="font-semibold text-emerald-800 mb-3">Manager B</h3>
-          <ul className="space-y-2 text-emerald-900 text-sm">
-            <li>• Understands problem before delegating</li>
-            <li>• Provides clear context for good work</li>
-            <li>• Makes deliberate choices about approach</li>
-            <li>• Evaluates output against own judgment</li>
-            <li>• Builds expertise that grows WITH AI</li>
-          </ul>
-        </div>
-      </div>
+      <ComparisonCard
+        itemA={{
+          title: "Manager A",
+          color: "red",
+          points: [
+            "Asks AI to 'do the task'",
+            "Accepts whatever output comes back",
+            "Doesn't evaluate quality",
+            "Becomes dependent on AI",
+            "Stagnates over time"
+          ]
+        }}
+        itemB={{
+          title: "Manager B",
+          color: "emerald",
+          points: [
+            "Understands problem before delegating",
+            "Provides clear context for good work",
+            "Makes deliberate choices about approach",
+            "Evaluates output against own judgment",
+            "Builds expertise that grows WITH AI"
+          ]
+        }}
+      />
 
-      <ReflectionPrompt title="Final Reflection">
-        <p>Which manager are you right now? Which do you want to become?</p>
-      </ReflectionPrompt>
+      <AnalogTrigger
+        task={{
+          title: "Manager A vs Manager B",
+          description: "Sketch a quick diagram (venn diagram, T-chart, etc.) showing the difference between these two manager types. Seeing it visually helps lock in the concept.",
+          activityId: "activity-0-simple"
+        }}
+        buttonText="Sketch the Difference"
+      />
 
-      <h2>Key Takeaway</h2>
-      <p>
-        <strong>Delegation is a skill.</strong> The managers who thrive aren&apos;t those who delegate
-        everything or nothing—they&apos;re those who delegate deliberately, with judgment about what
-        context to provide, what choices to make, and how to verify the results.
-      </p>
-    </div>
+      <TakeawayBox title="Key Takeaway">
+        <p>
+          <strong>Delegation is a skill.</strong> The managers who thrive aren&apos;t those who delegate
+          everything or nothing—they&apos;re those who delegate deliberately, with judgment about what
+          context to provide, what choices to make, and how to verify the results.
+        </p>
+      </TakeawayBox>
+    </div >
   );
 }
 
 function DeepTier() {
   return (
     <div className="prose prose-gray max-w-none">
-      <h2>Part 1: The Scenario</h2>
-      <p>
-        It&apos;s your first day at a new job. You&apos;re still figuring out where the coffee machine is
-        when your manager pulls you aside.
-      </p>
+      <ScenarioBlock title="The Scenario" icon={User} variant="neutral">
+        <p>
+          It&apos;s your first day at a new job. You&apos;re still figuring out where the coffee machine is
+          when your manager pulls you aside.
+        </p>
 
-      <blockquote>
-        &quot;Congratulations! You&apos;ve been assigned a direct report. They&apos;re eager to help and can
-        work on almost anything you need. They&apos;re waiting to hear from you.&quot;
-      </blockquote>
+        <blockquote className="mt-4 border-l-4 border-blue-200 pl-4 italic bg-white/50 py-2">
+          &quot;Congratulations! You&apos;ve been assigned a direct report. They&apos;re eager to help and can
+          work on almost anything you need. They&apos;re waiting to hear from you.&quot;
+        </blockquote>
 
-      <p>
-        You weren&apos;t expecting to manage anyone. You just started. But here you are.
-      </p>
+        <p className="mt-4">
+          You weren&apos;t expecting to manage anyone. You just started. But here you are.
+        </p>
+      </ScenarioBlock>
 
       <ReflectionPrompt title="Reflection 1">
         <p className="mb-2">Think about this situation. What would you want to know before you start delegating work?</p>
-        <ul className="list-disc list-inside space-y-1 text-sm">
-          <li>What are their strengths and weaknesses?</li>
-          <li>What kind of guidance do they need?</li>
-          <li>How will you know if their work is good?</li>
-          <li>What happens if they make mistakes?</li>
-        </ul>
+        <FeatureList
+          variant="question"
+          items={[
+            "What are their strengths and weaknesses?",
+            "What kind of guidance do they need?",
+            "How will you know if their work is good?",
+            "What happens if they make mistakes?"
+          ]}
+        />
       </ReflectionPrompt>
 
       <Collapsible title="What makes a good manager?">
@@ -202,48 +233,53 @@ function DeepTier() {
         </p>
       </Collapsible>
 
-      <h2>Part 2: The Escalation</h2>
-      <p>
-        A week passes. You&apos;re just getting comfortable with having one direct report when your
-        manager appears again, beaming.
-      </p>
+      <ScenarioBlock title="The Escalation" icon={TrendingUp} variant="escalation">
+        <p>
+          A week passes. You&apos;re just getting comfortable with having one direct report when your
+          manager appears again, beaming.
+        </p>
 
-      <blockquote>
-        &quot;Great news! Based on our growth, you now have FIVE direct reports. Each has different
-        capabilities, but they&apos;re all ready to work. How you use them is up to you.&quot;
-      </blockquote>
+        <blockquote className="mt-4 border-l-4 border-amber-300 pl-4 italic bg-white/50 py-2">
+          &quot;Great news! Based on our growth, you now have FIVE direct reports. Each has different
+          capabilities, but they&apos;re all ready to work. How you use them is up to you.&quot;
+        </blockquote>
 
-      <p>
-        Five people. Each with different skills. All looking to you for direction.
-      </p>
+        <p className="mt-4">
+          Five people. Each with different skills. All looking to you for direction.
+        </p>
+      </ScenarioBlock>
 
       <ReflectionPrompt title="Reflection 2">
         <p>How does having five direct reports change things? What new skills would you need?</p>
       </ReflectionPrompt>
 
-      <h2>Part 3: The Reveal ⚡</h2>
-      <p>
-        Here&apos;s what we haven&apos;t told you yet:
-      </p>
+      <ScenarioBlock title="The Reveal" icon={Zap} variant="reveal">
+        <p className="text-xl font-light mb-4">
+          Here&apos;s what we haven&apos;t told you yet:
+        </p>
 
-      <div className="bg-gray-900 text-white rounded-xl p-6 my-8 not-prose">
-        <p className="text-emerald-400 font-semibold mb-4">Your &quot;direct reports&quot; are AI systems.</p>
-        <p className="text-gray-300 mb-4">And their capabilities are staggering:</p>
-        <ul className="space-y-2 text-gray-300">
-          <li>✓ Solve International Math Olympiad problems</li>
-          <li>✓ Write functional code in seconds</li>
-          <li>✓ Analyze thousands of documents instantly</li>
-          <li>✓ Generate professional-quality writing</li>
-          <li>✓ Trained on essentially all publicly available human knowledge</li>
-          <li>✓ Never tired, never forget, available 24/7</li>
-          <li>✓ Getting dramatically better every few months</li>
-        </ul>
-      </div>
+        <div className="bg-gray-800/50 rounded-xl p-6 my-8 not-prose border border-gray-700">
+          <p className="text-emerald-400 font-semibold mb-4">Your &quot;direct reports&quot; are AI systems.</p>
+          <p className="text-gray-300 mb-4">And their capabilities are staggering:</p>
+          <FeatureList
+            columns={1}
+            items={[
+              "Solve International Math Olympiad problems",
+              "Write functional code in seconds",
+              "Analyze thousands of documents instantly",
+              "Generate professional-quality writing",
+              "Trained on essentially all public knowledge",
+              "Never tired, never forget, available 24/7",
+              "Getting dramatically better every few months"
+            ]}
+          />
+        </div>
 
-      <p>
-        This isn&apos;t a hypothetical future. This is now. These capabilities exist today, and they&apos;re
-        available to essentially everyone.
-      </p>
+        <p>
+          This isn&apos;t a hypothetical future. This is now. These capabilities exist today, and they&apos;re
+          available to essentially everyone.
+        </p>
+      </ScenarioBlock>
 
       <KeyInsight title="The Core Realization">
         <p>
@@ -264,58 +300,31 @@ function DeepTier() {
         We&apos;ve observed two patterns in how people work with AI:
       </p>
 
-      <div className="grid md:grid-cols-2 gap-6 not-prose my-8">
-        <div className="bg-red-50 border border-red-200 rounded-xl p-6">
-          <h3 className="font-semibold text-red-800 mb-4">Manager A: Passive Partnership</h3>
-          <ul className="space-y-3 text-red-900">
-            <li className="flex gap-2">
-              <span className="text-red-500">→</span>
-              <span>Asks AI to &quot;do the task&quot;</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-red-500">→</span>
-              <span>Accepts whatever output comes back</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-red-500">→</span>
-              <span>Doesn&apos;t evaluate quality critically</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-red-500">→</span>
-              <span>Becomes dependent on AI over time</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-red-500">→</span>
-              <span>Skills and judgment stagnate</span>
-            </li>
-          </ul>
-        </div>
-        <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-6">
-          <h3 className="font-semibold text-emerald-800 mb-4">Manager B: Active Partnership</h3>
-          <ul className="space-y-3 text-emerald-900">
-            <li className="flex gap-2">
-              <span className="text-emerald-500">✓</span>
-              <span>Understands the problem before delegating</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-emerald-500">✓</span>
-              <span>Provides clear context for good work</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-emerald-500">✓</span>
-              <span>Makes deliberate choices about approach</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-emerald-500">✓</span>
-              <span>Evaluates output against own judgment</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-emerald-500">✓</span>
-              <span>Builds expertise that grows WITH AI</span>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <ComparisonCard
+        title="Passive vs Active Partnership"
+        itemA={{
+          title: "Manager A: Passive Partnership",
+          color: "red",
+          points: [
+            "Asks AI to 'do the task'",
+            "Accepts whatever output comes back",
+            "Doesn't evaluate quality critically",
+            "Becomes dependent on AI over time",
+            "Skills and judgment stagnate"
+          ]
+        }}
+        itemB={{
+          title: "Manager B: Active Partnership",
+          color: "emerald",
+          points: [
+            "Understands the problem before delegating",
+            "Provides clear context for good work",
+            "Makes deliberate choices about approach",
+            "Evaluates output against own judgment",
+            "Builds expertise that grows WITH AI"
+          ]
+        }}
+      />
 
       <p>
         Manager A treats AI like a vending machine: insert request, receive output.
@@ -365,11 +374,14 @@ function DeepTier() {
         The next activities will help you develop the specific skills that separate Manager B from
         Manager A. You&apos;ll learn frameworks for:
       </p>
-      <ul>
-        <li>Providing effective context (the 3Cs)</li>
-        <li>Building deep understanding (DIKW)</li>
-        <li>Monitoring your own engagement (Creating vs. Consuming)</li>
-      </ul>
+      <FeatureList
+        variant="list"
+        items={[
+          "Providing effective context (the 3Cs)",
+          "Building deep understanding (DIKW)",
+          "Monitoring your own engagement (Creating vs. Consuming)"
+        ]}
+      />
       <p>
         Together, these form what we call <strong>Symbiotic Thinking</strong>—a way of working with
         AI that builds your capabilities rather than replacing them.
@@ -397,10 +409,10 @@ function DeeperTier() {
         <p className="text-purple-900 mb-4">
           Use the Dojo (or any AI with the Portable Edition setup) to explore this question:
         </p>
-        <blockquote className="border-l-4 border-purple-400 pl-4 italic text-purple-800">
+        <ScenarioBlock title="The Question" icon={User} variant="neutral">
           &quot;What does it mean to be a good manager of AI capabilities? What skills separate someone
           who grows with AI from someone who becomes dependent on it?&quot;
-        </blockquote>
+        </ScenarioBlock>
       </div>
 
       <h3>Getting Started</h3>
@@ -438,6 +450,20 @@ function DeeperTier() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </Link>
+        </div>
+      </div>
+
+      <div className="my-12 p-6 bg-blue-50 border border-blue-200 rounded-xl">
+        <h4 className="font-semibold text-blue-900 mb-4">Option C: Use the Simulator (Right Here)</h4>
+        <p className="text-blue-800 text-sm mb-4">
+          Practice the "Pre-Flight Check" right now without leaving the page.
+          Try asking the AI to "explain how to manage intelligence."
+        </p>
+        <div className="not-prose bg-white rounded-xl shadow-sm">
+          <SimulatorWrapper />
+          <p className="text-xs text-gray-400 mt-2 italic text-center">
+            (The simulator demonstrates the &apos;3Cs Interceptor&apos; but doesn&apos;t connect to a real LLM Backend in this demo)
+          </p>
         </div>
       </div>
 

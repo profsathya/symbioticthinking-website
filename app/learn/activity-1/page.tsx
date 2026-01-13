@@ -6,7 +6,11 @@ import {
   KeyInsight,
   Collapsible,
   ConversationTranscript,
+  ScenarioBlock,
+  ComparisonCard,
+  FeatureList,
 } from "@/app/components/learn";
+import { User, MessageCircle, GitBranch, Target, CheckCircle, AlertCircle } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Activity 1: The Hiring Decision | Learn Symbiotic Thinking",
@@ -88,27 +92,36 @@ export default function Activity1Page() {
 function SimpleTier() {
   return (
     <div className="prose prose-gray max-w-none">
-      <h2>The Scenario</h2>
-      <p>
-        You&apos;re hiring for a marketing role. Both candidates completed the same work sample:
-        &quot;Create a social media campaign for HydroSync, a smart water bottle.&quot; Both used AI.
-      </p>
+      <ScenarioBlock title="The Scenario" icon={User} variant="neutral">
+        <p>
+          You&apos;re hiring for a marketing role. Both candidates completed the same work sample:
+          &quot;Create a social media campaign for HydroSync, a smart water bottle.&quot; Both used AI.
+        </p>
+      </ScenarioBlock>
 
-      <h3>Candidate A</h3>
-      <ul>
-        <li>2 prompts total</li>
-        <li>First: &quot;Write a social media campaign for HydroSync&quot;</li>
-        <li>Second: &quot;Make it more engaging&quot;</li>
-        <li>Submitted AI output with minor edits</li>
-      </ul>
-
-      <h3>Candidate B</h3>
-      <ul>
-        <li>6+ exchanges with AI</li>
-        <li>Asked about competitors, positioning, target audience</li>
-        <li>Proposed specific strategy, asked AI to find holes</li>
-        <li>Submitted strategy document with rationale AND &quot;Risks and Open Questions&quot;</li>
-      </ul>
+      <ComparisonCard
+        title="Candidate A vs Candidate B"
+        itemA={{
+          title: "Candidate A",
+          color: "amber",
+          points: [
+            "2 prompts total",
+            "First: 'Write a campaign...'",
+            "Second: 'Make it more engaging'",
+            "Submitted AI output with minor edits"
+          ]
+        }}
+        itemB={{
+          title: "Candidate B",
+          color: "emerald",
+          points: [
+            "6+ exchanges with AI",
+            "Asked about competitors & audience",
+            "Proposed strategy & asked for holes",
+            "Submitted strategy + 'Risks' section"
+          ]
+        }}
+      />
 
       <ReflectionPrompt title="Quick Decision">
         <p>Who would you hire? Write down your answer before continuing.</p>
@@ -131,11 +144,14 @@ function SimpleTier() {
 
       <h2>The Framework: 3Cs</h2>
       <p>What did Candidate B do that Candidate A didn&apos;t?</p>
-      <ul>
-        <li><strong>Context:</strong> Gathered information about competitors, audience, positioning</li>
-        <li><strong>Choices:</strong> Made deliberate decisions about strategy and asked AI to challenge them</li>
-        <li><strong>Confirmation:</strong> Identified risks and open questions—ways to verify the approach works</li>
-      </ul>
+      <FeatureList
+        variant="list"
+        items={[
+          "Context: Gathered information about competitors, audience, positioning",
+          "Choices: Made deliberate decisions about strategy and asked AI to challenge them",
+          "Confirmation: Identified risks and open questions—ways to verify the approach works"
+        ]}
+      />
 
       <ReflectionPrompt title="Final Reflection">
         <p>Think about your recent AI interactions. Did you provide Context, make Choices, and plan for Confirmation?</p>
@@ -147,25 +163,22 @@ function SimpleTier() {
 function DeepTier() {
   return (
     <div className="prose prose-gray max-w-none">
-      <h2>The Scenario</h2>
-      <p>
-        You&apos;re the hiring manager for a marketing coordinator position. As part of the interview process,
-        you asked candidates to complete a work sample:
-      </p>
+      <ScenarioBlock title="The Challenge" icon={Target} variant="neutral">
+        <p>
+          You&apos;re the hiring manager for a marketing coordinator position. As part of the interview process,
+          you asked candidates to complete a work sample:
+        </p>
 
-      <blockquote>
-        Create a social media campaign concept for HydroSync, a smart water bottle that tracks hydration
-        and syncs with fitness apps. Include positioning, target audience, and 3-5 sample posts.
-      </blockquote>
+        <blockquote className="mt-4 border-l-4 border-blue-200 pl-4 italic bg-white/50 py-2">
+          Create a social media campaign concept for HydroSync, a smart water bottle that tracks hydration
+          and syncs with fitness apps. Include positioning, target audience, and 3-5 sample posts.
+        </blockquote>
 
-      <p>
-        Two candidates made the final round. Both submitted strong work. Both disclosed that they used
-        AI assistance. You have access to their AI conversation logs.
-      </p>
-
-      <p>
-        <strong>Your task:</strong> Review how each candidate worked with AI and decide who to hire.
-      </p>
+        <p className="mt-4">
+          Two candidates made the final round. Both submitted strong work. Both disclosed that they used
+          AI assistance. <strong>You have access to their AI conversation logs.</strong>
+        </p>
+      </ScenarioBlock>
 
       <ReflectionPrompt title="Before You Look">
         <p>What will you look for in the AI conversation logs? What would impress you? What would concern you?</p>
@@ -391,45 +404,35 @@ Any other directions you want to explore?`
         Look at what Candidate B did that Candidate A didn&apos;t. Three things stand out:
       </p>
 
-      <div className="bg-gray-50 rounded-xl p-6 my-6 not-prose">
-        <div className="space-y-6">
-          <div>
-            <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-              <span className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 text-sm font-bold">C</span>
-              Context
-            </h4>
-            <p className="text-gray-600 mt-2 ml-10">
-              Candidate B gathered information before creating. Competitors, positioning, audience segments.
-              They built understanding before asking AI to generate anything.
-            </p>
+      <div className="grid md:grid-cols-3 gap-6 my-8 not-prose">
+        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold mb-4">
+            <span className="text-xl">C</span>
           </div>
-          <div>
-            <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-              <span className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 text-sm font-bold">C</span>
-              Choices
-            </h4>
-            <p className="text-gray-600 mt-2 ml-10">
-              Candidate B made deliberate decisions. They chose a positioning angle, then explicitly
-              asked AI to challenge it. They owned the strategy; AI was a sounding board.
-            </p>
+          <h4 className="font-bold text-gray-900 mb-2">Context</h4>
+          <p className="text-sm text-gray-600">
+            Gathering info before creating. Competitors, positioning, audience. Building understanding first.
+          </p>
+        </div>
+        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold mb-4">
+            <span className="text-xl">C</span>
           </div>
-          <div>
-            <h4 className="font-semibold text-gray-900 flex items-center gap-2">
-              <span className="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 text-sm font-bold">C</span>
-              Confirmation
-            </h4>
-            <p className="text-gray-600 mt-2 ml-10">
-              Candidate B included &quot;Risks and Open Questions&quot; in their submission. They thought about
-              how they&apos;d verify the approach works. Candidate A just shipped what AI produced.
-            </p>
+          <h4 className="font-bold text-gray-900 mb-2">Choices</h4>
+          <p className="text-sm text-gray-600">
+            Making deliberate decisions. Choosing angles, challenging AI. Owning the strategy.
+          </p>
+        </div>
+        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+          <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-700 font-bold mb-4">
+            <span className="text-xl">C</span>
           </div>
+          <h4 className="font-bold text-gray-900 mb-2">Confirmation</h4>
+          <p className="text-sm text-gray-600">
+            Verifying the work. Identifying risks, asking "how will we know this worked?"
+          </p>
         </div>
       </div>
-
-      <p>
-        <strong>Context, Choices, Confirmation.</strong> These are the human contributions that transform
-        AI from a crutch into a force multiplier. We&apos;ll call them the <strong>3Cs</strong>.
-      </p>
 
       <h2>Why This Matters</h2>
       <p>
@@ -439,12 +442,15 @@ Any other directions you want to explore?`
       <p>
         The difference is the human. Candidate B knows how to:
       </p>
-      <ul>
-        <li>Understand problems before solving them</li>
-        <li>Make decisions and defend them</li>
-        <li>Identify what could go wrong</li>
-        <li>Use AI as a thinking partner, not a replacement for thinking</li>
-      </ul>
+      <FeatureList
+        variant="check"
+        items={[
+          "Understand problems before solving them",
+          "Make decisions and defend them",
+          "Identify what could go wrong",
+          "Use AI as a thinking partner, not a replacement for thinking"
+        ]}
+      />
       <p>
         These skills compound. Candidate A will need more and more AI capability to stay relevant.
         Candidate B will get more valuable as AI gets more capable.
@@ -476,12 +482,15 @@ function DeeperTier() {
           You ARE Candidate B. Use the Dojo to work through the same HydroSync challenge, but with
           the Symbiotic Thinking approach:
         </p>
-        <ol className="list-decimal list-inside space-y-2 text-purple-900">
-          <li>Start by engaging @framer to really understand the problem</li>
-          <li>Use @challenger to pressure-test your positioning ideas</li>
-          <li>Apply the 3Cs consciously: track when you&apos;re providing Context, making Choices, planning Confirmation</li>
-          <li>End with @reflector to see how your process compares to Candidate B&apos;s</li>
-        </ol>
+        <FeatureList
+          variant="list"
+          items={[
+            "Start by engaging @framer to really understand the problem",
+            "Use @challenger to pressure-test your positioning ideas",
+            "Apply the 3Cs consciously: track when you're providing Context, making Choices, planning Confirmation",
+            "End with @reflector to see how your process compares to Candidate B's"
+          ]}
+        />
       </div>
 
       <h3>Getting Started</h3>
