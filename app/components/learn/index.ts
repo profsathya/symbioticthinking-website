@@ -17,3 +17,4 @@ export * from "./ScenarioBlock";
 export * from "./ComparisonCard";
 export * from "./FeatureList";
 export * from "./TakeawayBox";
+export * from "./ShareButton";
