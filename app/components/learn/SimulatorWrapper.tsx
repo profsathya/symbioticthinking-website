@@ -4,8 +4,8 @@ import React from "react";
 import { ScaffoldedChatInterface } from "./ScaffoldedChatInterface";
 
 export function SimulatorWrapper() {
-    const [messages, setMessages] = React.useState([
-        { role: 'ai' as const, content: "I am ready to help. How can I assist you with your management tasks today?" }
+    const [messages, setMessages] = React.useState<{ role: 'ai' | 'user'; content: string }[]>([
+        { role: 'ai', content: "I am ready to help. How can I assist you with your management tasks today?" }
     ]);
 
     const handleSendMessage = (content: string) => {
