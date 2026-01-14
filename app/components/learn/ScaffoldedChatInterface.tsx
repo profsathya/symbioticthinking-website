@@ -35,23 +35,32 @@ export function ScaffoldedChatInterface({
     };
 
     const handleConfirmedSend = () => {
-        // Combine 3Cs into the prompt or just send the original input?
-        // The report suggests the 3Cs are a "Pre-Flight Check".
-        // We'll append them as metadata or just let the user send the original,
-        // knowing they've done the thinking.
-        // For this simulation, we'll just proceed with the original input, 
-        // but maybe prepend the context for the "AI" to see?
-        // Let's keep it simple: just trigger the callback.
+        // The 3Cs are a "Pre-Flight Check" - the thinking is what matters,
+        // not necessarily including it in the prompt.
         onSendMessage(input);
         setInput("");
         setShowInterceptor(false);
         setThreeCs({ context: "", choices: "", confirmation: "" });
     };
 
+    // Validate that input has meaningful content (not just repeated chars or single words)
+    const hasMeaningfulContent = (text: string): boolean => {
+        const trimmed = text.trim();
+        if (trimmed.length < 5) return false;
+
+        // Check for repeated characters (e.g., "aaaaaaa")
+        const uniqueChars = new Set(trimmed.toLowerCase().replace(/\s/g, '')).size;
+        if (uniqueChars < 3) return false;
+
+        // Require at least 2 words
+        const words = trimmed.split(/\s+/).filter(w => w.length > 1);
+        return words.length >= 2;
+    };
+
     const isFormValid =
-        threeCs.context.length > 10 &&
-        threeCs.choices.length > 5 &&
-        threeCs.confirmation.length > 5;
+        hasMeaningfulContent(threeCs.context) &&
+        hasMeaningfulContent(threeCs.choices) &&
+        hasMeaningfulContent(threeCs.confirmation);
 
     return (
         <div className="flex flex-col h-[500px] border border-gray-200 rounded-xl bg-gray-50 overflow-hidden relative">

@@ -7,17 +7,16 @@ import { AnalogTaskModal } from "./AnalogTaskModal";
 import Link from "next/link";
 
 export function FocusModeContainer({ children }: { children: ReactNode }) {
-    const { mode, requestAttention, completeAnalogTask } = useFocusMode();
+    const { mode, idleTimeoutMs, requestAttention, completeAnalogTask } = useFocusMode();
 
     const onIdle = () => {
-        // Trigger "Wake Up" prompt if user is idle for 5 minutes (300,000ms)
-        // For demo/testing purposes, we might want this shorter, but per spec it's 5 mins.
+        // Trigger "Wake Up" prompt if user is idle
         requestAttention();
     };
 
     useIdleTimer({
         onIdle,
-        timeout: 300_000, // 5 minutes
+        timeout: idleTimeoutMs,
         throttle: 500,
     });
 
