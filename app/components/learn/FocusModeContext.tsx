@@ -14,6 +14,7 @@ export interface AnalogTask {
 interface FocusModeContextType {
   mode: FocusModeState;
   currentTask: AnalogTask | null;
+  idleTimeoutMs: number;
   startAnalogTask: (task: AnalogTask) => void;
   completeAnalogTask: () => void;
   requestAttention: () => void; // Triggers "Wake Up" or similar
@@ -21,7 +22,16 @@ interface FocusModeContextType {
 
 const FocusModeContext = createContext<FocusModeContextType | undefined>(undefined);
 
-export function FocusModeProvider({ children }: { children: ReactNode }) {
+// Default idle timeout: 5 minutes
+const DEFAULT_IDLE_TIMEOUT_MS = 300_000;
+
+interface FocusModeProviderProps {
+  children: ReactNode;
+  /** Idle timeout in milliseconds before "Wake Up" prompt appears. Default: 5 minutes (300000ms) */
+  idleTimeoutMs?: number;
+}
+
+export function FocusModeProvider({ children, idleTimeoutMs = DEFAULT_IDLE_TIMEOUT_MS }: FocusModeProviderProps) {
   const [mode, setMode] = useState<FocusModeState>("DIGITAL_ACTIVE");
   const [currentTask, setCurrentTask] = useState<AnalogTask | null>(null);
 
@@ -47,6 +57,7 @@ export function FocusModeProvider({ children }: { children: ReactNode }) {
       value={{
         mode,
         currentTask,
+        idleTimeoutMs,
         startAnalogTask,
         completeAnalogTask,
         requestAttention,

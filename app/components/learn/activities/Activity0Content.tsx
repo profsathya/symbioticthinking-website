@@ -467,14 +467,17 @@ function DeeperTier() {
       <div className="my-12 p-6 bg-blue-50 border border-blue-200 rounded-xl">
         <h4 className="font-semibold text-blue-900 mb-4">Option C: Use the Simulator (Right Here)</h4>
         <p className="text-blue-800 text-sm mb-4">
-          Practice the "Pre-Flight Check" right now without leaving the page.
-          Try asking the AI to "explain how to manage intelligence."
+          Practice the &quot;Pre-Flight Check&quot; right now without leaving the page.
+          Try asking the AI to &quot;explain how to manage intelligence.&quot;
         </p>
         <div className="not-prose bg-white rounded-xl shadow-sm">
           <SimulatorWrapper />
-          <p className="text-xs text-gray-400 mt-2 italic text-center">
-            (The simulator demonstrates the &apos;3Cs Interceptor&apos; but doesn&apos;t connect to a real LLM Backend in this demo)
-          </p>
+          <div className="mt-3 p-3 bg-amber-50 border border-amber-200 rounded-lg">
+            <p className="text-xs text-amber-800 text-center">
+              <strong>Demo Mode:</strong> This simulator shows the 3Cs &quot;Pre-Flight Check&quot; workflow.
+              The AI responses are simulated—for real AI interaction, use the Dojo or Portable Edition above.
+            </p>
+          </div>
         </div>
       </div>
 
