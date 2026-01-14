@@ -17,3 +17,8 @@ export * from "./ScenarioBlock";
 export * from "./ComparisonCard";
 export * from "./FeatureList";
 export * from "./TakeawayBox";
+
+// Interactive assessment components
+export * from "./MultipleChoice";
+export * from "./MatchingExercise";
+export * from "./CompleteTheSentence";

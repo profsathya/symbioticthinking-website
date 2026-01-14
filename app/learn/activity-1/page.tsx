@@ -9,6 +9,9 @@ import {
   ScenarioBlock,
   ComparisonCard,
   FeatureList,
+  MultipleChoice,
+  MatchingExercise,
+  CompleteTheSentence,
 } from "@/app/components/learn";
 import { User, MessageCircle, GitBranch, Target, CheckCircle, AlertCircle } from "lucide-react";
 
@@ -151,6 +154,39 @@ function SimpleTier() {
           "Choices: Made deliberate decisions about strategy and asked AI to challenge them",
           "Confirmation: Identified risks and open questions—ways to verify the approach works"
         ]}
+      />
+
+      <MultipleChoice
+        scenario="You're writing a cover letter for your dream internship. You ask AI: 'Write me a cover letter for a marketing internship at Nike.'"
+        question="What's missing from this prompt?"
+        mode="knowledge"
+        choices={[
+          {
+            id: "a",
+            text: "Nothing - AI has enough to work with",
+            feedback: "AI will produce something, but it'll be generic. Without context about YOU, it's writing a template, not your letter.",
+            isCorrect: false
+          },
+          {
+            id: "b",
+            text: "Context about your specific experience and what makes you unique",
+            feedback: "Exactly. AI doesn't know your background, your relevant projects, or why you specifically want Nike. Without this, it's guessing.",
+            isCorrect: true
+          },
+          {
+            id: "c",
+            text: "A request to make it more creative",
+            feedback: "'More creative' is vague. The real issue is AI doesn't know anything about YOU that would make the letter genuinely personal.",
+            isCorrect: false
+          },
+          {
+            id: "d",
+            text: "The job description",
+            feedback: "The job description helps, but even with it, AI still doesn't know about YOUR experience to match against it.",
+            isCorrect: false
+          }
+        ]}
+        followUp="The first C is Context. Before asking AI to create, give it the information it needs to create something actually useful."
       />
 
       <ReflectionPrompt title="Final Reflection">
@@ -434,6 +470,70 @@ Any other directions you want to explore?`
         </div>
       </div>
 
+      <MatchingExercise
+        title="Identify the 3Cs"
+        context="Each quote below comes from Candidate B's conversation. Match each to the C it represents."
+        instruction="Click a quote, then click the matching principle."
+        leftHeader="What Candidate B Said"
+        rightHeader="Which C?"
+        pairs={[
+          {
+            id: "1",
+            left: "What are the main competitors and how do they position themselves?",
+            right: "Context: Gathering information first"
+          },
+          {
+            id: "2",
+            left: "What if the campaign was about people who know they should drink more water but haven't been able to make it stick?",
+            right: "Choices: Making strategic decisions"
+          },
+          {
+            id: "3",
+            left: "Push back on it. What are the holes in this positioning?",
+            right: "Confirmation: Testing and verifying"
+          },
+          {
+            id: "4",
+            left: "The fitness app integration isn't the point—it's the PROOF that the habit is forming.",
+            right: "Choices: Reframing the value proposition"
+          }
+        ]}
+        successMessage="You can spot the 3Cs in action. Now practice using them yourself."
+      />
+
+      <MultipleChoice
+        scenario="You're preparing for a job interview tomorrow. You want AI to help you practice answering 'Tell me about yourself.'"
+        question="Which approach best applies the 3Cs?"
+        mode="knowledge"
+        choices={[
+          {
+            id: "a",
+            text: "\"Give me a good answer to 'tell me about yourself' for a software engineer role.\"",
+            feedback: "This skips Context (your actual background) and Choices (what angle to emphasize). You'll get a generic answer that isn't yours.",
+            isCorrect: false
+          },
+          {
+            id: "b",
+            text: "\"Here's my resume [paste]. The role is [details]. Help me craft an answer that emphasizes X because I think it's most relevant. Then challenge me—what weaknesses might an interviewer see?\"",
+            feedback: "This nails all 3Cs: Context (resume + role), Choices (emphasizing X), and Confirmation (asking for potential weaknesses to address).",
+            isCorrect: true
+          },
+          {
+            id: "c",
+            text: "\"Act as an interviewer and ask me questions. I'll practice answering.\"",
+            feedback: "Better than nothing, but you're skipping Context. Without knowing your background and the role, AI's questions won't be targeted.",
+            isCorrect: false
+          },
+          {
+            id: "d",
+            text: "\"What are the best answers to common interview questions?\"",
+            feedback: "You're asking for general templates, not YOUR answers. This completely bypasses all 3Cs.",
+            isCorrect: false
+          }
+        ]}
+        followUp="Notice how option B front-loads the thinking. You're leading the collaboration, not just receiving output."
+      />
+
       <h2>Why This Matters</h2>
       <p>
         In six months, the AI outputs might be indistinguishable. Both candidates will have access to
@@ -455,6 +555,34 @@ Any other directions you want to explore?`
         These skills compound. Candidate A will need more and more AI capability to stay relevant.
         Candidate B will get more valuable as AI gets more capable.
       </p>
+
+      <CompleteTheSentence
+        context="Lock in the 3Cs framework before you move on."
+        sentenceParts={[
+          "Before asking AI to create, I should provide ",
+          ". While working with AI, I should make deliberate ",
+          ". After getting output, I should plan for ",
+          "."
+        ]}
+        blanks={[
+          [
+            { id: "questions", text: "questions", isCorrect: false, feedback: "Questions are good, but what you need to provide is information and background." },
+            { id: "context", text: "Context", isCorrect: true, feedback: "Correct! Context is the background information AI needs to give you useful output." },
+            { id: "examples", text: "examples", isCorrect: false, feedback: "Examples can help, but the broader principle is providing context about your situation." }
+          ],
+          [
+            { id: "choices", text: "Choices", isCorrect: true, feedback: "Correct! You should own the strategic decisions, not outsource them to AI." },
+            { id: "edits", text: "edits", isCorrect: false, feedback: "Editing output is reactive. The 3Cs are about proactive engagement—making choices during the process." },
+            { id: "requests", text: "requests", isCorrect: false, feedback: "Making requests is just delegation. The key is making deliberate choices about direction." }
+          ],
+          [
+            { id: "revisions", text: "revisions", isCorrect: false, feedback: "Revisions are about improving output. Confirmation is about verifying it's actually right." },
+            { id: "confirmation", text: "Confirmation", isCorrect: true, feedback: "Correct! How will you know the output is actually good? That's Confirmation." },
+            { id: "feedback", text: "feedback", isCorrect: false, feedback: "Feedback is part of it, but Confirmation is specifically about verifying the work meets your actual needs." }
+          ]
+        ]}
+        successMessage="You've got the framework. Context → Choices → Confirmation. Use it in your next AI interaction."
+      />
 
       <ReflectionPrompt title="Final Reflection">
         <p>Think about your recent AI interactions:</p>
