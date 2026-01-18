@@ -22,3 +22,4 @@ export * from "./TakeawayBox";
 export * from "./MultipleChoice";
 export * from "./MatchingExercise";
 export * from "./CompleteTheSentence";
+export * from "./InteractiveReflection";

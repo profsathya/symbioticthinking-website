@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   TierSelector,
   ReflectionPrompt,
+  InteractiveReflection,
   KeyInsight,
   Collapsible,
   ConversationTranscript,
@@ -126,9 +127,13 @@ function SimpleTier() {
         }}
       />
 
-      <ReflectionPrompt title="Quick Decision">
+      <InteractiveReflection
+        id="activity-1-simple-quick-decision"
+        title="Quick Decision"
+        placeholder="Who would you hire: A or B? Why? Write your answer before continuing..."
+      >
         <p>Who would you hire? Write down your answer before continuing.</p>
-      </ReflectionPrompt>
+      </InteractiveReflection>
 
       <KeyInsight title="The Pattern">
         <p>
@@ -189,9 +194,13 @@ function SimpleTier() {
         followUp="The first C is Context. Before asking AI to create, give it the information it needs to create something actually useful."
       />
 
-      <ReflectionPrompt title="Final Reflection">
+      <InteractiveReflection
+        id="activity-1-simple-final"
+        title="Final Reflection"
+        placeholder="Think of a recent AI interaction. Which Cs did you use? Which did you skip?"
+      >
         <p>Think about your recent AI interactions. Did you provide Context, make Choices, and plan for Confirmation?</p>
-      </ReflectionPrompt>
+      </InteractiveReflection>
     </div>
   );
 }
@@ -216,9 +225,13 @@ function DeepTier() {
         </p>
       </ScenarioBlock>
 
-      <ReflectionPrompt title="Before You Look">
+      <InteractiveReflection
+        id="activity-1-deep-before-look"
+        title="Before You Look"
+        placeholder="What would impress you in an AI conversation? What would concern you?"
+      >
         <p>What will you look for in the AI conversation logs? What would impress you? What would concern you?</p>
-      </ReflectionPrompt>
+      </InteractiveReflection>
 
       <h2>Candidate A&apos;s AI Conversation</h2>
 
@@ -417,10 +430,14 @@ Any other directions you want to explore?`
 
       <h2>Make Your Decision</h2>
 
-      <ReflectionPrompt title="Hiring Decision">
+      <InteractiveReflection
+        id="activity-1-deep-hiring-decision"
+        title="Hiring Decision"
+        placeholder="Who would you hire? What does each conversation reveal about how they think?"
+      >
         <p className="mb-2">Based on these conversations, who would you hire and why?</p>
         <p className="text-sm">Consider: What does each conversation reveal about how the candidate thinks and works?</p>
-      </ReflectionPrompt>
+      </InteractiveReflection>
 
       <KeyInsight title="Observation: Count the Questions">
         <p>Go back and count the questions each candidate asked:</p>
@@ -584,14 +601,19 @@ Any other directions you want to explore?`
         successMessage="You've got the framework. Context → Choices → Confirmation. Use it in your next AI interaction."
       />
 
-      <ReflectionPrompt title="Final Reflection">
+      <InteractiveReflection
+        id="activity-1-deep-final"
+        title="Final Reflection"
+        placeholder="Think of a specific recent AI interaction. Walk through each C: what context did you give? What choices did you make? How did you verify?"
+        minRows={4}
+      >
         <p>Think about your recent AI interactions:</p>
         <ul className="mt-2 text-sm list-disc list-inside">
           <li>Did you provide Context before asking for output?</li>
           <li>Did you make deliberate Choices, or accept the first thing AI suggested?</li>
           <li>Did you plan for Confirmation—how you&apos;d know if the output was right?</li>
         </ul>
-      </ReflectionPrompt>
+      </InteractiveReflection>
     </div>
   );
 }
@@ -667,14 +689,19 @@ function DeeperTier() {
         </code>
       </div>
 
-      <ReflectionPrompt title="After Your Exploration">
+      <InteractiveReflection
+        id="activity-1-deeper-exploration"
+        title="After Your Exploration"
+        placeholder="Compare your process to Candidate B's. Where were you similar? Different?"
+        minRows={4}
+      >
         <p>Compare your process to Candidate B&apos;s conversation:</p>
         <ul className="text-sm mt-2 list-disc list-inside">
           <li>Where did you provide more or less Context?</li>
           <li>What Choices did you make differently?</li>
           <li>How did you plan for Confirmation?</li>
         </ul>
-      </ReflectionPrompt>
+      </InteractiveReflection>
 
       <KeyInsight icon="📌" title="Minimum Deliverable">
         <p>

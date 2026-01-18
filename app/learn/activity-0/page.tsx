@@ -3,6 +3,7 @@ import Link from "next/link";
 import {
   TierSelector,
   ReflectionPrompt,
+  InteractiveReflection,
   KeyInsight,
   Collapsible,
   AnalogTrigger,
@@ -230,7 +231,11 @@ function DeepTier() {
         </p>
       </ScenarioBlock>
 
-      <ReflectionPrompt title="Reflection 1">
+      <InteractiveReflection
+        id="activity-0-deep-reflection-1"
+        title="Reflection 1"
+        placeholder="What would you want to know before delegating? Consider their strengths, weaknesses, the guidance they need..."
+      >
         <p className="mb-2">Think about this situation. What would you want to know before you start delegating work?</p>
         <FeatureList
           variant="question"
@@ -241,7 +246,7 @@ function DeepTier() {
             "What happens if they make mistakes?"
           ]}
         />
-      </ReflectionPrompt>
+      </InteractiveReflection>
 
       <Collapsible title="What makes a good manager?">
         <p>
@@ -276,9 +281,13 @@ function DeepTier() {
         </p>
       </ScenarioBlock>
 
-      <ReflectionPrompt title="Reflection 2">
+      <InteractiveReflection
+        id="activity-0-deep-reflection-2"
+        title="Reflection 2"
+        placeholder="How does managing five change things? What new challenges arise?"
+      >
         <p>How does having five direct reports change things? What new skills would you need?</p>
-      </ReflectionPrompt>
+      </InteractiveReflection>
 
       <ScenarioBlock title="The Reveal" icon={Zap} variant="reveal">
         <p className="text-xl font-light mb-4">
@@ -422,10 +431,14 @@ function DeepTier() {
         followUp="The key insight: asking for explanations instead of solutions keeps you in the driver's seat."
       />
 
-      <ReflectionPrompt title="Reflection 3">
+      <InteractiveReflection
+        id="activity-0-deep-reflection-3"
+        title="Reflection 3"
+        placeholder="Think of a specific recent AI interaction. What did you actually do? Which manager were you being?"
+      >
         <p>Be honest with yourself: In your current AI usage, are you more like Manager A or Manager B?</p>
         <p className="mt-2 text-sm">Think about specific recent examples. What did you actually do?</p>
-      </ReflectionPrompt>
+      </InteractiveReflection>
 
       <h2>Part 5: What This Means for You</h2>
 
@@ -506,10 +519,14 @@ function DeepTier() {
         successMessage="You've got it. This is the essence of Symbiotic Thinking: using AI as a tool for growth, not a crutch for avoidance."
       />
 
-      <ReflectionPrompt title="Final Reflection">
+      <InteractiveReflection
+        id="activity-0-deep-final"
+        title="Final Reflection"
+        placeholder="Be specific: what exactly will you do differently? (e.g., 'I will outline my argument before asking AI to expand it')"
+      >
         <p>What&apos;s one thing you&apos;ll do differently in your next AI interaction based on this activity?</p>
         <p className="mt-2 text-sm">Be specific. &quot;Be better&quot; doesn&apos;t count.</p>
-      </ReflectionPrompt>
+      </InteractiveReflection>
     </div>
   );
 }
@@ -608,9 +625,13 @@ function DeeperTier() {
         </li>
       </ol>
 
-      <ReflectionPrompt title="After Your Exploration">
+      <InteractiveReflection
+        id="activity-0-deeper-exploration"
+        title="After Your Exploration"
+        placeholder="What surprised you? What's one insight you'll remember?"
+      >
         <p>What surprised you in your exploration? What insight will you carry forward?</p>
-      </ReflectionPrompt>
+      </InteractiveReflection>
 
       <KeyInsight icon="📌" title="Minimum Deliverable">
         <p>
