@@ -120,11 +120,31 @@ export default function LearnersPage() {
                 1
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Bring Your Challenge</h3>
-                <p className="text-gray-600">
-                  Come with a real problem you&apos;re working on — a project, an assignment, a question
-                  you&apos;re exploring. The Dojo works best with authentic challenges.
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Choose Your Path</h3>
+                <p className="text-gray-600 mb-4">
+                  Two ways to practice:
                 </p>
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-emerald-50 border border-emerald-200 rounded-lg p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-lg">🎯</span>
+                      <span className="font-medium text-gray-900">Practice Dojo</span>
+                      <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Recommended</span>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Structured, guided experiences. Great for learning Symbiotic Thinking fundamentals.
+                    </p>
+                  </div>
+                  <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-lg">🧭</span>
+                      <span className="font-medium text-gray-900">Free Exploration</span>
+                    </div>
+                    <p className="text-sm text-gray-600">
+                      Bring your own challenge — a project, assignment, or question you&apos;re exploring.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 

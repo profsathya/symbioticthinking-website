@@ -303,9 +303,9 @@ export default function HomePage() {
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900">Get Started in 2 Minutes</h2>
+            <h2 className="text-3xl font-bold text-gray-900">Get Started in 3 Easy Steps</h2>
             <p className="mt-4 text-lg text-gray-600">
-              The Dojo is free. You just need an API key from one of our supported providers (also free).
+              The Dojo is free to use. You just need a free API key to power the AI.
             </p>
           </div>
 
@@ -381,10 +381,10 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Enter the Dojo and configure your key</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Enter the Dojo and add your key</h3>
                   <p className="text-gray-600 mb-4">
                     Open the Dojo, click Settings, choose your provider (Groq or Gemini), and paste your API key.
-                    The key stays in your browser — we never see it. You can switch providers anytime.
+                    Your key stays in your browser — we never see it.
                   </p>
                 </div>
               </div>
@@ -397,10 +397,35 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Start with a real challenge</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Choose your path</h3>
                   <p className="text-gray-600 mb-4">
-                    Bring a problem you&apos;re actually working on — an assignment, project decision, or question you&apos;re exploring. The Dojo works best with authentic challenges.
+                    There are two ways to start practicing:
                   </p>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {/* Practice Dojo Option */}
+                    <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-lg">🎯</span>
+                        <span className="font-semibold text-gray-900">Practice Dojo</span>
+                        <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">New users</span>
+                      </div>
+                      <p className="text-sm text-gray-600">
+                        Click &quot;Practice Dojo&quot; in the sidebar for structured, guided experiences. Learn Symbiotic Thinking fundamentals and explore curated topics with scaffolded challenges.
+                      </p>
+                    </div>
+
+                    {/* Free Exploration Option */}
+                    <div className="bg-purple-50 border border-purple-200 rounded-xl p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-lg">🧭</span>
+                        <span className="font-semibold text-gray-900">Free Exploration</span>
+                      </div>
+                      <p className="text-sm text-gray-600">
+                        Bring your own challenge — an assignment, project decision, or question you&apos;re exploring. The Sensei and Sparring Partners will meet you where you are.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -553,8 +578,8 @@ export default function HomePage() {
               </h2>
               <p className="text-gray-300 text-lg mb-6">
                 The Dojo uses a client-side architecture. Your API key and conversations
-                never pass through our servers — they go directly from your browser to Google&apos;s Gemini API.
-                Google&apos;s API privacy policy applies to your conversations.
+                never pass through our servers — they go directly from your browser to your chosen provider (Groq or Google).
+                Your provider&apos;s privacy policy applies to your conversations.
               </p>
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center gap-2">

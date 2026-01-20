@@ -218,10 +218,19 @@ export default function EducatorsPage() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Assign Challenges</h3>
-                <p className="text-gray-600">
-                  Direct students to use the Dojo for specific assignments. You can suggest
-                  which Sparring Partners to activate or which construct to use.
+                <p className="text-gray-600 mb-2">
+                  Direct students to use the Dojo for specific assignments:
                 </p>
+                <ul className="text-gray-600 text-sm space-y-1 ml-4 mb-2">
+                  <li>
+                    <strong>Practice Dojo</strong> — Recommend this for students new to Symbiotic Thinking.
+                    Structured, guided experiences help them learn the fundamentals.
+                  </li>
+                  <li>
+                    <strong>Free Exploration</strong> — For students bringing their own challenges,
+                    you can suggest which Sparring Partners to activate or which construct to use.
+                  </li>
+                </ul>
               </div>
             </div>
 
