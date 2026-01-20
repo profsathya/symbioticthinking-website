@@ -6,10 +6,11 @@ import Link from "next/link";
 const navLinks = [
   { href: "/learners", label: "For Learners" },
   { href: "/educators", label: "For Educators" },
-  { href: "/learn", label: "Learn" },
+  { href: "/framework", label: "The Framework" },
   { href: "/portable", label: "Portable" },
   { href: "/about", label: "About" },
   { href: "/support", label: "Support" },
+  // { href: "/learn", label: "Learn" }, // Hidden for now - activities being redesigned
 ];
 
 export default function Navigation() {
