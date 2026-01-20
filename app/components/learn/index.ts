@@ -23,3 +23,4 @@ export * from "./MultipleChoice";
 export * from "./MatchingExercise";
 export * from "./CompleteTheSentence";
 export * from "./InteractiveReflection";
+export * from "./ShareButton";

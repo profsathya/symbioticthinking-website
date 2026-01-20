@@ -1,55 +1,71 @@
-import { Metadata } from "next";
 import Link from "next/link";
 import {
   TierSelector,
   ReflectionPrompt,
-  InteractiveReflection,
   KeyInsight,
   Collapsible,
   ConversationTranscript,
   ScenarioBlock,
   ComparisonCard,
   FeatureList,
-  MultipleChoice,
-  MatchingExercise,
-  CompleteTheSentence,
+  ShareButton,
 } from "@/app/components/learn";
 import { User, MessageCircle, GitBranch, Target, CheckCircle, AlertCircle } from "lucide-react";
-import { Activity1Content } from "@/app/components/learn/activities";
+import { ActivityNavigationLinks } from "./ActivityNavigationLinks";
 
-export const metadata: Metadata = {
-  title: "Activity 1: The Hiring Decision | Learn Symbiotic Thinking",
-  description: "Evaluate two job candidates who both used AI. Discover what separates effective AI collaboration from passive consumption.",
+export interface ActivityNavigationConfig {
+  backLink: { href: string; label: string } | null;
+  nextLink: { href: string; label: string } | null;
+}
+
+export const activity1Metadata = {
+  number: 1,
+  icon: "📋",
+  title: "The Hiring Decision",
+  description: "You're the hiring manager. Two candidates completed the same AI-assisted work sample. Both are qualified. You can only hire one. What do you look for?",
 };
 
-export default function Activity1Page() {
+export function Activity1Content({ navigation, showShareButton = false }: { navigation: ActivityNavigationConfig; showShareButton?: boolean }) {
   return (
     <div>
       {/* Header */}
       <section className="bg-gradient-to-br from-amber-50 via-white to-emerald-50 py-12">
         <div className="max-w-4xl mx-auto px-6">
-          <Link
-            href="/learn"
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-emerald-600 mb-6 transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Learn
-          </Link>
+          <div className="flex items-start justify-between gap-4 mb-6">
+            <div className="flex-1 min-w-0">
+              {navigation.backLink && (
+                <Link
+                  href={navigation.backLink.href}
+                  className="inline-flex items-center gap-2 text-gray-600 hover:text-emerald-600 mb-6 transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  {navigation.backLink.label}
+                </Link>
+              )}
+            </div>
+            {showShareButton && (
+              <div className="flex-shrink-0">
+                <ShareButton
+                  activityNumber={activity1Metadata.number}
+                  activityTitle={activity1Metadata.title}
+                />
+              </div>
+            )}
+          </div>
 
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">📋</span>
-            <span className="text-sm text-gray-500 font-medium">Activity 1</span>
+            <span className="text-3xl">{activity1Metadata.icon}</span>
+            <span className="text-sm text-gray-500 font-medium">Activity {activity1Metadata.number}</span>
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-            The Hiring Decision
+            {activity1Metadata.title}
           </h1>
 
           <p className="mt-4 text-lg text-gray-600 max-w-2xl">
-            You&apos;re the hiring manager. Two candidates completed the same AI-assisted work sample.
-            Both are qualified. You can only hire one. What do you look for?
+            {activity1Metadata.description}
           </p>
         </div>
       </section>
@@ -66,28 +82,10 @@ export default function Activity1Page() {
           </TierSelector>
 
           {/* Navigation */}
-          <div className="mt-16 pt-8 border-t border-gray-200">
-            <div className="flex justify-between items-center">
-              <Link
-                href="/learn/activity-0"
-                className="inline-flex items-center gap-2 text-gray-600 hover:text-emerald-600 transition-colors"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-                Previous: Your First Direct Report
-              </Link>
-              <Link
-                href="/learn/activity-2"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-              >
-                Next: The Investment Decision
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
-          </div>
+          <ActivityNavigationLinks
+            backLink={navigation.backLink}
+            nextLink={navigation.nextLink}
+          />
         </div>
       </section>
     </div>
@@ -128,13 +126,9 @@ function SimpleTier() {
         }}
       />
 
-      <InteractiveReflection
-        id="activity-1-simple-quick-decision"
-        title="Quick Decision"
-        placeholder="Who would you hire: A or B? Why? Write your answer before continuing..."
-      >
+      <ReflectionPrompt title="Quick Decision">
         <p>Who would you hire? Write down your answer before continuing.</p>
-      </InteractiveReflection>
+      </ReflectionPrompt>
 
       <KeyInsight title="The Pattern">
         <p>
@@ -162,46 +156,9 @@ function SimpleTier() {
         ]}
       />
 
-      <MultipleChoice
-        scenario="You're writing a cover letter for your dream internship. You ask AI: 'Write me a cover letter for a marketing internship at Nike.'"
-        question="What's missing from this prompt?"
-        mode="knowledge"
-        choices={[
-          {
-            id: "a",
-            text: "Nothing - AI has enough to work with",
-            feedback: "AI will produce something, but it'll be generic. Without context about YOU, it's writing a template, not your letter.",
-            isCorrect: false
-          },
-          {
-            id: "b",
-            text: "Context about your specific experience and what makes you unique",
-            feedback: "Exactly. AI doesn't know your background, your relevant projects, or why you specifically want Nike. Without this, it's guessing.",
-            isCorrect: true
-          },
-          {
-            id: "c",
-            text: "A request to make it more creative",
-            feedback: "'More creative' is vague. The real issue is AI doesn't know anything about YOU that would make the letter genuinely personal.",
-            isCorrect: false
-          },
-          {
-            id: "d",
-            text: "The job description",
-            feedback: "The job description helps, but even with it, AI still doesn't know about YOUR experience to match against it.",
-            isCorrect: false
-          }
-        ]}
-        followUp="The first C is Context. Before asking AI to create, give it the information it needs to create something actually useful."
-      />
-
-      <InteractiveReflection
-        id="activity-1-simple-final"
-        title="Final Reflection"
-        placeholder="Think of a recent AI interaction. Which Cs did you use? Which did you skip?"
-      >
+      <ReflectionPrompt title="Final Reflection">
         <p>Think about your recent AI interactions. Did you provide Context, make Choices, and plan for Confirmation?</p>
-      </InteractiveReflection>
+      </ReflectionPrompt>
     </div>
   );
 }
@@ -226,13 +183,9 @@ function DeepTier() {
         </p>
       </ScenarioBlock>
 
-      <InteractiveReflection
-        id="activity-1-deep-before-look"
-        title="Before You Look"
-        placeholder="What would impress you in an AI conversation? What would concern you?"
-      >
+      <ReflectionPrompt title="Before You Look">
         <p>What will you look for in the AI conversation logs? What would impress you? What would concern you?</p>
-      </InteractiveReflection>
+      </ReflectionPrompt>
 
       <h2>Candidate A&apos;s AI Conversation</h2>
 
@@ -431,14 +384,10 @@ Any other directions you want to explore?`
 
       <h2>Make Your Decision</h2>
 
-      <InteractiveReflection
-        id="activity-1-deep-hiring-decision"
-        title="Hiring Decision"
-        placeholder="Who would you hire? What does each conversation reveal about how they think?"
-      >
+      <ReflectionPrompt title="Hiring Decision">
         <p className="mb-2">Based on these conversations, who would you hire and why?</p>
         <p className="text-sm">Consider: What does each conversation reveal about how the candidate thinks and works?</p>
-      </InteractiveReflection>
+      </ReflectionPrompt>
 
       <KeyInsight title="Observation: Count the Questions">
         <p>Go back and count the questions each candidate asked:</p>
@@ -488,70 +437,6 @@ Any other directions you want to explore?`
         </div>
       </div>
 
-      <MatchingExercise
-        title="Identify the 3Cs"
-        context="Each quote below comes from Candidate B's conversation. Match each to the C it represents."
-        instruction="Click a quote, then click the matching principle."
-        leftHeader="What Candidate B Said"
-        rightHeader="Which C?"
-        pairs={[
-          {
-            id: "1",
-            left: "What are the main competitors and how do they position themselves?",
-            right: "Context: Gathering information first"
-          },
-          {
-            id: "2",
-            left: "What if the campaign was about people who know they should drink more water but haven't been able to make it stick?",
-            right: "Choices: Making strategic decisions"
-          },
-          {
-            id: "3",
-            left: "Push back on it. What are the holes in this positioning?",
-            right: "Confirmation: Testing and verifying"
-          },
-          {
-            id: "4",
-            left: "The fitness app integration isn't the point—it's the PROOF that the habit is forming.",
-            right: "Choices: Reframing the value proposition"
-          }
-        ]}
-        successMessage="You can spot the 3Cs in action. Now practice using them yourself."
-      />
-
-      <MultipleChoice
-        scenario="You're preparing for a job interview tomorrow. You want AI to help you practice answering 'Tell me about yourself.'"
-        question="Which approach best applies the 3Cs?"
-        mode="knowledge"
-        choices={[
-          {
-            id: "a",
-            text: "\"Give me a good answer to 'tell me about yourself' for a software engineer role.\"",
-            feedback: "This skips Context (your actual background) and Choices (what angle to emphasize). You'll get a generic answer that isn't yours.",
-            isCorrect: false
-          },
-          {
-            id: "b",
-            text: "\"Here's my resume [paste]. The role is [details]. Help me craft an answer that emphasizes X because I think it's most relevant. Then challenge me—what weaknesses might an interviewer see?\"",
-            feedback: "This nails all 3Cs: Context (resume + role), Choices (emphasizing X), and Confirmation (asking for potential weaknesses to address).",
-            isCorrect: true
-          },
-          {
-            id: "c",
-            text: "\"Act as an interviewer and ask me questions. I'll practice answering.\"",
-            feedback: "Better than nothing, but you're skipping Context. Without knowing your background and the role, AI's questions won't be targeted.",
-            isCorrect: false
-          },
-          {
-            id: "d",
-            text: "\"What are the best answers to common interview questions?\"",
-            feedback: "You're asking for general templates, not YOUR answers. This completely bypasses all 3Cs.",
-            isCorrect: false
-          }
-        ]}
-        followUp="Notice how option B front-loads the thinking. You're leading the collaboration, not just receiving output."
-      />
-
       <h2>Why This Matters</h2>
       <p>
         In six months, the AI outputs might be indistinguishable. Both candidates will have access to
@@ -574,47 +459,14 @@ Any other directions you want to explore?`
         Candidate B will get more valuable as AI gets more capable.
       </p>
 
-      <CompleteTheSentence
-        context="Lock in the 3Cs framework before you move on."
-        sentenceParts={[
-          "Before asking AI to create, I should provide ",
-          ". While working with AI, I should make deliberate ",
-          ". After getting output, I should plan for ",
-          "."
-        ]}
-        blanks={[
-          [
-            { id: "questions", text: "questions", isCorrect: false, feedback: "Questions are good, but what you need to provide is information and background." },
-            { id: "context", text: "Context", isCorrect: true, feedback: "Correct! Context is the background information AI needs to give you useful output." },
-            { id: "examples", text: "examples", isCorrect: false, feedback: "Examples can help, but the broader principle is providing context about your situation." }
-          ],
-          [
-            { id: "choices", text: "Choices", isCorrect: true, feedback: "Correct! You should own the strategic decisions, not outsource them to AI." },
-            { id: "edits", text: "edits", isCorrect: false, feedback: "Editing output is reactive. The 3Cs are about proactive engagement—making choices during the process." },
-            { id: "requests", text: "requests", isCorrect: false, feedback: "Making requests is just delegation. The key is making deliberate choices about direction." }
-          ],
-          [
-            { id: "revisions", text: "revisions", isCorrect: false, feedback: "Revisions are about improving output. Confirmation is about verifying it's actually right." },
-            { id: "confirmation", text: "Confirmation", isCorrect: true, feedback: "Correct! How will you know the output is actually good? That's Confirmation." },
-            { id: "feedback", text: "feedback", isCorrect: false, feedback: "Feedback is part of it, but Confirmation is specifically about verifying the work meets your actual needs." }
-          ]
-        ]}
-        successMessage="You've got the framework. Context → Choices → Confirmation. Use it in your next AI interaction."
-      />
-
-      <InteractiveReflection
-        id="activity-1-deep-final"
-        title="Final Reflection"
-        placeholder="Think of a specific recent AI interaction. Walk through each C: what context did you give? What choices did you make? How did you verify?"
-        minRows={4}
-      >
+      <ReflectionPrompt title="Final Reflection">
         <p>Think about your recent AI interactions:</p>
         <ul className="mt-2 text-sm list-disc list-inside">
           <li>Did you provide Context before asking for output?</li>
           <li>Did you make deliberate Choices, or accept the first thing AI suggested?</li>
           <li>Did you plan for Confirmation—how you&apos;d know if the output was right?</li>
         </ul>
-      </InteractiveReflection>
+      </ReflectionPrompt>
     </div>
   );
 }
@@ -649,7 +501,7 @@ function DeeperTier() {
         <div className="bg-white border border-gray-200 rounded-xl p-6">
           <h4 className="font-semibold text-gray-900 mb-3">Option A: Use the Dojo</h4>
           <p className="text-gray-600 text-sm mb-4">
-            Go to the Symbiotic Thinking Dojo with your API key (Groq or Google Gemini).
+            Go to the Symbiotic Thinking Dojo with your Google AI API key.
           </p>
           <a
             href="https://dojo.symbioticthinking.ai"
@@ -690,19 +542,14 @@ function DeeperTier() {
         </code>
       </div>
 
-      <InteractiveReflection
-        id="activity-1-deeper-exploration"
-        title="After Your Exploration"
-        placeholder="Compare your process to Candidate B's. Where were you similar? Different?"
-        minRows={4}
-      >
+      <ReflectionPrompt title="After Your Exploration">
         <p>Compare your process to Candidate B&apos;s conversation:</p>
         <ul className="text-sm mt-2 list-disc list-inside">
           <li>Where did you provide more or less Context?</li>
           <li>What Choices did you make differently?</li>
           <li>How did you plan for Confirmation?</li>
         </ul>
-      </InteractiveReflection>
+      </ReflectionPrompt>
 
       <KeyInsight icon="📌" title="Minimum Deliverable">
         <p>
@@ -711,12 +558,5 @@ function DeeperTier() {
         </p>
       </KeyInsight>
     </div>
-    <Activity1Content
-      navigation={{
-        backLink: { href: "/learn/activity-0", label: "Previous: Your First Direct Report" },
-        nextLink: { href: "/learn/activity-2", label: "Next: The Investment Decision" }
-      }}
-      showShareButton={true}
-    />
   );
 }

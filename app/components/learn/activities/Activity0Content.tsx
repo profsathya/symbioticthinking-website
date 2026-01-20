@@ -1,9 +1,7 @@
-import { Metadata } from "next";
 import Link from "next/link";
 import {
   TierSelector,
   ReflectionPrompt,
-  InteractiveReflection,
   KeyInsight,
   Collapsible,
   AnalogTrigger,
@@ -12,46 +10,64 @@ import {
   ComparisonCard,
   FeatureList,
   TakeawayBox,
-  MultipleChoice,
-  MatchingExercise,
-  CompleteTheSentence,
+  ShareButton,
 } from "@/app/components/learn";
 import { User, TrendingUp, Zap } from "lucide-react";
-import { Activity0Content } from "@/app/components/learn/activities";
+import { ActivityNavigationLinks } from "./ActivityNavigationLinks";
 
-export const metadata: Metadata = {
-  title: "Activity 0: Your First Direct Report | Learn Symbiotic Thinking",
-  description: "Discover that AI makes you a manager of intelligence resources. Learn the foundational skill of delegation.",
+export interface ActivityNavigationConfig {
+  backLink: { href: string; label: string } | null;
+  nextLink: { href: string; label: string } | null;
+}
+
+export const activity0Metadata = {
+  number: 0,
+  icon: "👔",
+  title: "Your First Direct Report",
+  description: "What does it mean to manage intelligence resources? In this activity, you'll discover that AI has fundamentally changed what it means to do knowledge work.",
 };
 
-export default function Activity0Page() {
+export function Activity0Content({ navigation, showShareButton = false }: { navigation: ActivityNavigationConfig; showShareButton?: boolean }) {
   return (
     <div>
       {/* Header */}
       <section className="bg-gradient-to-br from-amber-50 via-white to-emerald-50 py-12">
         <div className="max-w-4xl mx-auto px-6">
-          <Link
-            href="/learn"
-            className="inline-flex items-center gap-2 text-gray-600 hover:text-emerald-600 mb-6 transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Learn
-          </Link>
+          <div className="flex items-start justify-between gap-4 mb-6">
+            <div className="flex-1 min-w-0">
+              {navigation.backLink && (
+                <Link
+                  href={navigation.backLink.href}
+                  className="inline-flex items-center gap-2 text-gray-600 hover:text-emerald-600 mb-6 transition-colors"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  </svg>
+                  {navigation.backLink.label}
+                </Link>
+              )}
+            </div>
+            {showShareButton && (
+              <div className="flex-shrink-0">
+                <ShareButton
+                  activityNumber={activity0Metadata.number}
+                  activityTitle={activity0Metadata.title}
+                />
+              </div>
+            )}
+          </div>
 
           <div className="flex items-center gap-3 mb-4">
-            <span className="text-3xl">👔</span>
-            <span className="text-sm text-gray-500 font-medium">Activity 0</span>
+            <span className="text-3xl">{activity0Metadata.icon}</span>
+            <span className="text-sm text-gray-500 font-medium">Activity {activity0Metadata.number}</span>
           </div>
 
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
-            Your First Direct Report
+            {activity0Metadata.title}
           </h1>
 
           <p className="mt-4 text-lg text-gray-600 max-w-2xl">
-            What does it mean to manage intelligence resources? In this activity,
-            you&apos;ll discover that AI has fundamentally changed what it means to do knowledge work.
+            {activity0Metadata.description}
           </p>
         </div>
       </section>
@@ -68,20 +84,10 @@ export default function Activity0Page() {
           </TierSelector>
 
           {/* Navigation */}
-          <div className="mt-16 pt-8 border-t border-gray-200">
-            <div className="flex justify-between items-center">
-              <div></div>
-              <Link
-                href="/learn/activity-1"
-                className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-              >
-                Next: The Hiring Decision
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
-          </div>
+          <ActivityNavigationLinks
+            backLink={navigation.backLink}
+            nextLink={navigation.nextLink}
+          />
         </div>
       </section>
     </div>
@@ -97,6 +103,15 @@ function SimpleTier() {
           assigned a direct report. They&apos;re eager to help and can work on almost anything you need.&quot;
         </p>
       </ScenarioBlock>
+
+      <AnalogTrigger
+        task={{
+          title: "Manager A vs Manager B",
+          description: "Sketch a quick diagram (venn diagram, T-chart, etc.) showing the difference between these two manager types. Seeing it visually helps lock in the concept.",
+          activityId: "activity-0-simple"
+        }}
+        buttonText="Sketch the Difference"
+      />
 
       <ScenarioBlock title="The Escalation" icon={TrendingUp} variant="escalation">
         <p>
@@ -160,39 +175,6 @@ function SimpleTier() {
         }}
       />
 
-      <MultipleChoice
-        scenario="It's 11pm. You have a 2,000-word essay due tomorrow on a topic you find boring. You're exhausted and just want it done."
-        question="What do you do?"
-        mode="reflection"
-        choices={[
-          {
-            id: "a",
-            text: "Ask AI to write the essay. Copy-paste it. Go to bed.",
-            feedback: "This is pure Manager A behavior. You'll submit something, but you'll learn nothing—and you're training yourself to avoid thinking when things get hard.",
-            insight: "Notice the short-term relief vs. long-term cost tradeoff you're making."
-          },
-          {
-            id: "b",
-            text: "Ask AI to write it, then read through and make some edits so it sounds like you.",
-            feedback: "This feels like a middle ground, but it's mostly Manager A with extra steps. Editing AI output isn't the same as understanding the material.",
-            insight: "Ask yourself: could you explain the essay's argument without looking at it?"
-          },
-          {
-            id: "c",
-            text: "Spend 20 minutes outlining your own argument. Then use AI to help expand sections while you verify each point.",
-            feedback: "This is Manager B territory. The outline forces you to think first. Using AI to expand means you're directing, not just receiving.",
-            insight: "Even when tired, the outline step keeps you in control."
-          },
-          {
-            id: "d",
-            text: "Skip AI entirely. Struggle through it yourself, even if the quality suffers.",
-            feedback: "There's integrity here, but refusing to use available tools isn't always wise. The goal isn't to avoid AI—it's to use it without losing yourself.",
-            insight: "Stubbornness and skill-building aren't the same thing."
-          }
-        ]}
-        followUp="There's no single 'right' answer—but notice which choice builds your capabilities vs. which just gets the task done."
-      />
-
       <AnalogTrigger
         task={{
           title: "Manager A vs Manager B",
@@ -232,11 +214,7 @@ function DeepTier() {
         </p>
       </ScenarioBlock>
 
-      <InteractiveReflection
-        id="activity-0-deep-reflection-1"
-        title="Reflection 1"
-        placeholder="What would you want to know before delegating? Consider their strengths, weaknesses, the guidance they need..."
-      >
+      <ReflectionPrompt title="Reflection 1">
         <p className="mb-2">Think about this situation. What would you want to know before you start delegating work?</p>
         <FeatureList
           variant="question"
@@ -247,7 +225,7 @@ function DeepTier() {
             "What happens if they make mistakes?"
           ]}
         />
-      </InteractiveReflection>
+      </ReflectionPrompt>
 
       <Collapsible title="What makes a good manager?">
         <p>
@@ -282,13 +260,9 @@ function DeepTier() {
         </p>
       </ScenarioBlock>
 
-      <InteractiveReflection
-        id="activity-0-deep-reflection-2"
-        title="Reflection 2"
-        placeholder="How does managing five change things? What new challenges arise?"
-      >
+      <ReflectionPrompt title="Reflection 2">
         <p>How does having five direct reports change things? What new skills would you need?</p>
-      </InteractiveReflection>
+      </ReflectionPrompt>
 
       <ScenarioBlock title="The Reveal" icon={Zap} variant="reveal">
         <p className="text-xl font-light mb-4">
@@ -368,78 +342,10 @@ function DeepTier() {
         Manager B treats AI like a capable team member who needs direction, context, and oversight.
       </p>
 
-      <MatchingExercise
-        title="Which Manager?"
-        context="Real situations from student life. Match each scenario to the manager type it represents."
-        instruction="Click a scenario on the left, then click the matching behavior on the right."
-        leftHeader="What You Did"
-        rightHeader="Manager Type"
-        pairs={[
-          {
-            id: "1",
-            left: "Pasted an error message into ChatGPT, copied the fix, moved on without understanding why it worked",
-            right: "Manager A: Accepted output without evaluation"
-          },
-          {
-            id: "2",
-            left: "Asked AI to explain a concept three different ways until you could explain it to a friend",
-            right: "Manager B: Built understanding through dialogue"
-          },
-          {
-            id: "3",
-            left: "Generated five cover letter versions and sent the one that 'felt right' without editing",
-            right: "Manager A: Delegated judgment entirely to AI"
-          },
-          {
-            id: "4",
-            left: "Used AI to brainstorm angles, picked your favorite, then wrote the first draft yourself",
-            right: "Manager B: Made deliberate choices about approach"
-          }
-        ]}
-        successMessage="You can recognize the difference. Now apply it to your own behavior."
-      />
-
-      <MultipleChoice
-        scenario="You're learning to code. You hit a bug you don't understand. You've been stuck for 30 minutes and you're frustrated."
-        question="Which approach will serve you best in the long run?"
-        mode="knowledge"
-        choices={[
-          {
-            id: "a",
-            text: "Ask AI to fix the bug. Once it works, move on to the next feature.",
-            feedback: "The bug is fixed, but you missed a learning opportunity. Next time you hit a similar bug, you'll be just as stuck.",
-            isCorrect: false
-          },
-          {
-            id: "b",
-            text: "Ask AI to explain what's causing the bug without giving you the fix. Try to fix it yourself first.",
-            feedback: "Understanding the 'why' builds debugging intuition. Even if you eventually need the fix, you'll learn more by trying first.",
-            isCorrect: true
-          },
-          {
-            id: "c",
-            text: "Refuse to use AI. Keep struggling until you figure it out yourself.",
-            feedback: "Persistence has value, but 30 minutes of unproductive frustration might not be the best use of time. There's a middle ground.",
-            isCorrect: false
-          },
-          {
-            id: "d",
-            text: "Copy the entire codebase into AI and ask it to find all the bugs.",
-            feedback: "This outsources your entire debugging process. You learn nothing about YOUR code's specific issues.",
-            isCorrect: false
-          }
-        ]}
-        followUp="The key insight: asking for explanations instead of solutions keeps you in the driver's seat."
-      />
-
-      <InteractiveReflection
-        id="activity-0-deep-reflection-3"
-        title="Reflection 3"
-        placeholder="Think of a specific recent AI interaction. What did you actually do? Which manager were you being?"
-      >
+      <ReflectionPrompt title="Reflection 3">
         <p>Be honest with yourself: In your current AI usage, are you more like Manager A or Manager B?</p>
         <p className="mt-2 text-sm">Think about specific recent examples. What did you actually do?</p>
-      </InteractiveReflection>
+      </ReflectionPrompt>
 
       <h2>Part 5: What This Means for You</h2>
 
@@ -492,42 +398,10 @@ function DeepTier() {
         AI that builds your capabilities rather than replacing them.
       </p>
 
-      <CompleteTheSentence
-        context="Before you move on, make sure you've internalized the core idea. Fill in the blanks to complete this key principle."
-        sentenceParts={[
-          "The goal isn't to ",
-          " AI or to ",
-          " it entirely. The goal is to use AI in ways that ",
-          " your own capabilities over time."
-        ]}
-        blanks={[
-          [
-            { id: "avoid", text: "avoid", isCorrect: false, feedback: "Avoiding AI entirely means missing opportunities to amplify your work." },
-            { id: "depend-on", text: "depend on", isCorrect: true, feedback: "Correct! Dependence means you can't function without it." },
-            { id: "master", text: "master", isCorrect: false, feedback: "'Mastering' AI isn't the problem—the problem is when AI masters you." }
-          ],
-          [
-            { id: "reject", text: "reject", isCorrect: true, feedback: "Correct! Total rejection isn't the answer either." },
-            { id: "worship", text: "worship", isCorrect: false, feedback: "This isn't really about worship—it's about a specific failure mode." },
-            { id: "understand", text: "understand", isCorrect: false, feedback: "Understanding AI is actually good. The issue is the extreme positions." }
-          ],
-          [
-            { id: "replace", text: "replace", isCorrect: false, feedback: "If AI replaces your capabilities, you're losing, not gaining." },
-            { id: "build", text: "build", isCorrect: true, feedback: "Correct! The goal is capability-building, not capability-replacement." },
-            { id: "test", text: "test", isCorrect: false, feedback: "Testing isn't the primary goal—growth is." }
-          ]
-        ]}
-        successMessage="You've got it. This is the essence of Symbiotic Thinking: using AI as a tool for growth, not a crutch for avoidance."
-      />
-
-      <InteractiveReflection
-        id="activity-0-deep-final"
-        title="Final Reflection"
-        placeholder="Be specific: what exactly will you do differently? (e.g., 'I will outline my argument before asking AI to expand it')"
-      >
+      <ReflectionPrompt title="Final Reflection">
         <p>What&apos;s one thing you&apos;ll do differently in your next AI interaction based on this activity?</p>
         <p className="mt-2 text-sm">Be specific. &quot;Be better&quot; doesn&apos;t count.</p>
-      </InteractiveReflection>
+      </ReflectionPrompt>
     </div>
   );
 }
@@ -559,7 +433,7 @@ function DeeperTier() {
         <div className="bg-white border border-gray-200 rounded-xl p-6">
           <h4 className="font-semibold text-gray-900 mb-3">Option A: Use the Dojo</h4>
           <p className="text-gray-600 text-sm mb-4">
-            Go to the Symbiotic Thinking Dojo with your API key (Groq or Google Gemini).
+            Go to the Symbiotic Thinking Dojo with your Google AI API key.
           </p>
           <a
             href="https://dojo.symbioticthinking.ai"
@@ -626,13 +500,9 @@ function DeeperTier() {
         </li>
       </ol>
 
-      <InteractiveReflection
-        id="activity-0-deeper-exploration"
-        title="After Your Exploration"
-        placeholder="What surprised you? What's one insight you'll remember?"
-      >
+      <ReflectionPrompt title="After Your Exploration">
         <p>What surprised you in your exploration? What insight will you carry forward?</p>
-      </InteractiveReflection>
+      </ReflectionPrompt>
 
       <KeyInsight icon="📌" title="Minimum Deliverable">
         <p>
@@ -641,12 +511,5 @@ function DeeperTier() {
         </p>
       </KeyInsight>
     </div>
-    <Activity0Content
-      navigation={{
-        backLink: { href: "/learn", label: "Back to Learn" },
-        nextLink: { href: "/learn/activity-1", label: "Next: The Hiring Decision" }
-      }}
-      showShareButton={true}
-    />
   );
 }
