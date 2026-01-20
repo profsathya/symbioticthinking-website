@@ -189,11 +189,25 @@ export default function EducatorsPage() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Students Get Free API Keys</h3>
-                <p className="text-gray-600">
-                  Each student creates a free Google AI API key at{" "}
-                  <a href="https://aistudio.google.com/apikey" className="text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">
-                    Google AI Studio
-                  </a>. The free tier is generous enough for coursework.
+                <p className="text-gray-600 mb-2">
+                  Each student creates a free API key from either provider:
+                </p>
+                <ul className="text-gray-600 text-sm space-y-1 ml-4">
+                  <li>
+                    <strong>Groq</strong> (recommended): ~14,400 requests/day at{" "}
+                    <a href="https://console.groq.com" className="text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                      console.groq.com
+                    </a>
+                  </li>
+                  <li>
+                    <strong>Google Gemini</strong>: ~20 requests/day at{" "}
+                    <a href="https://aistudio.google.com/apikey" className="text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">
+                      Google AI Studio
+                    </a>
+                  </li>
+                </ul>
+                <p className="text-gray-500 text-sm mt-2">
+                  For extended practice sessions, Groq&apos;s higher rate limits work better for students.
                 </p>
               </div>
             </div>
@@ -204,10 +218,19 @@ export default function EducatorsPage() {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Assign Challenges</h3>
-                <p className="text-gray-600">
-                  Direct students to use the Dojo for specific assignments. You can suggest
-                  which Sparring Partners to activate or which construct to use.
+                <p className="text-gray-600 mb-2">
+                  Direct students to use the Dojo for specific assignments:
                 </p>
+                <ul className="text-gray-600 text-sm space-y-1 ml-4 mb-2">
+                  <li>
+                    <strong>Practice Dojo</strong> — Recommend this for students new to Symbiotic Thinking.
+                    Structured, guided experiences help them learn the fundamentals.
+                  </li>
+                  <li>
+                    <strong>Free Exploration</strong> — For students bringing their own challenges,
+                    you can suggest which Sparring Partners to activate or which construct to use.
+                  </li>
+                </ul>
               </div>
             </div>
 

@@ -172,7 +172,7 @@ export default function AboutPage() {
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Privacy Architecture</h3>
               <p className="text-gray-600 mb-2">
                 We designed the Dojo so we literally cannot access your conversations.
-                Your API key stays in your browser. Messages go directly to Google&apos;s API.
+                Your API key stays in your browser. Messages go directly to your chosen provider&apos;s API (Groq or Google).
                 Our servers only serve the application code.
               </p>
               <Link href="/" className="text-emerald-600 hover:text-emerald-700 text-sm">
