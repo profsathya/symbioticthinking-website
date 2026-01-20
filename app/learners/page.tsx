@@ -186,7 +186,7 @@ export default function LearnersPage() {
             Ready to start training?
           </h2>
           <p className="text-xl text-emerald-100 mb-6">
-            The Dojo is free. You just need an API key from Groq or Google (both free).
+            The Dojo is free. You just need an API key from Groq <span className="text-emerald-300 text-sm">(not Grok from xAI)</span> or Google (both free).
           </p>
           <p className="text-emerald-200 text-sm mb-8">
             We recommend <strong>Groq</strong> for extended practice sessions (~14,400 requests/day free).

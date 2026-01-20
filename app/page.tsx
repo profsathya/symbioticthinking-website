@@ -330,6 +330,7 @@ export default function HomePage() {
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-lg">⚡</span>
                         <span className="font-semibold text-gray-900">Groq</span>
+                        <span className="text-xs text-gray-400">(not Grok from xAI)</span>
                         <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Recommended</span>
                       </div>
                       <p className="text-sm text-gray-600 mb-3">
