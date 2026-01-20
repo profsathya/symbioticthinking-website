@@ -17,7 +17,6 @@ import {
   CompleteTheSentence,
 } from "@/app/components/learn";
 import { User, TrendingUp, Zap } from "lucide-react";
-import { Activity0Content } from "@/app/components/learn/activities";
 
 export const metadata: Metadata = {
   title: "Activity 0: Your First Direct Report | Learn Symbiotic Thinking",
@@ -641,12 +640,5 @@ function DeeperTier() {
         </p>
       </KeyInsight>
     </div>
-    <Activity0Content
-      navigation={{
-        backLink: { href: "/learn", label: "Back to Learn" },
-        nextLink: { href: "/learn/activity-1", label: "Next: The Hiring Decision" }
-      }}
-      showShareButton={true}
-    />
   );
 }
