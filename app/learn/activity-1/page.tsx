@@ -15,7 +15,6 @@ import {
   CompleteTheSentence,
 } from "@/app/components/learn";
 import { User, MessageCircle, GitBranch, Target, CheckCircle, AlertCircle } from "lucide-react";
-import { Activity1Content } from "@/app/components/learn/activities";
 
 export const metadata: Metadata = {
   title: "Activity 1: The Hiring Decision | Learn Symbiotic Thinking",
@@ -711,12 +710,5 @@ function DeeperTier() {
         </p>
       </KeyInsight>
     </div>
-    <Activity1Content
-      navigation={{
-        backLink: { href: "/learn/activity-0", label: "Previous: Your First Direct Report" },
-        nextLink: { href: "/learn/activity-2", label: "Next: The Investment Decision" }
-      }}
-      showShareButton={true}
-    />
   );
 }
