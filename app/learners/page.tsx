@@ -165,8 +165,11 @@ export default function LearnersPage() {
           <h2 className="text-3xl font-bold text-white mb-6">
             Ready to start training?
           </h2>
-          <p className="text-xl text-emerald-100 mb-8">
-            The Dojo is free. You just need a Google AI API key (also free).
+          <p className="text-xl text-emerald-100 mb-6">
+            The Dojo is free. You just need an API key from Groq or Google (both free).
+          </p>
+          <p className="text-emerald-200 text-sm mb-8">
+            We recommend <strong>Groq</strong> for extended practice sessions (~14,400 requests/day free).
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
@@ -179,12 +182,12 @@ export default function LearnersPage() {
               </svg>
             </a>
             <a
-              href="https://aistudio.google.com/apikey"
+              href="https://console.groq.com"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
-              Get Free API Key
+              Get Groq API Key
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>

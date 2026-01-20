@@ -305,7 +305,7 @@ export default function HomePage() {
           <div className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl font-bold text-gray-900">Get Started in 2 Minutes</h2>
             <p className="mt-4 text-lg text-gray-600">
-              The Dojo is free. You just need a Google AI API key (also free).
+              The Dojo is free. You just need an API key from one of our supported providers (also free).
             </p>
           </div>
 
@@ -321,19 +321,55 @@ export default function HomePage() {
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">Get your free API key</h3>
                   <p className="text-gray-600 mb-4">
-                    Visit Google AI Studio and create an API key. It takes about 30 seconds and requires only a Google account.
+                    Choose either provider — both are free and work great with the Dojo:
                   </p>
-                  <a
-                    href="https://aistudio.google.com/apikey"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium"
-                  >
-                    Get API Key at Google AI Studio
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
+
+                  <div className="grid sm:grid-cols-2 gap-4 mb-4">
+                    {/* Groq Option */}
+                    <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-lg">⚡</span>
+                        <span className="font-semibold text-gray-900">Groq</span>
+                        <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Recommended</span>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-3">
+                        Uses Llama 3.3 70B model. ~14,400 free requests/day — great for longer practice sessions.
+                      </p>
+                      <a
+                        href="https://console.groq.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm text-orange-600 hover:text-orange-700 font-medium"
+                      >
+                        Get Groq API Key
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    </div>
+
+                    {/* Google Option */}
+                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-lg">🔵</span>
+                        <span className="font-semibold text-gray-900">Google Gemini</span>
+                      </div>
+                      <p className="text-sm text-gray-600 mb-3">
+                        Uses Gemini 2.5 Flash model. ~20 free requests/day — good for quick sessions.
+                      </p>
+                      <a
+                        href="https://aistudio.google.com/apikey"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
+                      >
+                        Get Google API Key
+                        <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -345,9 +381,10 @@ export default function HomePage() {
                   </div>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Enter the Dojo and paste your key</h3>
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2">Enter the Dojo and configure your key</h3>
                   <p className="text-gray-600 mb-4">
-                    Open the Dojo, paste your API key when prompted. The key stays in your browser — we never see it.
+                    Open the Dojo, click Settings, choose your provider (Groq or Gemini), and paste your API key.
+                    The key stays in your browser — we never see it. You can switch providers anytime.
                   </p>
                 </div>
               </div>
@@ -375,7 +412,8 @@ export default function HomePage() {
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-1">What does it cost?</h4>
                   <p className="text-gray-600 text-sm">
-                    Google provides a generous free tier — most users never pay anything. Heavy users might spend a few cents per session. You control your own usage and billing directly with Google.
+                    Both providers offer generous free tiers. <strong>Groq</strong> gives ~14,400 requests/day (enough for hours of practice).
+                    <strong> Google Gemini</strong> gives ~20 requests/day for quick sessions. You control your own usage and billing directly with your chosen provider.
                   </p>
                 </div>
               </div>
@@ -396,19 +434,19 @@ export default function HomePage() {
               {[
                 {
                   q: "Is the Dojo really free?",
-                  a: "Yes. The Dojo itself is completely free and open source. You bring your own Google AI API key, which has a generous free tier. Most users never pay anything for API usage."
+                  a: "Yes. The Dojo itself is completely free and open source. You bring your own API key from either Groq or Google — both have generous free tiers. Most users never pay anything for API usage."
                 },
                 {
-                  q: "What AI model does it use?",
-                  a: "The Dojo uses Google's Gemini models through your API key. You get access to the latest Gemini capabilities, and Google continues to improve the models over time."
+                  q: "What AI models does it use?",
+                  a: "You choose your provider: Groq uses Llama 3.3 70B with ~14,400 free requests/day (recommended for extended practice). Google Gemini uses Gemini 2.5 Flash with ~20 free requests/day. You can switch providers anytime in Settings."
                 },
                 {
                   q: "Is my data private?",
-                  a: "From us, yes — the Dojo runs entirely in your browser and nothing passes through our servers. However, your conversations are sent to Google's Gemini API, so Google's API privacy policy applies to that data. Also note: conversations are not saved between sessions. When you close or refresh the page, your conversation is gone."
+                  a: "From us, yes — the Dojo runs entirely in your browser and nothing passes through our servers. However, your conversations are sent to your chosen provider's API (Groq or Google), so their respective privacy policies apply. Conversations are not saved between sessions — when you close or refresh the page, your conversation is gone."
                 },
                 {
                   q: "Can I use it offline?",
-                  a: "No, you need an internet connection since the AI processing happens through Google's API. However, since it's a web app, you can use it on any device with a browser."
+                  a: "No, you need an internet connection since the AI processing happens through your chosen provider's API. However, since it's a web app, you can use it on any device with a browser."
                 },
                 {
                   q: "How is this different from ChatGPT or Claude?",

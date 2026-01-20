@@ -558,7 +558,7 @@ function DeeperTier() {
         <div className="bg-white border border-gray-200 rounded-xl p-6">
           <h4 className="font-semibold text-gray-900 mb-3">Option A: Use the Dojo</h4>
           <p className="text-gray-600 text-sm mb-4">
-            Go to the Symbiotic Thinking Dojo with your Google AI API key.
+            Go to the Symbiotic Thinking Dojo with your API key (Groq or Google Gemini).
           </p>
           <a
             href="https://dojo.symbioticthinking.ai"
