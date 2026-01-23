@@ -16,6 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="antialiased">
         <Navigation />
         <main className="min-h-screen">
@@ -49,7 +55,7 @@ function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/learners" className="hover:text-emerald-400 transition-colors">For Learners</Link></li>
               <li><Link href="/educators" className="hover:text-emerald-400 transition-colors">For Educators</Link></li>
-              <li><Link href="/learn" className="hover:text-emerald-400 transition-colors">Learn Curriculum</Link></li>
+              <li><Link href="/framework" className="hover:text-emerald-400 transition-colors">The Framework</Link></li>
               <li><Link href="/portable" className="hover:text-emerald-400 transition-colors">Portable Edition</Link></li>
               <li><Link href="/about" className="hover:text-emerald-400 transition-colors">About</Link></li>
               <li><Link href="/support" className="hover:text-emerald-400 transition-colors">Support This Effort</Link></li>

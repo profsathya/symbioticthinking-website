@@ -26,9 +26,14 @@ export default function Navigation() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group" onClick={closeMenu}>
             <span className="text-2xl">🥋</span>
-            <span className="font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">
-              Symbiotic Thinking
-            </span>
+            <div className="flex flex-col leading-tight">
+              <span className="font-semibold text-gray-900 group-hover:text-emerald-600 transition-colors">
+                Symbiotic Thinking
+              </span>
+              <span className="text-[0.65rem] italic text-gray-500" style={{ fontFamily: "'Noto Sans JP', sans-serif" }}>
+                道場 — a place of the way
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav Links */}
