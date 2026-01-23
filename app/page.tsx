@@ -38,8 +38,22 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Why a Dojo? Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">Why a Dojo?</h2>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            <span className="font-medium">道場</span> (dōjō) means &quot;place of the way&quot;—a space for disciplined
+            practice toward mastery. We chose this deliberately. The Dojo asks you to slow down when
+            everything else accelerates, to struggle productively when shortcuts beckon, to develop
+            capability when dependency is easier. This isn&apos;t about speed. It&apos;s about becoming
+            someone who thinks well.
+          </p>
+        </div>
+      </section>
+
       {/* Problem Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900">The Problem with Most AI Tools</h2>
