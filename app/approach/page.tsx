@@ -490,7 +490,8 @@ export default function ApproachPage() {
           <div className="mt-8 bg-white rounded-xl p-6 border border-gray-200 text-center">
             <p className="text-sm text-gray-600">
               <strong>Remember:</strong> The goal isn&apos;t to read everything, but to develop informed
-              perspectives by exploring diverse viewpoints. Pick resources that match your current questions about AI.
+              perspectives by exploring diverse viewpoints. Pick resources that challenge your current conceptions
+              and respond to your current questions about AI.
             </p>
           </div>
         </div>
