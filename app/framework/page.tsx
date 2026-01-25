@@ -399,6 +399,30 @@ export default function FrameworkPage() {
               </div>
             </div>
           </div>
+
+          {/* Portable Edition Link */}
+          <div className="mt-6 bg-blue-50 rounded-2xl p-6 border border-blue-200">
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+              <div className="flex gap-4">
+                <div className="text-2xl">💬</div>
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-1">Prefer your own AI tool?</h3>
+                  <p className="text-gray-600 text-sm">
+                    Take the Symbiotic Thinking framework to ChatGPT, Claude, or any AI chatbot with our portable system prompt.
+                  </p>
+                </div>
+              </div>
+              <Link
+                href="/portable"
+                className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-lg font-medium text-sm transition-colors flex-shrink-0"
+              >
+                View Portable Edition
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

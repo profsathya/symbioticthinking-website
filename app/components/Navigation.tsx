@@ -7,10 +7,11 @@ const navLinks = [
   { href: "/learners", label: "For Learners" },
   { href: "/educators", label: "For Educators" },
   { href: "/framework", label: "The Framework" },
-  { href: "/portable", label: "Portable" },
+  { href: "/approach", label: "Our Approach" },
   { href: "/about", label: "About" },
   { href: "/support", label: "Support" },
   // { href: "/learn", label: "Learn" }, // Hidden for now - activities being redesigned
+  // { href: "/portable", label: "Portable" }, // Moved to Framework page
 ];
 
 export default function Navigation() {
