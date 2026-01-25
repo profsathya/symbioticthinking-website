@@ -469,6 +469,70 @@ export default function ApproachPage() {
         </div>
       </section>
 
+      {/* Testing in Practice Section */}
+      <section className="py-16 bg-white border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Testing in Practice</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Symbiotic Thinking is the core of these efforts. Each program builds additional layers of
+              concepts and skills for different audiences — giving us opportunities to measure and learn.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* CSUMB Course */}
+            <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="text-2xl">🎓</span>
+                </div>
+                <div>
+                  <div className="text-xs text-blue-600 font-medium mb-1">CSU Monterey Bay</div>
+                  <h3 className="font-semibold text-gray-900 mb-2">CST395: AI-Native Solution Engineering</h3>
+                  <p className="text-sm text-gray-600 mb-4">
+                    A special topics course where students learn to solve authentic problems using AI as a
+                    cognitive partner, building on Symbiotic Thinking principles.
+                  </p>
+                  <a
+                    href="https://profsathya.github.io/Common-Curriculum/CST395.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
+                  >
+                    View Course
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* De Anza Partnership */}
+            <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 border border-emerald-100">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <span className="text-2xl">🤝</span>
+                </div>
+                <div>
+                  <div className="text-xs text-emerald-600 font-medium mb-1">Partnership with De Anza College</div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Applying AI at Work: Build Solutions with a Human Touch</h3>
+                  <p className="text-sm text-gray-600 mb-4">
+                    A two-course certificate program helping working professionals develop human-AI
+                    collaboration skills — from problem reframing to solution delivery.
+                  </p>
+                  <span className="inline-flex items-center gap-1 text-sm text-emerald-600 font-medium">
+                    <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                    In development
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Sources Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6">
@@ -490,7 +554,8 @@ export default function ApproachPage() {
           <div className="mt-8 bg-white rounded-xl p-6 border border-gray-200 text-center">
             <p className="text-sm text-gray-600">
               <strong>Remember:</strong> The goal isn&apos;t to read everything, but to develop informed
-              perspectives by exploring diverse viewpoints. Pick resources that match your current questions about AI.
+              perspectives by exploring diverse viewpoints. Pick resources that challenge your current conceptions
+              and respond to your current questions about AI.
             </p>
           </div>
         </div>

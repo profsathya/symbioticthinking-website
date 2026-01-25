@@ -56,6 +56,7 @@ function Footer() {
               <li><Link href="/learners" className="hover:text-emerald-400 transition-colors">For Learners</Link></li>
               <li><Link href="/educators" className="hover:text-emerald-400 transition-colors">For Educators</Link></li>
               <li><Link href="/framework" className="hover:text-emerald-400 transition-colors">The Framework</Link></li>
+              <li><Link href="/approach" className="hover:text-emerald-400 transition-colors">Our Approach</Link></li>
               <li><Link href="/portable" className="hover:text-emerald-400 transition-colors">Portable Edition</Link></li>
               <li><Link href="/about" className="hover:text-emerald-400 transition-colors">About</Link></li>
               <li><Link href="/support" className="hover:text-emerald-400 transition-colors">Support This Effort</Link></li>
