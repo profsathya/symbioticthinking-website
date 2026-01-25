@@ -14,7 +14,7 @@ export default function HomePage() {
             </h1>
             <p className="mt-6 text-xl text-gray-600 leading-relaxed">
               The Symbiotic Thinking Dojo is an AI-powered practice environment that builds your
-              judgment, metacognition, and problem-solving skills. AI becomes your thinking partner,
+              judgment, agency, and metacognition. AI becomes your thinking partner,
               not your replacement.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
@@ -152,6 +152,19 @@ export default function HomePage() {
               Both approaches have value. But only one develops the <strong>human skills</strong> that
               let you leverage AI&apos;s power while knowing when your judgment makes the difference.
             </p>
+          </div>
+
+          {/* The deeper question */}
+          <div className="mt-12 max-w-2xl mx-auto">
+            <div className="bg-purple-50 border border-purple-200 rounded-xl p-6">
+              <p className="text-purple-800 text-center italic">
+                We&apos;re not asking how to add AI to existing ways of learning.
+                We&apos;re asking: when AI changes what work looks like, what should learning become?
+              </p>
+              <p className="text-purple-600 text-sm text-center mt-3">
+                <Link href="/approach" className="hover:underline">Learn more about our approach →</Link>
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -345,6 +358,12 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold text-gray-900">Get Started in 3 Easy Steps</h2>
             <p className="mt-4 text-lg text-gray-600">
               The Dojo is free to use. You just need a free API key to power the AI.
+            </p>
+            <p className="mt-3 text-sm text-gray-500">
+              Want to learn more about our experimental approach first? Visit the{" "}
+              <Link href="/framework" className="text-emerald-600 hover:underline">Framework</Link>,{" "}
+              <Link href="/approach" className="text-emerald-600 hover:underline">Approach</Link>, and{" "}
+              <Link href="/about" className="text-emerald-600 hover:underline">About</Link> pages.
             </p>
           </div>
 
