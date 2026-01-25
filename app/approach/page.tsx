@@ -372,6 +372,59 @@ export default function ApproachPage() {
         </div>
       </section>
 
+      {/* A Different Starting Question */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="text-2xl font-bold text-gray-900 text-center mb-4">A Different Starting Question</h2>
+          <p className="text-gray-600 text-center mb-10 max-w-2xl mx-auto">
+            Many efforts to integrate AI into education ask: <em>How do we add AI to what we already do?</em>
+          </p>
+
+          <div className="max-w-3xl mx-auto space-y-6">
+            <div className="bg-purple-50 border border-purple-200 rounded-xl p-6">
+              <p className="text-purple-800 text-lg text-center font-medium mb-4">
+                We start with a different question:
+              </p>
+              <p className="text-purple-900 text-xl text-center italic">
+                When AI changes what work looks like, what should learning become?
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                <h3 className="font-semibold text-gray-800 mb-3">If execution can be delegated...</h3>
+                <p className="text-gray-600 text-sm">
+                  Does human value shift from <em>knowing how to do things</em> toward{" "}
+                  <em>knowing whether something was done well and what purpose it serves</em>?
+                </p>
+              </div>
+
+              <div className="bg-gray-50 rounded-xl p-5 border border-gray-200">
+                <h3 className="font-semibold text-gray-800 mb-3">If AI handles the doing...</h3>
+                <p className="text-gray-600 text-sm">
+                  How do you develop judgment without the traditional runway of hands-on experience?
+                  What new pathways to expertise emerge?
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-amber-50 border border-amber-200 rounded-xl p-5">
+              <div className="flex gap-4">
+                <div className="text-2xl">🔬</div>
+                <div>
+                  <p className="text-amber-800 text-sm">
+                    <strong>We don&apos;t claim to have answers.</strong> This is an experiment driven by curiosity
+                    and a willingness to explore. The Dojo is designed for local experimentation — we build,
+                    measure with real students, and learn. Our approach may need fundamental rethinking,
+                    and that&apos;s exactly why we built tools that let us iterate quickly.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Build-Measure-Learn Loop */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6">
