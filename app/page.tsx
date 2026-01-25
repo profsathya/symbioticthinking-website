@@ -53,56 +53,105 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Problem Section */}
+      {/* Challenge & Opportunity Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-900">The Problem with Most AI Tools</h2>
+            <h2 className="text-3xl font-bold text-gray-900">The Challenge and Opportunity</h2>
             <p className="mt-4 text-lg text-gray-600">
-              When AI does the thinking for you, you lose the skills that matter most.
+              AI&apos;s rapid advancement creates a choice: let it replace your thinking, or use it to amplify your capabilities.
             </p>
           </div>
 
+          {/* Human Agency Equation */}
+          <div className="mt-12 max-w-2xl mx-auto">
+            <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+              <h3 className="text-center text-lg font-semibold text-gray-700 mb-6">Human Agency in the Age of AI</h3>
+              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+                {/* Super Agency */}
+                <div className="bg-blue-50 rounded-xl p-4 text-center flex-1 w-full">
+                  <div className="text-2xl mb-2">🚀</div>
+                  <div className="font-semibold text-blue-800">Super Agency</div>
+                  <div className="text-sm text-blue-600 mt-1">Ability to do more<br />because AI is available</div>
+                </div>
+
+                {/* Plus sign */}
+                <div className="text-3xl font-bold text-gray-400">+</div>
+
+                {/* Human Value Proposition */}
+                <div className="bg-purple-50 rounded-xl p-4 text-center flex-1 w-full">
+                  <div className="text-2xl mb-2">💡</div>
+                  <div className="font-semibold text-purple-800">Human Value Proposition</div>
+                  <div className="text-sm text-purple-600 mt-1">Knowing where and why<br />human judgment matters</div>
+                </div>
+              </div>
+
+              {/* Equals */}
+              <div className="flex items-center justify-center my-4">
+                <div className="text-2xl font-bold text-gray-400">=</div>
+              </div>
+
+              {/* Result */}
+              <div className="bg-emerald-100 rounded-xl p-4 text-center border-2 border-emerald-300">
+                <div className="font-bold text-emerald-800 text-lg">True Human Agency</div>
+                <div className="text-sm text-emerald-700 mt-1">The ability to create better outcomes than either humans or AI could achieve alone</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Two approaches contrast */}
           <div className="mt-12 grid md:grid-cols-2 gap-8">
-            {/* Problem side */}
-            <div className="bg-red-50 rounded-2xl p-8 border border-red-100">
-              <h3 className="text-xl font-semibold text-red-800 mb-6">The Dependency Trap</h3>
+            {/* AI-Focused Learning */}
+            <div className="bg-white rounded-2xl p-8 border border-gray-200">
+              <h3 className="text-xl font-semibold text-gray-700 mb-2">AI-Focused Learning Tools</h3>
+              <p className="text-sm text-gray-500 mb-6">Making the tool a better tutor</p>
               <ul className="space-y-4">
                 {[
-                  "Accept AI outputs without critical evaluation",
-                  "Skip the productive struggle that builds understanding",
-                  "Develop dependency instead of capability",
-                  "Lose metacognitive skills that make you valuable",
+                  { icon: "🤖", text: "Improve AI's ability to explain concepts" },
+                  { icon: "📚", text: "Optimize AI responses for learning" },
+                  { icon: "🎯", text: "Personalize AI tutoring to your level" },
+                  { icon: "⚡", text: "Deliver answers more effectively" },
                 ].map((item, i) => (
-                  <li key={i} className="flex gap-3 text-red-700">
-                    <svg className="w-6 h-6 flex-shrink-0 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                    <span>{item}</span>
+                  <li key={i} className="flex gap-3 text-gray-600">
+                    <span className="flex-shrink-0">{item.icon}</span>
+                    <span>{item.text}</span>
                   </li>
                 ))}
               </ul>
+              <div className="mt-6 pt-6 border-t border-gray-100">
+                <p className="text-sm text-gray-500 italic">Focus: Making AI smarter at teaching you</p>
+              </div>
             </div>
 
-            {/* Solution side */}
-            <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-100">
-              <h3 className="text-xl font-semibold text-emerald-800 mb-6">The Symbiotic Approach</h3>
+            {/* Symbiotic Thinking */}
+            <div className="bg-emerald-50 rounded-2xl p-8 border border-emerald-200">
+              <h3 className="text-xl font-semibold text-emerald-800 mb-2">Symbiotic Thinking</h3>
+              <p className="text-sm text-emerald-600 mb-6">Developing your judgment and agency</p>
               <ul className="space-y-4">
                 {[
-                  "Build judgment — know which problems are worth solving",
-                  "Develop metacognition — awareness of your thinking",
-                  "Create transferable skills that compound",
-                  "Maintain agency — you remain the decision-maker",
+                  { icon: "🧠", text: "Build your ability to evaluate AI outputs" },
+                  { icon: "⚖️", text: "Develop judgment about when AI helps vs. hinders" },
+                  { icon: "🔍", text: "Know where human intervention improves solutions" },
+                  { icon: "🎓", text: "Create transferable skills that grow with you" },
                 ].map((item, i) => (
                   <li key={i} className="flex gap-3 text-emerald-700">
-                    <svg className="w-6 h-6 flex-shrink-0 text-emerald-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>{item}</span>
+                    <span className="flex-shrink-0">{item.icon}</span>
+                    <span>{item.text}</span>
                   </li>
                 ))}
               </ul>
+              <div className="mt-6 pt-6 border-t border-emerald-200">
+                <p className="text-sm text-emerald-700 font-medium">Focus: Making you more capable with AI</p>
+              </div>
             </div>
+          </div>
+
+          {/* Key insight */}
+          <div className="mt-8 max-w-2xl mx-auto text-center">
+            <p className="text-gray-600">
+              Both approaches have value. But only one develops the <strong>human skills</strong> that
+              let you leverage AI&apos;s power while knowing when your judgment makes the difference.
+            </p>
           </div>
         </div>
       </section>
