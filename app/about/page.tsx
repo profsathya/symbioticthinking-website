@@ -192,6 +192,60 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12">Frequently Asked Questions</h2>
+
+          <div className="max-w-3xl">
+            <div className="space-y-6">
+              {[
+                {
+                  q: "Is the Dojo really free?",
+                  a: "Yes. The Dojo itself is completely free and open source. You bring your own API key from either Groq or Google — both have generous free tiers. Most users never pay anything for API usage."
+                },
+                {
+                  q: "What AI models does it use?",
+                  a: "You choose your provider: Groq uses Llama 3.3 70B with ~14,400 free requests/day (recommended for extended practice). Google Gemini uses Gemini 2.5 Flash with ~20 free requests/day. You can switch providers anytime in Settings."
+                },
+                {
+                  q: "Is my data private?",
+                  a: "From us, yes — the Dojo runs entirely in your browser and nothing passes through our servers. However, your conversations are sent to your chosen provider's API (Groq or Google), so their respective privacy policies apply. Conversations are not saved between sessions — when you close or refresh the page, your conversation is gone."
+                },
+                {
+                  q: "Can I use it offline?",
+                  a: "No, you need an internet connection since the AI processing happens through your chosen provider's API. However, since it's a web app, you can use it on any device with a browser."
+                },
+                {
+                  q: "How is this different from ChatGPT or Claude?",
+                  a: "Standard AI chats optimize for giving you answers quickly. The Dojo optimizes for developing your thinking ability. It uses structured frameworks, metacognitive coaching, and Sparring Partners to challenge your reasoning rather than just providing solutions."
+                },
+                {
+                  q: "Can I use this for my class?",
+                  a: "Educators can have students get their own API keys and use the Dojo for assignments. Students can generate session summaries using @reflector to share their thinking process without exposing raw conversations. See our Educators page for implementation ideas."
+                },
+                {
+                  q: "How long is a typical session?",
+                  a: "Sessions typically run 15-30 minutes, though you can go shorter or longer. The Dojo works well for focused thinking on a specific problem rather than extended conversations."
+                }
+              ].map((faq, i) => (
+                <details key={i} className="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
+                  <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-100">
+                    <span className="font-semibold text-gray-900 pr-4">{faq.q}</span>
+                    <svg className="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </summary>
+                  <div className="px-6 pb-6">
+                    <p className="text-gray-600">{faq.a}</p>
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-20 bg-emerald-600">
         <div className="max-w-4xl mx-auto px-6 text-center">

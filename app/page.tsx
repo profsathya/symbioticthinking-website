@@ -288,6 +288,56 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Privacy Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12">
+            <div className="max-w-3xl">
+              <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                Privacy First
+              </div>
+              <h2 className="text-3xl font-bold text-white mb-4">
+                Your conversations stay private from us
+              </h2>
+              <p className="text-gray-300 text-lg mb-6">
+                The Dojo uses a client-side architecture. Your API key and conversations
+                never pass through our servers — they go directly from your browser to your chosen provider (Groq or Google).
+                Your provider&apos;s privacy policy applies to your conversations.
+              </p>
+              <ul className="space-y-2 text-gray-400">
+                <li className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  API key stored only in your browser
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Zero data storage on our servers
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Conversations not saved between sessions
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
+                  Open source — verify it yourself
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Getting Started Guide */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
@@ -432,171 +482,6 @@ export default function HomePage() {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900">Frequently Asked Questions</h2>
-          </div>
-
-          <div className="max-w-3xl mx-auto">
-            <div className="space-y-6">
-              {[
-                {
-                  q: "Is the Dojo really free?",
-                  a: "Yes. The Dojo itself is completely free and open source. You bring your own API key from either Groq or Google — both have generous free tiers. Most users never pay anything for API usage."
-                },
-                {
-                  q: "What AI models does it use?",
-                  a: "You choose your provider: Groq uses Llama 3.3 70B with ~14,400 free requests/day (recommended for extended practice). Google Gemini uses Gemini 2.5 Flash with ~20 free requests/day. You can switch providers anytime in Settings."
-                },
-                {
-                  q: "Is my data private?",
-                  a: "From us, yes — the Dojo runs entirely in your browser and nothing passes through our servers. However, your conversations are sent to your chosen provider's API (Groq or Google), so their respective privacy policies apply. Conversations are not saved between sessions — when you close or refresh the page, your conversation is gone."
-                },
-                {
-                  q: "Can I use it offline?",
-                  a: "No, you need an internet connection since the AI processing happens through your chosen provider's API. However, since it's a web app, you can use it on any device with a browser."
-                },
-                {
-                  q: "How is this different from ChatGPT or Claude?",
-                  a: "Standard AI chats optimize for giving you answers quickly. The Dojo optimizes for developing your thinking ability. It uses structured frameworks, metacognitive coaching, and Sparring Partners to challenge your reasoning rather than just providing solutions."
-                },
-                {
-                  q: "Who made this and why?",
-                  a: "The Dojo was created by Dr. Sathya Narayanan and the Computing Talent Initiative at CSU Monterey Bay, with development done entirely using Claude Code (Anthropic's AI coding assistant). It's part of research into how AI can enhance rather than replace human cognitive development. There's no hidden business model — it's an educational tool."
-                },
-                {
-                  q: "Can I use this for my class?",
-                  a: "Educators can have students get their own API keys and use the Dojo for assignments. Students can generate session summaries using @reflector to share their thinking process without exposing raw conversations. See our Educators page for implementation ideas."
-                },
-                {
-                  q: "How long is a typical session?",
-                  a: "Sessions typically run 15-30 minutes, though you can go shorter or longer. The Dojo works well for focused thinking on a specific problem rather than extended conversations."
-                }
-              ].map((faq, i) => (
-                <details key={i} className="group bg-white rounded-xl border border-gray-200 overflow-hidden">
-                  <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50">
-                    <span className="font-semibold text-gray-900 pr-4">{faq.q}</span>
-                    <svg className="w-5 h-5 text-gray-400 flex-shrink-0 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                    </svg>
-                  </summary>
-                  <div className="px-6 pb-6">
-                    <p className="text-gray-600">{faq.a}</p>
-                  </div>
-                </details>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Portable Edition */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-8 md:p-12">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div>
-                <div className="inline-flex items-center gap-2 bg-blue-500/30 text-blue-100 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
-                  </svg>
-                  New: Portable Edition
-                </div>
-                <h2 className="text-3xl font-bold text-white mb-4">
-                  Use the Dojo with any AI chatbot
-                </h2>
-                <p className="text-blue-100 text-lg mb-6">
-                  Prefer Claude, ChatGPT, or Gemini? Take the Symbiotic Thinking experience anywhere with our portable system prompt and knowledge base.
-                </p>
-                <a
-                  href="/portable"
-                  className="inline-flex items-center gap-2 bg-white hover:bg-blue-50 text-blue-700 px-6 py-3 rounded-lg font-semibold transition-colors"
-                >
-                  Learn More
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
-                </a>
-              </div>
-              <div className="hidden md:block">
-                <div className="bg-blue-800/50 rounded-xl p-6 border border-blue-500/30">
-                  <div className="space-y-3 text-blue-100 text-sm">
-                    <div className="flex items-center gap-3">
-                      <span className="text-xl">🟣</span>
-                      <span>Claude Projects</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-xl">🟢</span>
-                      <span>ChatGPT</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-xl">🔵</span>
-                      <span>Google Gemini</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-xl">💬</span>
-                      <span>Any AI with custom instructions</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Privacy Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 bg-emerald-500/20 text-emerald-400 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
-                Privacy First
-              </div>
-              <h2 className="text-3xl font-bold text-white mb-4">
-                Your conversations stay private from us
-              </h2>
-              <p className="text-gray-300 text-lg mb-6">
-                The Dojo uses a client-side architecture. Your API key and conversations
-                never pass through our servers — they go directly from your browser to your chosen provider (Groq or Google).
-                Your provider&apos;s privacy policy applies to your conversations.
-              </p>
-              <ul className="space-y-2 text-gray-400">
-                <li className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  API key stored only in your browser
-                </li>
-                <li className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Zero data storage on our servers
-                </li>
-                <li className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Conversations not saved between sessions
-                </li>
-                <li className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  Open source — verify it yourself
-                </li>
-              </ul>
             </div>
           </div>
         </div>
