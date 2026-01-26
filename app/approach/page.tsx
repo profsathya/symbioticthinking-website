@@ -536,51 +536,168 @@ export default function ApproachPage() {
           <div className="grid md:grid-cols-2 gap-6">
             {/* CSUMB Course */}
             <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-4 mb-4">
                 <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
                   <span className="text-2xl">🎓</span>
                 </div>
                 <div>
                   <div className="text-xs text-blue-600 font-medium mb-1">CSU Monterey Bay</div>
-                  <h3 className="font-semibold text-gray-900 mb-2">CST395: AI-Native Solution Engineering</h3>
-                  <p className="text-sm text-gray-600 mb-4">
-                    A special topics course where students learn to solve authentic problems using AI as a
-                    cognitive partner, building on Symbiotic Thinking principles.
-                  </p>
-                  <a
-                    href="https://profsathya.github.io/Common-Curriculum/CST395.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
-                  >
-                    View Course
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                    </svg>
-                  </a>
+                  <h3 className="font-semibold text-gray-900">CST395: AI-Native Solution Engineering</h3>
                 </div>
               </div>
+
+              <p className="text-sm text-gray-600 mb-4">
+                A special topics course where students learn to solve authentic problems using AI as a
+                cognitive partner. Building on Symbiotic Thinking, the course develops the capabilities
+                required for Human Agency in the age of AI:
+              </p>
+
+              <div className="space-y-3 mb-4">
+                {/* Self-Directed Learners */}
+                <details className="group">
+                  <summary className="flex items-start gap-3 cursor-pointer">
+                    <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-base">🧭</span>
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-medium text-blue-800 text-sm group-hover:underline">Self-Directed Learners</div>
+                      <p className="text-xs text-gray-600 mt-1">
+                        Build a meta-learning architecture—knowing what to learn versus what to strategically ignore,
+                        using AI as learning infrastructure for just-in-time depth.
+                      </p>
+                    </div>
+                  </summary>
+                  <div className="ml-11 mt-2 p-3 bg-white/60 rounded-lg border border-blue-100">
+                    <p className="text-xs text-gray-500 italic">
+                      Example: When building patient communication tools, rapidly acquire expertise in medical
+                      terminology, HIPAA regulations, clinical workflows, and patient psychology—in days, not semesters.
+                    </p>
+                  </div>
+                </details>
+
+                {/* Integrative Solvers */}
+                <details className="group">
+                  <summary className="flex items-start gap-3 cursor-pointer">
+                    <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-base">🔗</span>
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-medium text-blue-800 text-sm group-hover:underline">Integrative Solvers</div>
+                      <p className="text-xs text-gray-600 mt-1">
+                        Develop T-shaped expertise and operate at intersections between systems where human value
+                        concentrates. Understand the forces and incentives operating in a space.
+                      </p>
+                    </div>
+                  </summary>
+                  <div className="ml-11 mt-2 p-3 bg-white/60 rounded-lg border border-blue-100">
+                    <p className="text-xs text-gray-500 italic">
+                      Example: When analyzing customer complaints, bridge from technical capability to human workflow—discovering
+                      that simple frequency analysis creates more value than a sophisticated sentiment dashboard.
+                    </p>
+                  </div>
+                </details>
+
+                {/* Adaptive Builders */}
+                <details className="group">
+                  <summary className="flex items-start gap-3 cursor-pointer">
+                    <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <span className="text-base">🔄</span>
+                    </div>
+                    <div className="flex-1">
+                      <div className="font-medium text-blue-800 text-sm group-hover:underline">Adaptive Builders</div>
+                      <p className="text-xs text-gray-600 mt-1">
+                        Execute through cycles of building, testing, learning from failures, and adapting.
+                        Exercise restraint in complexity—simple solutions executed well often deliver more value.
+                      </p>
+                    </div>
+                  </summary>
+                  <div className="ml-11 mt-2 p-3 bg-white/60 rounded-lg border border-blue-100">
+                    <p className="text-xs text-gray-500 italic">
+                      Example: Start with basic frequency analysis rather than ambitious sentiment analysis, testing
+                      whether it solves the core problem. Iterate toward value, not complexity.
+                    </p>
+                  </div>
+                </details>
+              </div>
+
+              <a
+                href="https://profsathya.github.io/Common-Curriculum/CST395.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1 text-sm text-blue-600 hover:text-blue-700 font-medium"
+              >
+                View Course
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
             </div>
 
             {/* De Anza Partnership */}
             <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-6 border border-emerald-100">
-              <div className="flex items-start gap-4">
+              <div className="flex items-start gap-4 mb-4">
                 <div className="w-12 h-12 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
                   <span className="text-2xl">🤝</span>
                 </div>
                 <div>
                   <div className="text-xs text-emerald-600 font-medium mb-1">Partnership with De Anza College</div>
-                  <h3 className="font-semibold text-gray-900 mb-2">Applying AI at Work: Build Solutions with a Human Touch</h3>
-                  <p className="text-sm text-gray-600 mb-4">
-                    A two-course certificate program helping working professionals develop human-AI
-                    collaboration skills — from problem reframing to solution delivery.
-                  </p>
-                  <span className="inline-flex items-center gap-1 text-sm text-emerald-600 font-medium">
-                    <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
-                    In development
-                  </span>
+                  <h3 className="font-semibold text-gray-900">Applying AI at Work: Build Solutions with a Human Touch</h3>
                 </div>
               </div>
+
+              <p className="text-sm text-gray-600 mb-4">
+                A two-course certificate program helping working professionals develop human-AI
+                collaboration skills. Building on Symbiotic Thinking, the program focuses on:
+              </p>
+
+              <div className="space-y-3 mb-4">
+                {/* Problem Reframing */}
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-base">🔍</span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-medium text-emerald-800 text-sm">Problem Reframing</div>
+                    <p className="text-xs text-gray-600 mt-1">
+                      Learn to identify the real problem worth solving before jumping to solutions—a critical
+                      skill when AI can generate solutions faster than humans can evaluate them.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Human-AI Workflow */}
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-base">⚖️</span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-medium text-emerald-800 text-sm">Human-AI Workflow Design</div>
+                    <p className="text-xs text-gray-600 mt-1">
+                      Develop judgment about where human intervention adds value and where AI can be trusted
+                      to handle tasks independently.
+                    </p>
+                  </div>
+                </div>
+
+                {/* Solution Delivery */}
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <span className="text-base">🚀</span>
+                  </div>
+                  <div className="flex-1">
+                    <div className="font-medium text-emerald-800 text-sm">Solution Delivery</div>
+                    <p className="text-xs text-gray-600 mt-1">
+                      Move from concept to implementation, learning to iterate quickly and validate
+                      solutions with real stakeholders.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <span className="inline-flex items-center gap-1 text-sm text-emerald-600 font-medium">
+                <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                In development
+              </span>
             </div>
           </div>
         </div>
