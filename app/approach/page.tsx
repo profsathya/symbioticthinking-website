@@ -541,7 +541,7 @@ export default function ApproachPage() {
                   <span className="text-2xl">🎓</span>
                 </div>
                 <div>
-                  <div className="text-xs text-blue-600 font-medium mb-1">CSU Monterey Bay</div>
+                  <div className="text-xs text-blue-600 font-medium mb-1">CSU Monterey Bay · Spring 2026</div>
                   <h3 className="font-semibold text-gray-900">CST395: AI-Native Solution Engineering</h3>
                 </div>
               </div>
@@ -640,7 +640,7 @@ export default function ApproachPage() {
                   <span className="text-2xl">🤝</span>
                 </div>
                 <div>
-                  <div className="text-xs text-emerald-600 font-medium mb-1">Partnership with De Anza College</div>
+                  <div className="text-xs text-emerald-600 font-medium mb-1">Partnership with De Anza College · Planned Fall 2026</div>
                   <h3 className="font-semibold text-gray-900">Applying AI at Work: Build Solutions with a Human Touch</h3>
                 </div>
               </div>
