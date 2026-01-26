@@ -359,11 +359,11 @@ export default function HomePage() {
             <p className="mt-4 text-lg text-gray-600">
               The Dojo is free to use. You just need a free API key to power the AI.
             </p>
-            <p className="mt-3 text-sm text-gray-500">
-              Want to learn more about our experimental approach first? Visit the{" "}
-              <Link href="/framework" className="text-emerald-600 hover:underline">Framework</Link>,{" "}
-              <Link href="/approach" className="text-emerald-600 hover:underline">Approach</Link>, and{" "}
-              <Link href="/about" className="text-emerald-600 hover:underline">About</Link> pages.
+            <p className="mt-3 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-4 py-2 inline-block">
+              <strong>Want to learn more about our experimental approach first?</strong> Visit the{" "}
+              <Link href="/framework" className="text-amber-800 underline hover:text-amber-900">Framework</Link>,{" "}
+              <Link href="/approach" className="text-amber-800 underline hover:text-amber-900">Approach</Link>, and{" "}
+              <Link href="/about" className="text-amber-800 underline hover:text-amber-900">About</Link> pages.
             </p>
           </div>
 
@@ -382,6 +382,10 @@ export default function HomePage() {
                     Choose either provider — both are free and work great with the Dojo:
                   </p>
 
+                  <p className="text-sm text-gray-500 mb-4">
+                    Groq offers more requests per day for extended practice. Gemini 2.5 is a more frontier model with fewer free requests.
+                  </p>
+
                   <div className="grid sm:grid-cols-2 gap-4 mb-4">
                     {/* Groq Option */}
                     <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
@@ -389,7 +393,6 @@ export default function HomePage() {
                         <span className="text-lg">⚡</span>
                         <span className="font-semibold text-gray-900">Groq</span>
                         <span className="text-xs text-gray-400">(not Grok from xAI)</span>
-                        <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full">Recommended</span>
                       </div>
                       <p className="text-sm text-gray-600 mb-3">
                         Uses Llama 3.3 70B model. ~14,400 free requests/day — great for longer practice sessions.
@@ -414,7 +417,7 @@ export default function HomePage() {
                         <span className="font-semibold text-gray-900">Google Gemini</span>
                       </div>
                       <p className="text-sm text-gray-600 mb-3">
-                        Uses Gemini 2.5 Flash model. ~20 free requests/day — good for quick sessions.
+                        Uses Gemini 2.5 Flash model. ~20 free requests/day — a more capable model for shorter sessions.
                       </p>
                       <a
                         href="https://aistudio.google.com/apikey"
