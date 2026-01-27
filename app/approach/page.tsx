@@ -433,72 +433,89 @@ export default function ApproachPage() {
             We develop content through continuous iteration — building, testing with students, learning from results and the field, then building better.
           </p>
 
-          {/* Visual Loop */}
-          <div className="relative max-w-2xl mx-auto mb-12">
-            {/* Loop Visualization */}
-            <div className="flex flex-col items-center">
+          {/* Horizontal Loop Visualization */}
+          <div className="relative max-w-4xl mx-auto mb-12">
+            {/* Main horizontal flow */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-2">
               {/* BUILD */}
-              <div className="w-full max-w-md">
-                <div className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-6 text-center">
+              <div className="w-full md:w-1/3 max-w-xs">
+                <div className="bg-emerald-50 border-2 border-emerald-200 rounded-2xl p-5 text-center h-full">
                   <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <span className="text-2xl">🔨</span>
                   </div>
                   <h3 className="font-bold text-emerald-800 text-lg mb-2">BUILD</h3>
                   <p className="text-sm text-emerald-700">
-                    Develop content that meets students where they are and guides them toward key ideas
+                    Develop content that meets students where they are
                   </p>
                 </div>
               </div>
 
-              {/* Arrow down */}
-              <div className="h-8 w-px bg-gray-300 my-2"></div>
-              <div className="text-gray-400">↓</div>
-              <div className="h-8 w-px bg-gray-300 my-2"></div>
+              {/* Arrow: Build → Measure */}
+              <div className="hidden md:flex items-center text-gray-400 text-2xl px-1">→</div>
+              <div className="md:hidden text-gray-400 text-xl py-1">↓</div>
 
               {/* MEASURE */}
-              <div className="w-full max-w-md">
-                <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-6 text-center">
+              <div className="w-full md:w-1/3 max-w-xs">
+                <div className="bg-blue-50 border-2 border-blue-200 rounded-2xl p-5 text-center h-full">
                   <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <span className="text-2xl">📊</span>
                   </div>
                   <h3 className="font-bold text-blue-800 text-lg mb-2">MEASURE</h3>
                   <p className="text-sm text-blue-700">
-                    Test with real students, observe what resonates and what doesn&apos;t
+                    Test with real students, observe what resonates
                   </p>
                 </div>
               </div>
 
-              {/* Arrow down */}
-              <div className="h-8 w-px bg-gray-300 my-2"></div>
-              <div className="text-gray-400">↓</div>
-              <div className="h-8 w-px bg-gray-300 my-2"></div>
+              {/* Arrow: Measure → Learn */}
+              <div className="hidden md:flex items-center text-gray-400 text-2xl px-1">→</div>
+              <div className="md:hidden text-gray-400 text-xl py-1">↓</div>
 
               {/* LEARN */}
-              <div className="w-full max-w-md">
-                <div className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-6 text-center">
+              <div className="w-full md:w-1/3 max-w-xs">
+                <div className="bg-purple-50 border-2 border-purple-200 rounded-2xl p-5 text-center h-full">
                   <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                     <span className="text-2xl">💡</span>
                   </div>
                   <h3 className="font-bold text-purple-800 text-lg mb-2">LEARN</h3>
-                  <p className="text-sm text-purple-700 mb-4">
-                    Learn from two sources to inform the next iteration
+                  <p className="text-sm text-purple-700">
+                    Synthesize insights from measurement and the field
                   </p>
-                  <div className="grid grid-cols-2 gap-3 text-left">
-                    <div className="bg-white rounded-lg p-3 border border-purple-100">
-                      <p className="text-xs font-medium text-purple-800 mb-1">From what we measured</p>
-                      <p className="text-xs text-purple-600">Student feedback, what clicked, what confused</p>
-                    </div>
-                    <div className="bg-white rounded-lg p-3 border border-purple-100">
-                      <p className="text-xs font-medium text-purple-800 mb-1">From the field</p>
-                      <p className="text-xs text-purple-600">Researchers, practitioners, diverse perspectives</p>
-                    </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Loop back arrow (desktop) */}
+            <div className="hidden md:block mt-6">
+              <div className="flex justify-center">
+                <div className="relative w-full max-w-2xl">
+                  <div className="border-b-2 border-l-2 border-r-2 border-dashed border-emerald-400 rounded-b-3xl h-12 mx-8"></div>
+                  <div className="absolute left-8 top-10 text-emerald-500 text-xl">↑</div>
+                  <div className="absolute left-1/2 -translate-x-1/2 top-6 bg-white px-3">
+                    <span className="text-emerald-600 text-sm font-medium">feeds back into Build</span>
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Loop back arrow */}
-              <div className="h-8 w-px bg-gray-300 my-2"></div>
-              <div className="text-emerald-500 font-medium text-sm">↑ feeds back into Build</div>
+            {/* Loop back arrow (mobile) */}
+            <div className="md:hidden mt-4 text-center">
+              <div className="inline-flex items-center gap-2 text-emerald-600 text-sm font-medium">
+                <span>↻</span>
+                <span>feeds back into Build</span>
+              </div>
+            </div>
+
+            {/* Two learning sources */}
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl mx-auto">
+              <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
+                <p className="text-sm font-medium text-purple-800 mb-1">From what we measured</p>
+                <p className="text-xs text-purple-600">Student feedback, what clicked, what confused</p>
+              </div>
+              <div className="bg-purple-50 rounded-xl p-4 border border-purple-200">
+                <p className="text-sm font-medium text-purple-800 mb-1">From the field</p>
+                <p className="text-xs text-purple-600">Researchers, practitioners, diverse perspectives</p>
+              </div>
             </div>
           </div>
 
