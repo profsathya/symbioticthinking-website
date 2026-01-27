@@ -119,7 +119,7 @@ export default function HomePage() {
                 ))}
               </ul>
               <div className="mt-6 pt-6 border-t border-gray-100">
-                <p className="text-sm text-gray-500 italic">Focus: Making AI smarter at teaching you</p>
+                <p className="text-sm text-gray-500 italic">Focus: Making AI better at teaching you</p>
               </div>
             </div>
 
