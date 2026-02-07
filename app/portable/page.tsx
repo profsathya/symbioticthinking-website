@@ -19,7 +19,7 @@ export default function PortablePage() {
               Use the Dojo with any AI chatbot
             </h1>
             <p className="mt-6 text-xl text-gray-600">
-              Take the Symbiotic Thinking experience anywhere — Claude Projects, ChatGPT, Gemini, or any AI that supports custom instructions. No app required.
+              Take the Symbiotic Thinking experience anywhere — Claude Projects, ChatGPT, Gemini, or any AI that supports custom instructions. Just one PDF to get started.
             </p>
           </div>
         </div>
@@ -30,21 +30,31 @@ export default function PortablePage() {
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">What You Get</h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="max-w-2xl">
             <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
-              <div className="text-3xl mb-4">📋</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">System Prompt</h3>
-              <p className="text-gray-600">
-                A carefully crafted prompt that tells any AI how to behave as your Symbiotic Thinking partner — complete with Sparring Partners, frameworks, and status tracking.
+              <div className="text-3xl mb-4">📄</div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">One PDF — Everything Included</h3>
+              <p className="text-gray-600 mb-4">
+                A single instruction document that contains everything your AI needs to become your Symbiotic Thinking partner — the Sensei role, Sparring Partners, frameworks, and customization options.
               </p>
-            </div>
-
-            <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
-              <div className="text-3xl mb-4">📚</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">Knowledge Base</h3>
-              <p className="text-gray-600">
-                A comprehensive document containing the full Symbiotic Thinking philosophy, all Sparring Partner personas, UMPIRE cycle, 3Cs framework, and more.
-              </p>
+              <ul className="text-gray-600 space-y-2 text-sm">
+                <li className="flex gap-2">
+                  <span className="text-emerald-500">✓</span>
+                  <span>System prompt with Sensei configuration</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-emerald-500">✓</span>
+                  <span>All Sparring Partner personas</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-emerald-500">✓</span>
+                  <span>UMPIRE cycle and 3Cs framework</span>
+                </li>
+                <li className="flex gap-2">
+                  <span className="text-emerald-500">✓</span>
+                  <span>Customization entry point for adjusting style</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -55,24 +65,24 @@ export default function PortablePage() {
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Works With Your Favorite AI</h2>
           <p className="text-lg text-gray-600 mb-12 max-w-2xl">
-            Any AI chatbot that supports custom instructions and file attachments.
+            Any AI chatbot that supports file attachments or custom instructions.
           </p>
 
           <div className="grid md:grid-cols-3 gap-6">
             {[
               {
                 name: "Claude Projects",
-                description: "Add to Project Instructions and attach the Knowledge Base",
+                description: "Create a Project and attach the PDF to Project Knowledge",
                 icon: "🟣"
               },
               {
                 name: "ChatGPT",
-                description: "Upload the Knowledge Base and paste the system prompt",
+                description: "Upload the PDF and start chatting",
                 icon: "🟢"
               },
               {
                 name: "Google Gemini",
-                description: "Create a Gem with the instructions and attached document",
+                description: "Create a Gem and attach the PDF as context",
                 icon: "🔵"
               }
             ].map((platform, i) => (
@@ -100,20 +110,20 @@ export default function PortablePage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Download the Files</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Download the PDF</h3>
                 <p className="text-gray-600 mb-4">
-                  Get the System Prompt and Knowledge Base from our GitHub repository.
+                  Get the Symbiotic Thinking Dojo Instructions PDF from GitHub.
                 </p>
                 <a
-                  href="https://github.com/profsathya/Symbiotic_Thinking_Dojo/tree/main/portable"
+                  href="https://github.com/profsathya/Symbiotic_Thinking_Dojo/blob/claude/ai-chatbot-thinking-dojo-01FWRCmKE96jbwesC5n4cvfP/docs/Symbiotic%20Thinking%20Dojo%20Instructions.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-5 py-3 rounded-lg font-medium transition-colors"
                 >
-                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
-                  Get Files on GitHub
+                  Download Instructions PDF
                 </a>
               </div>
             </div>
@@ -126,16 +136,16 @@ export default function PortablePage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Configure Your AI</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Attach to Your AI</h3>
                 <p className="text-gray-600 mb-4">
-                  Paste the System Prompt into your AI&apos;s custom instructions, and attach the Knowledge Base document.
+                  Upload or attach the PDF to your AI project. The AI will read the instructions and configure itself as your Dojo Sensei.
                 </p>
                 <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                   <p className="text-sm text-gray-500 mb-2">Platform-specific tips:</p>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li><strong>Claude:</strong> Create a Project, add to &quot;Project Instructions&quot;, upload Knowledge Base</li>
-                    <li><strong>ChatGPT:</strong> Upload Knowledge Base first, then paste System Prompt</li>
-                    <li><strong>Gemini:</strong> Create a Gem, add instructions, attach document</li>
+                    <li><strong>Claude:</strong> Create a Project → Add PDF to Project Knowledge</li>
+                    <li><strong>ChatGPT:</strong> Start a chat → Upload the PDF</li>
+                    <li><strong>Gemini:</strong> Create a Gem → Attach the PDF</li>
                   </ul>
                 </div>
               </div>
@@ -149,10 +159,15 @@ export default function PortablePage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Start a Session</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Start Chatting</h3>
                 <p className="text-gray-600 mb-4">
-                  Choose your mode (Learn, Learn+Solve, or Learn+Solve+Build) and bring a real challenge. Use @mentions to invoke Sparring Partners.
+                  Begin a conversation and the AI will greet you with the Dojo welcome message. Bring a real challenge and use @mentions to invoke Sparring Partners.
                 </p>
+                <div className="bg-emerald-50 rounded-lg p-4 border border-emerald-200">
+                  <p className="text-sm text-emerald-800">
+                    <strong>Tip:</strong> Say &quot;refine&quot; anytime to adjust the Sensei&apos;s communication style, response length, or framework emphasis.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -212,42 +227,43 @@ export default function PortablePage() {
         </div>
       </section>
 
-      {/* Status Line Explanation */}
+      {/* Core Principles */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Reading the Status Line</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">How It Works</h2>
           <p className="text-lg text-gray-600 mb-12 max-w-2xl">
-            Every response ends with a status line showing your progress.
+            The Portable Dojo follows the same philosophy as the full Dojo.
           </p>
 
-          <div className="max-w-3xl">
-            <div className="bg-gray-900 rounded-xl p-6 mb-8">
-              <code className="text-emerald-400 text-lg">
-                [STATUS] Partner: @framer | Balance: +2 | Level: K | Stage: U
-              </code>
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">💬</span>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Concise Responses</h3>
+              <p className="text-gray-600 text-sm">
+                Outputs stay under fifty words, prioritizing guiding questions over long explanations.
+              </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Partner</h4>
-                  <p className="text-gray-600 text-sm">Which Sparring Partner is active (or &quot;sensei&quot; for the default guide)</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Balance (-3 to +3)</h4>
-                  <p className="text-gray-600 text-sm">Your Creating/Consuming tendency. Positive = you&apos;re doing the thinking. Negative = you&apos;re delegating to AI.</p>
-                </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🧠</span>
               </div>
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Level (D/I/K/W)</h4>
-                  <p className="text-gray-600 text-sm">DIKW depth: Data → Information → Knowledge → Wisdom</p>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 mb-1">Stage (U/M/P/I/R/E)</h4>
-                  <p className="text-gray-600 text-sm">UMPIRE cycle: Understand → Map → Plan → Implement → Review → Evaluate</p>
-                </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Develop Your Thinking</h3>
+              <p className="text-gray-600 text-sm">
+                The Sensei builds your capability rather than providing immediate solutions.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">⚙️</span>
               </div>
+              <h3 className="font-semibold text-gray-900 mb-2">Fully Customizable</h3>
+              <p className="text-gray-600 text-sm">
+                Say &quot;refine&quot; to adjust style, response length, and framework emphasis.
+              </p>
             </div>
           </div>
         </div>
@@ -260,19 +276,19 @@ export default function PortablePage() {
             Ready to take the Dojo anywhere?
           </h2>
           <p className="text-xl text-blue-100 mb-10">
-            Download the files and start using Symbiotic Thinking with your preferred AI.
+            Download the PDF and start using Symbiotic Thinking with your preferred AI.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://github.com/profsathya/Symbiotic_Thinking_Dojo/tree/main/portable"
+              href="https://github.com/profsathya/Symbiotic_Thinking_Dojo/blob/claude/ai-chatbot-thinking-dojo-01FWRCmKE96jbwesC5n4cvfP/docs/Symbiotic%20Thinking%20Dojo%20Instructions.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-blue-700 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
             >
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Download from GitHub
+              Download Instructions PDF
             </a>
             <a
               href="https://dojo.symbioticthinking.ai"
