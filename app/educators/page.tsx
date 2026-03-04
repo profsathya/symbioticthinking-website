@@ -200,7 +200,7 @@ export default function EducatorsPage() {
                     </a>
                   </li>
                   <li>
-                    <strong>Google Gemini</strong>: ~20 requests/day at{" "}
+                    <strong>Google Gemini</strong>: ~15 requests/min, ~20 requests/day at{" "}
                     <a href="https://aistudio.google.com/apikey" className="text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">
                       Google AI Studio
                     </a>
