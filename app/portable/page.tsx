@@ -19,7 +19,7 @@ export default function PortablePage() {
               Use the Dojo with any AI chatbot
             </h1>
             <p className="mt-6 text-xl text-gray-600">
-              Take the Symbiotic Thinking experience anywhere — Claude Projects, ChatGPT, Gemini, or any AI that supports custom instructions. Just one PDF to get started.
+              Take the Symbiotic Thinking experience anywhere — Claude Projects, ChatGPT, Gemini, or any AI that supports custom instructions. Just two files to get started.
             </p>
           </div>
         </div>
@@ -33,28 +33,23 @@ export default function PortablePage() {
           <div className="max-w-2xl">
             <div className="bg-gray-50 rounded-xl p-8 border border-gray-200">
               <div className="text-3xl mb-4">📄</div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-3">One PDF — Everything Included</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-3">Two Files — Guide + Knowledge Base</h3>
               <p className="text-gray-600 mb-4">
-                A single instruction document that contains everything your AI needs to become your Symbiotic Thinking partner — the Sensei role, Sparring Partners, frameworks, and customization options.
+                Everything your AI needs to become your Symbiotic Thinking partner:
               </p>
-              <ul className="text-gray-600 space-y-2 text-sm">
+              <ul className="text-gray-600 space-y-2 text-sm mb-4">
                 <li className="flex gap-2">
-                  <span className="text-emerald-500">✓</span>
-                  <span>System prompt with Sensei configuration</span>
+                  <span className="text-emerald-500">1.</span>
+                  <span><strong>Portable Dojo Guide</strong> — Setup instructions and quick reference</span>
                 </li>
                 <li className="flex gap-2">
-                  <span className="text-emerald-500">✓</span>
-                  <span>All Sparring Partner personas</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-emerald-500">✓</span>
-                  <span>UMPIRE cycle and 3Cs framework</span>
-                </li>
-                <li className="flex gap-2">
-                  <span className="text-emerald-500">✓</span>
-                  <span>Customization entry point for adjusting style</span>
+                  <span className="text-emerald-500">2.</span>
+                  <span><strong>Knowledge Base</strong> — Complete context on methodology, personas, and frameworks (attach to your AI project)</span>
                 </li>
               </ul>
+              <p className="text-gray-500 text-sm">
+                Tip: Convert the Knowledge Base to PDF for platforms that prefer that format.
+              </p>
             </div>
           </div>
         </div>
@@ -72,17 +67,17 @@ export default function PortablePage() {
             {[
               {
                 name: "Claude Projects",
-                description: "Create a Project and attach the PDF to Project Knowledge",
+                description: "Create a Project and add the Knowledge Base to Project Knowledge",
                 icon: "🟣"
               },
               {
                 name: "ChatGPT",
-                description: "Upload the PDF and start chatting",
+                description: "Upload the Knowledge Base and start chatting",
                 icon: "🟢"
               },
               {
                 name: "Google Gemini",
-                description: "Create a Gem and attach the PDF as context",
+                description: "Create a Gem and attach the Knowledge Base as context",
                 icon: "🔵"
               }
             ].map((platform, i) => (
@@ -110,12 +105,12 @@ export default function PortablePage() {
                 </div>
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">Download the PDF</h3>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">Download the Files</h3>
                 <p className="text-gray-600 mb-4">
-                  Get the Symbiotic Thinking Dojo Instructions PDF from GitHub.
+                  Get both files from the docs folder on GitHub:
                 </p>
                 <a
-                  href="https://github.com/profsathya/Symbiotic_Thinking_Dojo/blob/claude/ai-chatbot-thinking-dojo-01FWRCmKE96jbwesC5n4cvfP/docs/Symbiotic%20Thinking%20Dojo%20Instructions.pdf"
+                  href="https://github.com/profsathya/Symbiotic_Thinking_Dojo/tree/main/docs"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white px-5 py-3 rounded-lg font-medium transition-colors"
@@ -123,7 +118,7 @@ export default function PortablePage() {
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
-                  Download Instructions PDF
+                  View Portable Dojo Files
                 </a>
               </div>
             </div>
@@ -138,14 +133,14 @@ export default function PortablePage() {
               <div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">Attach to Your AI</h3>
                 <p className="text-gray-600 mb-4">
-                  Upload or attach the PDF to your AI project. The AI will read the instructions and configure itself as your Dojo Sensei.
+                  Add the Knowledge Base to your AI project. The AI will read the instructions and configure itself as your Dojo Sensei.
                 </p>
                 <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
                   <p className="text-sm text-gray-500 mb-2">Platform-specific tips:</p>
                   <ul className="text-sm text-gray-600 space-y-1">
-                    <li><strong>Claude:</strong> Create a Project → Add PDF to Project Knowledge</li>
-                    <li><strong>ChatGPT:</strong> Start a chat → Upload the PDF</li>
-                    <li><strong>Gemini:</strong> Create a Gem → Attach the PDF</li>
+                    <li><strong>Claude:</strong> Create a Project → Add Knowledge Base to Project Knowledge</li>
+                    <li><strong>ChatGPT:</strong> Start a chat → Upload the Knowledge Base</li>
+                    <li><strong>Gemini:</strong> Create a Gem → Attach the Knowledge Base</li>
                   </ul>
                 </div>
               </div>
@@ -179,7 +174,7 @@ export default function PortablePage() {
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Sparring Partners</h2>
           <p className="text-lg text-gray-600 mb-12 max-w-2xl">
-            Invoke these specialized personas by typing @ followed by their name.
+            Five specialized personas challenge different aspects of your thinking. Invoke them by typing @ followed by their name.
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -208,11 +203,6 @@ export default function PortablePage() {
                 name: "@reflector",
                 icon: "🪞",
                 description: "Guides self-assessment and generates session summaries"
-              },
-              {
-                name: "@ikigai",
-                icon: "🎯",
-                description: "Starts a guided journey to discover your purpose"
               }
             ].map((partner, i) => (
               <div key={i} className="bg-white rounded-xl p-6 border border-gray-200">
@@ -223,6 +213,18 @@ export default function PortablePage() {
                 <p className="text-gray-600 text-sm">{partner.description}</p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-8 max-w-2xl">
+            <div className="bg-purple-50 rounded-xl p-6 border border-purple-200">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-2xl">🎯</span>
+                <span className="font-semibold text-purple-800">Looking for purpose exploration?</span>
+              </div>
+              <p className="text-gray-600 text-sm">
+                The @ikigai guided discovery experience is available through Practice Dojo in the full Dojo app.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -276,11 +278,11 @@ export default function PortablePage() {
             Ready to take the Dojo anywhere?
           </h2>
           <p className="text-xl text-blue-100 mb-10">
-            Download the PDF and start using Symbiotic Thinking with your preferred AI.
+            Download the files and start using Symbiotic Thinking with your preferred AI.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
-              href="https://github.com/profsathya/Symbiotic_Thinking_Dojo/blob/claude/ai-chatbot-thinking-dojo-01FWRCmKE96jbwesC5n4cvfP/docs/Symbiotic%20Thinking%20Dojo%20Instructions.pdf"
+              href="https://github.com/profsathya/Symbiotic_Thinking_Dojo/tree/main/docs"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-white hover:bg-gray-100 text-blue-700 px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
@@ -288,7 +290,7 @@ export default function PortablePage() {
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
-              Download Instructions PDF
+              View Portable Dojo Files
             </a>
             <a
               href="https://dojo.symbioticthinking.ai"

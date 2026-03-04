@@ -206,7 +206,7 @@ export default function AboutPage() {
                 },
                 {
                   q: "What AI models does it use?",
-                  a: "You choose your provider: Groq uses Llama 3.3 70B with ~14,400 free requests/day (recommended for extended practice). Google Gemini uses Gemini 2.5 Flash with ~20 free requests/day. You can switch providers anytime in Settings."
+                  a: "You choose your provider: Groq uses Llama 3.3 70B with ~14,400 free requests/day (recommended for extended practice). Google Gemini uses Gemini 2.5 Flash with ~15 requests/min, ~20 free requests/day. You can switch providers anytime in Settings. CTI Program keys are also available for institutional pilots."
                 },
                 {
                   q: "Is my data private?",

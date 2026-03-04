@@ -417,7 +417,7 @@ export default function HomePage() {
                         <span className="font-semibold text-gray-900">Google Gemini</span>
                       </div>
                       <p className="text-sm text-gray-600 mb-3">
-                        Uses Gemini 2.5 Flash model. ~20 free requests/day — a more capable model for shorter sessions.
+                        Uses Gemini 2.5 Flash model. ~15 requests/min, ~20 free requests/day — a more capable model for shorter sessions.
                       </p>
                       <a
                         href="https://aistudio.google.com/apikey"
@@ -500,7 +500,7 @@ export default function HomePage() {
                   <h4 className="font-semibold text-gray-900 mb-1">What does it cost?</h4>
                   <p className="text-gray-600 text-sm">
                     Both providers offer generous free tiers. <strong>Groq</strong> gives ~14,400 requests/day (enough for hours of practice).
-                    <strong> Google Gemini</strong> gives ~20 requests/day for quick sessions. You control your own usage and billing directly with your chosen provider.
+                    <strong> Google Gemini</strong> gives ~15 requests/min, ~20 requests/day for quick sessions. You control your own usage and billing directly with your chosen provider.
                   </p>
                 </div>
               </div>
