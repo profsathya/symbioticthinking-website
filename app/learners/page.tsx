@@ -186,10 +186,10 @@ export default function LearnersPage() {
             Ready to start training?
           </h2>
           <p className="text-xl text-emerald-100 mb-6">
-            The Dojo is free. You just need an API key from Groq <span className="text-emerald-300 text-sm">(not Grok from xAI)</span> or Google (both free).
+            The Dojo is free. You just need a free API key to power the AI.
           </p>
           <p className="text-emerald-200 text-sm mb-8">
-            We recommend <strong>Groq</strong> for extended practice sessions (~14,400 requests/day free).
+            We recommend <strong>Llama 3.3 70B via Groq</strong> for extended practice sessions (~14,400 requests/day free).
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <a
@@ -205,12 +205,15 @@ export default function LearnersPage() {
               href="https://console.groq.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-colors"
+              className="inline-flex flex-col items-center bg-emerald-700 hover:bg-emerald-800 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
             >
-              Get Groq API Key
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
+              <span className="flex items-center gap-2 text-lg">
+                Get Groq API Key
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </span>
+              <span className="text-emerald-300 text-xs mt-1">Groq, not Grok from xAI</span>
             </a>
           </div>
         </div>

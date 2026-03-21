@@ -391,11 +391,10 @@ export default function HomePage() {
                     <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
                       <div className="flex items-center gap-2 mb-2">
                         <span className="text-lg">⚡</span>
-                        <span className="font-semibold text-gray-900">Groq</span>
-                        <span className="text-xs text-gray-400">(not Grok from xAI)</span>
+                        <span className="font-semibold text-gray-900">Llama 3.3 70B</span>
                       </div>
                       <p className="text-sm text-gray-600 mb-3">
-                        Uses Llama 3.3 70B model. ~14,400 free requests/day — great for longer practice sessions.
+                        ~14,400 free requests/day — great for longer practice sessions.
                       </p>
                       <a
                         href="https://console.groq.com"
@@ -408,6 +407,7 @@ export default function HomePage() {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg>
                       </a>
+                      <p className="text-xs text-gray-400 mt-2">Groq, not Grok from xAI</p>
                     </div>
 
                     {/* Google Option */}
