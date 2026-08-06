@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ABILITIES, ABILITY_COLORS } from "./content/abilities";
 
 export default function HomePage() {
   return (
@@ -12,10 +13,16 @@ export default function HomePage() {
               Learn to think <span className="text-emerald-600">with</span> AI,
                 <br />not <span className="text-gray-400">let it</span> think for you
             </h1>
-            <p className="mt-6 text-xl text-gray-600 leading-relaxed">
-              The Symbiotic Thinking Dojo is an AI-powered practice environment that builds your
-              judgment, agency, and metacognition. AI becomes your thinking partner,
-              not your replacement.
+            <p className="mt-6 text-xl text-gray-700 leading-relaxed">
+              Symbiotic Thinking is{" "}
+              <strong className="text-gray-900">critical thinking</strong>,{" "}
+              <strong className="text-gray-900">communication</strong>, and{" "}
+              <strong className="text-gray-900">collaboration</strong> — practiced with AI
+              in the room.
+            </p>
+            <p className="mt-4 text-lg text-gray-600 leading-relaxed">
+              The Dojo is a free practice environment for building those three abilities.
+              AI becomes your thinking partner, not your replacement.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a
@@ -38,8 +45,63 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* The Three Abilities */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-gray-900">The Three Abilities</h2>
+            <p className="mt-4 text-lg text-gray-600">
+              When AI can execute, these are what stay valuable — and what AI use quietly
+              erodes if you never practice them.
+            </p>
+          </div>
+
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {ABILITIES.map((ability) => {
+              const colors = ABILITY_COLORS[ability.color];
+              return (
+                <div
+                  key={ability.id}
+                  className={`rounded-2xl border-2 ${colors.border} ${colors.bg} p-6 flex flex-col`}
+                >
+                  <div
+                    className={`w-12 h-12 ${colors.iconBg} rounded-xl flex items-center justify-center text-2xl mb-4`}
+                  >
+                    {ability.icon}
+                  </div>
+                  <h3 className={`text-xl font-bold ${colors.heading} mb-1`}>{ability.name}</h3>
+                  <p className={`text-sm ${colors.text} font-medium mb-4`}>{ability.tagline}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed flex-1">
+                    {ability.definition}
+                  </p>
+                  <div className="mt-5 pt-4 border-t border-white/80">
+                    <p className="text-sm text-gray-700">{ability.evidence.stat}</p>
+                    <p className="text-xs text-gray-500 mt-1 italic">{ability.evidence.source}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3">
+            <Link
+              href="/framework"
+              className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 font-medium"
+            >
+              How the Dojo builds them →
+            </Link>
+            <Link
+              href="/evidence"
+              className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 font-medium"
+            >
+              See the data behind these three →
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Why a Dojo? Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Why a Dojo?</h2>
           <p className="text-lg text-gray-600 leading-relaxed">
@@ -54,7 +116,7 @@ export default function HomePage() {
       </section>
 
       {/* Challenge & Opportunity Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl font-bold text-gray-900">The Challenge and Opportunity</h2>
@@ -212,9 +274,77 @@ export default function HomePage() {
               <h3 className="text-xl font-semibold text-gray-900 mb-3">Progress Tracking</h3>
               <p className="text-gray-600">
                 Visual feedback on your engagement: DIKW Pyramid, UMPIRE Cycle,
-                and Creating-Consuming Balance help you see your growth.
+                Creating-Consuming Balance, and earned belts in the Code Kata Dojo
+                help you see your growth.
               </p>
             </div>
+          </div>
+
+          {/* Ways to practice */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-3">Ways to Practice</h3>
+            <p className="text-gray-600 text-center max-w-2xl mx-auto mb-10">
+              The Dojo is more than a chat window. Each activity trains a different mix of
+              the three abilities.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                {
+                  icon: "🎯",
+                  title: "Practice Dojo",
+                  description:
+                    "Guided, phased topics — Symbiotic Thinking foundations, Ikigai, Map Your Curiosity, course sessions, and more. You commit to a judgment before the AI weighs in.",
+                  trains: ["Critical Thinking", "Communication"],
+                },
+                {
+                  icon: "🏛️",
+                  title: "Architect Studio",
+                  description:
+                    "The same architecture decisions worked three ways — Solo, then Delegated to AI, then in open Partnership — so you can see exactly what each mode adds and costs.",
+                  trains: ["Collaboration", "Critical Thinking"],
+                },
+                {
+                  icon: "🥋",
+                  title: "Code Kata Dojo",
+                  description:
+                    "Small problems with visible tests, organized into belts from white to black. Includes bug-hunts, predictions, and design katas where you defend a call against a rubric.",
+                  trains: ["Critical Thinking", "Communication"],
+                },
+                {
+                  icon: "🎤",
+                  title: "Project Interview",
+                  description:
+                    "Run in pairs: frame your project, get interviewed, then swap devices and coach your partner through interviewing you. Explaining your work to a person, unassisted.",
+                  trains: ["Communication", "Collaboration"],
+                },
+              ].map((item, i) => (
+                <div key={i} className="bg-white rounded-2xl p-6 border border-gray-200">
+                  <div className="flex items-start gap-4">
+                    <div className="text-2xl flex-shrink-0">{item.icon}</div>
+                    <div>
+                      <h4 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h4>
+                      <p className="text-gray-600 text-sm mb-3">{item.description}</p>
+                      <div className="flex flex-wrap gap-2">
+                        {item.trains.map((t) => (
+                          <span
+                            key={t}
+                            className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full"
+                          >
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="text-center text-sm text-gray-500 mt-6">
+              Plus <strong>Career Intelligence</strong> — Know Yourself and Know the Market —
+              two sessions for turning what you can do into language an employer recognizes.
+            </p>
           </div>
         </div>
       </section>
@@ -302,7 +432,7 @@ export default function HomePage() {
       </section>
 
       {/* Privacy Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50">
         <div className="max-w-6xl mx-auto px-6">
           <div className="bg-gradient-to-r from-gray-900 to-gray-800 rounded-3xl p-8 md:p-12">
             <div className="max-w-3xl">
@@ -316,36 +446,47 @@ export default function HomePage() {
                 Your conversations stay private from us
               </h2>
               <p className="text-gray-300 text-lg mb-6">
-                The Dojo uses a client-side architecture. Your API key and conversations
-                never pass through our servers — they go directly from your browser to your chosen provider (Groq or Google).
-                Your provider&apos;s privacy policy applies to your conversations.
+                With a personal Gemini or Groq key, the Dojo runs entirely in your browser.
+                Your API key and conversations go directly to your chosen provider and never
+                touch our servers. Your provider&apos;s privacy policy applies to what they receive.
               </p>
               <ul className="space-y-2 text-gray-400">
                 <li className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   API key stored only in your browser
                 </li>
                 <li className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  Zero data storage on our servers
+                  We never store your conversations
                 </li>
                 <li className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  Conversations not saved between sessions
+                  Nothing goes to the cloud — progress that persists stays in your browser
                 </li>
                 <li className="flex items-center gap-2">
-                  <svg className="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-5 h-5 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   Open source — verify it yourself
                 </li>
               </ul>
+
+              {/* Institutional deployments work differently — say so plainly. */}
+              <div className="mt-6 pt-6 border-t border-gray-700">
+                <p className="text-gray-400 text-sm">
+                  <strong className="text-gray-300">One exception, stated plainly:</strong>{" "}
+                  if your institution issues you a <em>CTI Program</em> key instead, requests
+                  are proxied through our backend to Anthropic&apos;s Claude API so a coordinator
+                  can manage token budgets. That backend records how many tokens you used and
+                  never the content of your conversations. Everything else above still holds.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -432,6 +573,12 @@ export default function HomePage() {
                       </a>
                     </div>
                   </div>
+
+                  <p className="text-sm text-gray-500">
+                    <strong>In a class or program?</strong> Your institution may issue you a
+                    CTI Program key instead — it runs on Claude Sonnet with a token budget your
+                    coordinator manages, and there&apos;s nothing for you to sign up for.
+                  </p>
                 </div>
               </div>
 

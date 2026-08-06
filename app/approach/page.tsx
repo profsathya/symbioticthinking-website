@@ -429,8 +429,16 @@ export default function ApproachPage() {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-4">The Build-Measure-Learn Loop</h2>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          <p className="text-gray-600 text-center mb-4 max-w-2xl mx-auto">
             We develop content through continuous iteration — building, testing with students, learning from results and the field, then building better.
+          </p>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto text-sm">
+            What we measure against is fixed:{" "}
+            <strong>critical thinking, communication, and collaboration</strong>. If a change
+            doesn&apos;t move one of those three, it isn&apos;t an improvement.{" "}
+            <Link href="/evidence" className="text-emerald-600 hover:underline">
+              See what we can and can&apos;t currently measure →
+            </Link>
           </p>
 
           {/* Horizontal Loop Visualization */}
@@ -462,7 +470,7 @@ export default function ApproachPage() {
                   </div>
                   <h3 className="font-bold text-blue-800 text-lg mb-2">MEASURE</h3>
                   <p className="text-sm text-blue-700">
-                    Test with real students, observe what resonates
+                    Test with real students against the three abilities
                   </p>
                 </div>
               </div>
@@ -729,6 +737,18 @@ export default function ApproachPage() {
               The AI landscape changes rapidly. These books, researchers, podcasts, and papers represent
               diverse perspectives — some optimistic, others cautionary. Exploring both helps form informed views.
             </p>
+            <div className="mt-6 max-w-2xl mx-auto bg-white border border-gray-200 rounded-xl p-4 text-left">
+              <p className="text-sm text-gray-600">
+                <strong className="text-gray-900">A note on &quot;the four Cs.&quot;</strong>{" "}
+                Several sources below — Harari most directly — name critical thinking,
+                communication, collaboration, <em>and creativity</em>. We name three. Creativity
+                isn&apos;t a fourth skill you drill separately; it&apos;s what tends to emerge
+                when the other three operate together on a problem you care about.{" "}
+                <Link href="/framework" className="text-emerald-600 hover:underline">
+                  More on why we made that call →
+                </Link>
+              </p>
+            </div>
           </div>
 
           <div className="space-y-4">

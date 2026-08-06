@@ -45,7 +45,9 @@ function Footer() {
               <span className="font-semibold text-white">Symbiotic Thinking</span>
             </div>
             <p className="text-gray-400 text-sm max-w-md">
-              Building human capability in an age of AI abundance. The Dojo trains judgment and superagency — ensuring AI amplifies your thinking rather than replacing it.
+              Critical thinking, communication, and collaboration — practiced with AI in the
+              room. The Dojo is a free environment for building the three abilities that stay
+              valuable when AI can execute.
             </p>
           </div>
 
@@ -56,6 +58,7 @@ function Footer() {
               <li><Link href="/learners" className="hover:text-emerald-400 transition-colors">For Learners</Link></li>
               <li><Link href="/educators" className="hover:text-emerald-400 transition-colors">For Educators</Link></li>
               <li><Link href="/framework" className="hover:text-emerald-400 transition-colors">The Framework</Link></li>
+              <li><Link href="/evidence" className="hover:text-emerald-400 transition-colors">The Evidence</Link></li>
               <li><Link href="/approach" className="hover:text-emerald-400 transition-colors">Our Approach</Link></li>
               <li><Link href="/portable" className="hover:text-emerald-400 transition-colors">Portable Edition</Link></li>
               <li><Link href="/about" className="hover:text-emerald-400 transition-colors">About</Link></li>

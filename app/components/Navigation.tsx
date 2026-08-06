@@ -6,12 +6,13 @@ import Link from "next/link";
 const navLinks = [
   { href: "/learners", label: "For Learners" },
   { href: "/educators", label: "For Educators" },
-  { href: "/framework", label: "The Framework" },
-  { href: "/approach", label: "Our Approach" },
+  { href: "/framework", label: "Framework" },
+  { href: "/evidence", label: "Evidence" },
+  { href: "/approach", label: "Approach" },
   { href: "/about", label: "About" },
   { href: "/support", label: "Support" },
   // { href: "/learn", label: "Learn" }, // Hidden for now - activities being redesigned
-  // { href: "/portable", label: "Portable" }, // Moved to Framework page
+  // { href: "/portable", label: "Portable" }, // Reachable from Framework page and footer
 ];
 
 export default function Navigation() {
@@ -38,7 +39,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-4 lg:gap-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
@@ -85,7 +86,7 @@ export default function Navigation() {
         {/* Mobile Menu Dropdown */}
         <div
           className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            isMenuOpen ? "max-h-[32rem] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="pt-4 pb-2 space-y-1">
