@@ -3,7 +3,8 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "For Educators | Symbiotic Thinking",
-  description: "Help your students develop critical thinking and metacognitive skills with AI. Privacy-first design means you never see their conversations.",
+  description:
+    "Help students build critical thinking, communication, and collaboration with AI. Bring-your-own-key or institutional deployment, with privacy-first design.",
 };
 
 export default function EducatorsPage() {
@@ -20,8 +21,9 @@ export default function EducatorsPage() {
               Teach thinking, not just content
             </h1>
             <p className="mt-6 text-xl text-gray-600">
-              The Dojo gives your students a structured environment to practice metacognition
-              and critical thinking with AI — while respecting their privacy.
+              The Dojo gives your students a structured environment to practice the three
+              abilities employers rate highest — critical thinking, communication, and
+              collaboration — while respecting their privacy.
             </p>
           </div>
         </div>
@@ -159,17 +161,17 @@ export default function EducatorsPage() {
                 but you never have access to their raw conversations.
               </p>
               <ul className="space-y-2 text-sm text-gray-500">
-                <li className="flex items-center gap-2">
-                  <span className="text-emerald-500">✓</span>
-                  Client-side architecture
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-500 flex-shrink-0">✓</span>
+                  Client-side architecture — conversations go straight to the provider
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-emerald-500">✓</span>
-                  Students use their own API keys
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-500 flex-shrink-0">✓</span>
+                  Conversation content is never stored or logged by us
                 </li>
-                <li className="flex items-center gap-2">
-                  <span className="text-emerald-500">✓</span>
-                  No server-side data storage
+                <li className="flex items-start gap-2">
+                  <span className="text-emerald-500 flex-shrink-0">✓</span>
+                  With CTI keys, the backend records token counts only — never content
                 </li>
               </ul>
             </div>
@@ -187,28 +189,69 @@ export default function EducatorsPage() {
               <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
                 1
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Students Get Free API Keys</h3>
-                <p className="text-gray-600 mb-2">
-                  Each student creates a free API key from either provider:
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Decide How Students Get Access</h3>
+                <p className="text-gray-600 mb-4">
+                  Two paths. The first costs nothing and needs no setup from you; the second
+                  removes the signup step entirely for students.
                 </p>
-                <ul className="text-gray-600 text-sm space-y-1 ml-4">
-                  <li>
-                    <strong>Groq</strong> (recommended): ~14,400 requests/day at{" "}
-                    <a href="https://console.groq.com" className="text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">
-                      console.groq.com
-                    </a>
-                  </li>
-                  <li>
-                    <strong>Google Gemini</strong>: ~15 requests/min, ~20 requests/day at{" "}
-                    <a href="https://aistudio.google.com/apikey" className="text-emerald-600 hover:underline" target="_blank" rel="noopener noreferrer">
-                      Google AI Studio
-                    </a>
-                  </li>
-                </ul>
-                <p className="text-gray-500 text-sm mt-2">
-                  For extended practice sessions, Groq&apos;s higher rate limits work better for students.
-                </p>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-4">
+                    <div className="font-medium text-emerald-800 mb-2">
+                      Students bring their own key
+                    </div>
+                    <ul className="text-gray-600 text-sm space-y-1.5">
+                      <li>
+                        <strong>Groq</strong> (recommended for class use): ~14,400 requests/day
+                        at{" "}
+                        <a
+                          href="https://console.groq.com"
+                          className="text-emerald-600 hover:underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          console.groq.com
+                        </a>
+                      </li>
+                      <li>
+                        <strong>Google Gemini</strong>: ~15 requests/min, ~20 requests/day at{" "}
+                        <a
+                          href="https://aistudio.google.com/apikey"
+                          className="text-emerald-600 hover:underline"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          Google AI Studio
+                        </a>
+                      </li>
+                    </ul>
+                    <p className="text-gray-500 text-xs mt-3">
+                      Free, but every student has to create an account. Groq&apos;s higher
+                      limits hold up better across a full class session.
+                    </p>
+                  </div>
+
+                  <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                    <div className="font-medium text-blue-800 mb-2">
+                      Your institution issues keys
+                    </div>
+                    <p className="text-gray-600 text-sm mb-2">
+                      If your program deploys the CTI backend, you issue each student a{" "}
+                      <strong>CTI key</strong> running on Claude Sonnet with a token budget you
+                      control. No student signups, no personal API accounts.
+                    </p>
+                    <ul className="text-gray-600 text-sm space-y-1 list-disc ml-4">
+                      <li>Create keys in bulk from a class roster CSV</li>
+                      <li>Monitor per-student usage; top up or revoke individually</li>
+                      <li>Students see their remaining budget in the app</li>
+                    </ul>
+                    <p className="text-gray-500 text-xs mt-3">
+                      Requires deploying the backend to your own cloud project. Setup is
+                      documented in the repository.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -216,21 +259,60 @@ export default function EducatorsPage() {
               <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
                 2
               </div>
-              <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Assign Challenges</h3>
-                <p className="text-gray-600 mb-2">
-                  Direct students to use the Dojo for specific assignments:
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Assign a Specific Activity</h3>
+                <p className="text-gray-600 mb-3">
+                  Rather than pointing students at a blank chat, send them into a structured
+                  activity that matches your learning goal:
                 </p>
-                <ul className="text-gray-600 text-sm space-y-1 ml-4 mb-2">
+                <ul className="text-gray-600 text-sm space-y-2 ml-4 mb-4 list-disc">
                   <li>
-                    <strong>Practice Dojo</strong> — Recommend this for students new to Symbiotic Thinking.
-                    Structured, guided experiences help them learn the fundamentals.
+                    <strong>Practice Dojo topics</strong> — phased, guided sessions with
+                    checkpoints. Symbiotic Thinking foundations, Ikigai, Map Your Curiosity,
+                    Career Intelligence, and course-specific sessions.
                   </li>
                   <li>
-                    <strong>Free Exploration</strong> — For students bringing their own challenges,
-                    you can suggest which Sparring Partners to activate or which construct to use.
+                    <strong>Architect Studio</strong> — the same decisions worked Solo, then
+                    Delegated, then in Partnership. Good for teaching where AI actually helps.
+                  </li>
+                  <li>
+                    <strong>Project Interview</strong> — a paired, in-class activity where
+                    students interview each other about their projects.
+                  </li>
+                  <li>
+                    <strong>Free Exploration</strong> — for students bringing their own
+                    challenge. Suggest which Sparring Partners to activate.
                   </li>
                 </ul>
+
+                <div className="bg-gray-50 border border-gray-200 rounded-xl p-4 mb-3">
+                  <div className="font-medium text-gray-900 text-sm mb-1">
+                    Set the stakes with a Construct
+                  </div>
+                  <p className="text-gray-600 text-sm">
+                    Every session runs at one of three levels:{" "}
+                    <strong>Learn</strong> (safe exploration),{" "}
+                    <strong>Learn + Solve</strong> (apply it to a defined problem), or{" "}
+                    <strong>Learn + Solve + Build</strong> (create something real for real
+                    stakeholders). Naming the construct in your assignment tells the Dojo how
+                    hard to push.
+                  </p>
+                </div>
+
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                  <div className="font-medium text-gray-900 text-sm mb-1">
+                    Link students straight into an activity
+                  </div>
+                  <p className="text-gray-600 text-sm">
+                    Add <code className="bg-white px-1.5 py-0.5 rounded text-xs">?topic=</code>{" "}
+                    to the Dojo URL to drop students directly into a session — for example{" "}
+                    <code className="bg-white px-1.5 py-0.5 rounded text-xs">
+                      dojo.symbioticthinking.ai/?topic=symbiotic-thinking
+                    </code>
+                    . If you issue CTI keys, you can append the key as a URL fragment so the
+                    link both authenticates the student and lands them in the right activity.
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -252,11 +334,48 @@ export default function EducatorsPage() {
               <div className="w-8 h-8 bg-emerald-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
                 4
               </div>
-              <div>
+              <div className="flex-1">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">Assess Thinking, Not Just Output</h3>
-                <p className="text-gray-600">
-                  Use summaries to evaluate metacognitive engagement, not just final deliverables.
-                  Did they frame the problem well? Consider alternatives? Verify their reasoning?
+                <p className="text-gray-600 mb-4">
+                  Use summaries to evaluate engagement, not just final deliverables. The three
+                  abilities give you a rubric that transfers across assignments:
+                </p>
+                <div className="space-y-2">
+                  {[
+                    {
+                      name: "Critical Thinking",
+                      question:
+                        "Did they frame the problem before solving it? Consider alternatives? Verify the AI's reasoning rather than accept it?",
+                    },
+                    {
+                      name: "Communication",
+                      question:
+                        "Could they explain their choices in their own words? Was the context they supplied specific enough to change the outcome?",
+                    },
+                    {
+                      name: "Collaboration",
+                      question:
+                        "Did they push back and explore, or accept the first answer? Did the conversation take the idea somewhere they couldn't have gone alone?",
+                    },
+                  ].map((row) => (
+                    <div
+                      key={row.name}
+                      className="flex flex-col sm:flex-row gap-1 sm:gap-4 bg-gray-50 rounded-lg p-3 border border-gray-200"
+                    >
+                      <div className="sm:w-40 flex-shrink-0 font-medium text-gray-900 text-sm">
+                        {row.name}
+                      </div>
+                      <div className="text-gray-600 text-sm">{row.question}</div>
+                    </div>
+                  ))}
+                </div>
+                <p className="text-gray-500 text-sm mt-4">
+                  A caution worth passing on to students: we have good evidence that these
+                  abilities matter, and no evidence yet that the Dojo measurably improves
+                  them.{" "}
+                  <Link href="/evidence" className="text-emerald-600 hover:underline">
+                    Here&apos;s what we know and don&apos;t →
+                  </Link>
                 </p>
               </div>
             </div>

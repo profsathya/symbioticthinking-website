@@ -1,15 +1,66 @@
 "use client";
 
 import { useState } from "react";
-import { Metadata } from "next";
 import Link from "next/link";
 import { ChevronDown, Brain, RefreshCw, Target, Lightbulb } from "lucide-react";
+import {
+  ABILITIES,
+  ABILITY_COLORS,
+  SYMBIOTIC_THINKING_DEFINITION,
+  type Ability,
+} from "../content/abilities";
 
-// Note: metadata export doesn't work with "use client", would need separate layout
-// export const metadata: Metadata = {
-//   title: "What is Symbiotic Thinking? | The Framework",
-//   description: "A flexible recipe for learning in the age of AI, built on three interdependent layers: Mindset, Metacognition, and Motivation.",
-// };
+function AbilityCard({ ability }: { ability: Ability }) {
+  const colors = ABILITY_COLORS[ability.color];
+
+  return (
+    <div className={`rounded-2xl border-2 ${colors.border} ${colors.bg} overflow-hidden`}>
+      {/* Header */}
+      <div className="p-6 md:p-8 pb-0">
+        <div className="flex items-start gap-4">
+          <div
+            className={`w-12 h-12 ${colors.iconBg} rounded-xl flex items-center justify-center text-2xl flex-shrink-0`}
+          >
+            {ability.icon}
+          </div>
+          <div>
+            <h3 className={`text-2xl font-bold ${colors.heading}`}>{ability.name}</h3>
+            <p className={`${colors.text} font-medium mt-1`}>{ability.tagline}</p>
+          </div>
+        </div>
+        <p className="text-gray-700 mt-5 leading-relaxed">{ability.definition}</p>
+      </div>
+
+      {/* Body: why AI changes it, and where you practice it */}
+      <div className="p-6 md:p-8 grid md:grid-cols-2 gap-6">
+        <div className="bg-white/70 rounded-xl p-5 border border-white">
+          <h4 className="font-semibold text-gray-900 mb-2 text-sm uppercase tracking-wide">
+            Why AI raises the stakes
+          </h4>
+          <p className="text-sm text-gray-700 leading-relaxed">{ability.withAI}</p>
+          <div className="mt-4 pt-4 border-t border-gray-200">
+            <p className="text-sm text-gray-700">{ability.evidence.stat}</p>
+            <p className="text-xs text-gray-500 mt-1 italic">{ability.evidence.source}</p>
+          </div>
+        </div>
+
+        <div className="bg-white/70 rounded-xl p-5 border border-white">
+          <h4 className="font-semibold text-gray-900 mb-3 text-sm uppercase tracking-wide">
+            Where you practice it
+          </h4>
+          <ul className="space-y-2">
+            {ability.dojo.map((item, i) => (
+              <li key={i} className="flex gap-2 text-sm text-gray-700">
+                <span className={`${colors.text} flex-shrink-0`}>→</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 interface ExpandableCardProps {
   icon: React.ReactNode;
@@ -118,23 +169,99 @@ export default function FrameworkPage() {
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
             What is Symbiotic Thinking?
           </h1>
-          <p className="mt-6 text-xl text-gray-600 max-w-3xl mx-auto">
-            A flexible recipe for learning in the age of AI, built on three interdependent layers
-            that are durable, subject-neutral, and essential for developing real capability.
+          <p className="mt-6 text-2xl text-gray-800 max-w-3xl mx-auto font-medium leading-snug">
+            {SYMBIOTIC_THINKING_DEFINITION}
           </p>
-          <p className="mt-4 text-gray-500">
-            Think of it like a three-legged stool — it finds its stability when all three legs are present.
+          <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
+            Three abilities that stay valuable when AI can execute — and a method for
+            building them that works in any subject.
           </p>
         </div>
       </section>
 
-      {/* The Personal Stack */}
+      {/* The Three Abilities */}
       <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-4">
+            <div className="inline-flex items-center gap-2 bg-gray-100 text-gray-600 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
+              What you build
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">The Three Abilities</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Durable, subject-neutral, and legible to the people who will hire you.
+              They reinforce each other — you can&apos;t think critically about an idea
+              you can&apos;t articulate, and you can&apos;t explore one deeply with a
+              partner you can&apos;t reach.
+            </p>
+          </div>
+
+          <div className="mt-12 space-y-6">
+            {ABILITIES.map((ability) => (
+              <AbilityCard key={ability.id} ability={ability} />
+            ))}
+          </div>
+
+          {/* Why three, not four */}
+          <div className="mt-8 bg-gray-50 rounded-2xl p-6 border border-gray-200">
+            <div className="flex gap-4">
+              <div className="text-2xl flex-shrink-0">🎨</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">Why three, and not the familiar four?</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  The widely taught &quot;four Cs&quot; add <strong>creativity</strong> to this list.
+                  We name three deliberately. Creativity isn&apos;t a fourth ability you practice on
+                  its own — it&apos;s what tends to emerge when critical thinking, communication, and
+                  collaboration operate together on a problem you actually care about. Treating it as
+                  a separate skill to drill has never worked well; treating it as an outcome gives you
+                  something you can actually practice.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Naming clarification */}
+          <div className="mt-4 bg-blue-50 rounded-2xl p-6 border border-blue-200">
+            <div className="flex gap-4">
+              <div className="text-2xl flex-shrink-0">📌</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">One naming note</h3>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  These are <strong>the Three Abilities</strong>. Further down this page
+                  you&apos;ll meet <strong>the 3Cs</strong> — Context, Choices, Confirmation.
+                  They are a different thing: a technique inside the method, not the abilities
+                  themselves. We keep the two names distinct on purpose.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Evidence link */}
+          <div className="mt-8 text-center">
+            <Link
+              href="/evidence"
+              className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 font-medium"
+            >
+              See the data behind these three
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* The Personal Stack */}
+      <section className="py-16 bg-gray-50">
         <div className="max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">The Personal Stack</h2>
+            <div className="inline-flex items-center gap-2 bg-white text-gray-600 px-4 py-1.5 rounded-full text-sm font-medium mb-4 border border-gray-200">
+              How you build them
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-3">The Personal Stack</h2>
             <p className="text-gray-600">
-              Click each layer to explore what it means and see examples.
+              The abilities are the goal. This is the method that develops them — three
+              interdependent layers, like a three-legged stool that finds its stability only
+              when all three are present. Click each layer to explore it.
             </p>
           </div>
 
@@ -384,7 +511,7 @@ export default function FrameworkPage() {
           </div>
 
           {/* Integration Note */}
-          <div className="mt-12 bg-gray-50 rounded-2xl p-6 border border-gray-200">
+          <div className="mt-12 bg-white rounded-2xl p-6 border border-gray-200">
             <div className="flex gap-4">
               <div className="text-2xl">🔗</div>
               <div>
@@ -394,8 +521,45 @@ export default function FrameworkPage() {
                   The <strong>Mindset</strong> gives you clarity on what you&apos;re doing.
                   The <strong>Metacognition</strong> gives you a technique for how to do it.
                   The <strong>Motivation</strong> gives you a reason why and a way to measure progress.
-                  Together, they create a durable, subject-neutral framework for learning anything in the age of AI.
                 </p>
+              </div>
+            </div>
+          </div>
+
+          {/* How the two levels connect */}
+          <div className="mt-6 bg-white rounded-2xl p-6 border border-gray-200">
+            <h3 className="font-semibold text-gray-900 mb-4 text-center">
+              How the method builds the abilities
+            </h3>
+            <div className="space-y-3 text-sm">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <div className="sm:w-56 flex-shrink-0 font-medium text-amber-800">
+                  Mindset — Creating vs. Consuming
+                </div>
+                <div className="hidden sm:block text-gray-300">→</div>
+                <div className="text-gray-600">
+                  Refusing passive acceptance is where <strong>critical thinking</strong> starts.
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <div className="sm:w-56 flex-shrink-0 font-medium text-emerald-800">
+                  Metacognition — the 3Cs
+                </div>
+                <div className="hidden sm:block text-gray-300">→</div>
+                <div className="text-gray-600">
+                  Context is <strong>communication</strong>; Choices and Confirmation are{" "}
+                  <strong>critical thinking</strong>; running the loop with a partner is{" "}
+                  <strong>collaboration</strong>.
+                </div>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <div className="sm:w-56 flex-shrink-0 font-medium text-purple-800">
+                  Motivation — the DIKW Pyramid
+                </div>
+                <div className="hidden sm:block text-gray-300">→</div>
+                <div className="text-gray-600">
+                  Gives you a reason to keep climbing, and a way to see all three improving.
+                </div>
               </div>
             </div>
           </div>

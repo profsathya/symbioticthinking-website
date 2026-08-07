@@ -1,8 +1,78 @@
 import { Metadata } from "next";
+import Link from "next/link";
+import { ABILITIES, ABILITY_COLORS, type AbilityId } from "../content/abilities";
 
 export const metadata: Metadata = {
   title: "For Learners | Symbiotic Thinking",
-  description: "Build superagency and critical thinking skills with AI. The Dojo helps you develop judgment that compounds over time.",
+  description:
+    "Build critical thinking, communication, and collaboration with AI as your practice partner. The Dojo develops judgment that compounds over time.",
+};
+
+/** The concrete sub-skills a learner practises under each ability. */
+const LEARNER_SKILLS: Record<
+  AbilityId,
+  { icon: string; title: string; description: string }[]
+> = {
+  "critical-thinking": [
+    {
+      icon: "🎯",
+      title: "Problem Framing",
+      description:
+        "Define the problem precisely before jumping to a solution. The Framer won't let you build until you can say what you're building and why.",
+    },
+    {
+      icon: "🔍",
+      title: "Critical Evaluation",
+      description:
+        "Question AI output as a habit. Know when to accept it, when to push back, and when the confident answer is the wrong one.",
+    },
+    {
+      icon: "⚖️",
+      title: "Decision Making",
+      description:
+        "Practice the 3Cs — Context, Choices, Confirmation — so you make decisions you can actually defend and verify.",
+    },
+  ],
+  communication: [
+    {
+      icon: "✍️",
+      title: "Supplying Context",
+      description:
+        "Learn to give a model what it can't know. The precision of your context is the ceiling on the quality of what comes back.",
+    },
+    {
+      icon: "🛡️",
+      title: "Defending Your Reasoning",
+      description:
+        "Say why you made a call and hold that line under questioning — to a rubric, to the Challenger, or to a person across the table.",
+    },
+    {
+      icon: "📣",
+      title: "Naming Your Value",
+      description:
+        "Turn what you can do into language an employer recognizes: a Value Statement built on evidence, tested against real postings.",
+    },
+  ],
+  collaboration: [
+    {
+      icon: "💭",
+      title: "Thinking Out Loud",
+      description:
+        "Work an idea further in conversation than you could alone. This is the core muscle — and the one most AI use never exercises.",
+    },
+    {
+      icon: "🔗",
+      title: "Cross-Domain Thinking",
+      description:
+        "Let a partner pull you out of your lane. The Connector bridges to other fields so you see patterns your own training would miss.",
+    },
+    {
+      icon: "🔀",
+      title: "Dividing the Work",
+      description:
+        "Judge what to hold, what to delegate, and what to genuinely think through together — with AI and with people.",
+    },
+  ],
 };
 
 export default function LearnersPage() {
@@ -19,8 +89,10 @@ export default function LearnersPage() {
               Build skills that AI can&apos;t replace
             </h1>
             <p className="mt-6 text-xl text-gray-600">
-              The Dojo doesn&apos;t give you answers — it helps you become the kind of thinker who
-              asks better questions, makes better decisions, and creates real value.
+              The Dojo doesn&apos;t give you answers — it builds the three abilities that stay
+              valuable when AI can execute: <strong className="text-gray-800">critical thinking</strong>,{" "}
+              <strong className="text-gray-800">communication</strong>, and{" "}
+              <strong className="text-gray-800">collaboration</strong>.
             </p>
           </div>
         </div>
@@ -49,8 +121,13 @@ export default function LearnersPage() {
                 &quot;I know which problems are worth solving, and I can lead the solution.&quot;
               </p>
               <p className="text-gray-500">
-                Judgment, critical thinking, and metacognition — the skills that let you
-                direct AI rather than be directed by it.
+                Critical thinking, communication, and collaboration — the abilities that let
+                you direct AI rather than be directed by it. Employers rate all three among
+                the most important things a graduate can bring, and rate new graduates below
+                where graduates rate themselves.{" "}
+                <Link href="/evidence" className="text-emerald-600 hover:underline">
+                  See the data →
+                </Link>
               </p>
             </div>
           </div>
@@ -62,48 +139,62 @@ export default function LearnersPage() {
         <div className="max-w-6xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">What You&apos;ll Develop</h2>
           <p className="text-lg text-gray-600 mb-12 max-w-2xl">
-            The Dojo trains specific cognitive skills through structured practice.
+            Everything in the Dojo builds toward three abilities. Here&apos;s what practising
+            each one actually looks like.
           </p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                icon: "🎯",
-                title: "Problem Framing",
-                description: "Learn to define problems precisely before jumping to solutions. Understand why this matters more than execution speed."
-              },
-              {
-                icon: "🔍",
-                title: "Critical Evaluation",
-                description: "Develop the habit of questioning AI outputs. Know when to accept, when to push back, and when to dig deeper."
-              },
-              {
-                icon: "🧠",
-                title: "Metacognition",
-                description: "Build awareness of your own thinking process. Recognize when you're being passive vs. actively engaged."
-              },
-              {
-                icon: "🔗",
-                title: "Cross-Domain Thinking",
-                description: "Connect ideas across different fields. See patterns that others miss by drawing on diverse knowledge."
-              },
-              {
-                icon: "⚖️",
-                title: "Decision Making",
-                description: "Practice the 3Cs: Context, Choices, Confirmation. Make decisions you can defend and verify."
-              },
-              {
-                icon: "📈",
-                title: "Knowledge Depth",
-                description: "Move beyond surface-level data to genuine understanding. Climb the DIKW pyramid from information to wisdom."
-              }
-            ].map((skill, i) => (
-              <div key={i} className="bg-white rounded-xl p-6 border border-gray-100">
-                <div className="text-3xl mb-4">{skill.icon}</div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">{skill.title}</h3>
-                <p className="text-gray-600 text-sm">{skill.description}</p>
+          <div className="space-y-8">
+            {ABILITIES.map((ability) => {
+              const colors = ABILITY_COLORS[ability.color];
+              const skills = LEARNER_SKILLS[ability.id];
+
+              return (
+                <div
+                  key={ability.id}
+                  className={`rounded-2xl border-2 ${colors.border} ${colors.bg} p-6 md:p-8`}
+                >
+                  <div className="flex items-start gap-4 mb-6">
+                    <div
+                      className={`w-12 h-12 ${colors.iconBg} rounded-xl flex items-center justify-center text-2xl flex-shrink-0`}
+                    >
+                      {ability.icon}
+                    </div>
+                    <div>
+                      <h3 className={`text-2xl font-bold ${colors.heading}`}>{ability.name}</h3>
+                      <p className={`${colors.text} font-medium text-sm mt-1`}>{ability.tagline}</p>
+                    </div>
+                  </div>
+
+                  <div className="grid md:grid-cols-3 gap-4">
+                    {skills.map((skill, i) => (
+                      <div key={i} className="bg-white rounded-xl p-5 border border-white">
+                        <div className="text-2xl mb-3">{skill.icon}</div>
+                        <h4 className="font-semibold text-gray-900 mb-2">{skill.title}</h4>
+                        <p className="text-gray-600 text-sm">{skill.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* The method underneath */}
+          <div className="mt-8 bg-white rounded-2xl p-6 border border-gray-200">
+            <div className="flex gap-4">
+              <div className="text-2xl flex-shrink-0">🧠</div>
+              <div>
+                <h3 className="font-semibold text-gray-900 mb-2">Underneath all three: metacognition</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  You build these abilities using a method — noticing whether you&apos;re
+                  creating or consuming, running the 3Cs before a decision, and climbing the
+                  DIKW pyramid from answers toward judgment. That&apos;s the machinery.{" "}
+                  <Link href="/framework" className="text-emerald-600 hover:underline">
+                    See how the method works →
+                  </Link>
+                </p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>

@@ -5,13 +5,53 @@ Marketing website for the Symbiotic Thinking Dojo — an AI-powered learning env
 **Live site:** [symbioticthinking.ai](https://symbioticthinking.ai)
 **Dojo app:** [dojo.symbioticthinking.ai](https://dojo.symbioticthinking.ai)
 
+## The core claim
+
+Symbiotic Thinking is **critical thinking, communication, and collaboration** — practiced
+with AI in the room. Those three abilities are the spine of the site; every page should
+either name them or serve them.
+
+The triad lives in one place: [`app/content/abilities.ts`](app/content/abilities.ts). The
+home page, Framework, Learners, and Evidence pages all read from it, so copy stays
+consistent. Edit that file rather than restating the abilities inline.
+
+Two naming rules, both easy to get wrong:
+
+- These are **the Three Abilities**, never "the 3Cs." The 3Cs are Context, Choices, and
+  Confirmation — a technique one level down, inside the Personal Stack.
+- We name **three**, not the familiar four. Creativity is treated as what emerges when the
+  three operate together, not as a fourth skill to drill. `/framework` and `/approach`
+  both explain this; keep them in agreement.
+
 ## Pages
 
-- **Home** — Value proposition and overview
-- **For Learners** — How the Dojo builds superagency and critical thinking
-- **For Educators** — Using the Dojo with students, privacy assurance
-- **About** — Philosophy, team, and transparency
+- **Home** — Value proposition, the three abilities, ways to practice, getting started
+- **For Learners** — What each ability looks like in practice, and how to start
+- **For Educators** — Classroom deployment (BYO key or institutional CTI keys), assignment
+  design, and assessing against the three abilities
+- **The Framework** — The Three Abilities over the Personal Stack (Mindset / Metacognition /
+  Motivation)
+- **The Evidence** — Labor-market and cognitive-science data behind the three abilities,
+  with explicit caveats about what it does not show
+- **Our Approach** — Build-measure-learn, classroom pilots, and sources
+- **Portable Edition** — Using the framework with any AI chatbot (linked from Framework and
+  the footer, not the main nav)
+- **About** — Philosophy, team, transparency, FAQ
 - **Support** — Feedback, contributions, and funding information
+
+### Keeping claims accurate
+
+The site makes verifiable claims about the Dojo, so two things need re-checking whenever
+[the Dojo](https://github.com/profsathya/Symbiotic_Thinking_Dojo) changes:
+
+- **Privacy.** Personal Gemini/Groq keys are browser-only. Institutional CTI keys are
+  proxied through a backend that records token counts but not conversation content. Any
+  blanket "nothing touches our servers" claim is wrong.
+- **Persistence.** Nothing is stored server-side, but API keys, Practice Dojo progress,
+  Architect runs, and earned belts persist in the browser. "Nothing is saved" is wrong.
+
+Figures on `/evidence` carry a `LAST_REVIEWED` constant — update it when you re-check the
+sources.
 
 ## Development
 

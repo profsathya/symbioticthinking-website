@@ -20,6 +20,10 @@ export default function AboutPage() {
               We believe AI should make humans more capable, not more dependent.
               Every tool we build asks: does this develop human skill, or just get to an answer faster?
             </p>
+            <p className="mt-4 text-lg text-gray-500">
+              The skills we mean are specific: critical thinking, communication, and
+              collaboration.
+            </p>
           </div>
         </div>
       </section>
@@ -171,9 +175,11 @@ export default function AboutPage() {
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">Privacy Architecture</h3>
               <p className="text-gray-600 mb-2">
-                We designed the Dojo so we literally cannot access your conversations.
-                Your API key stays in your browser. Messages go directly to your chosen provider&apos;s API (Groq or Google).
-                Our servers only serve the application code.
+                We designed the Dojo so we cannot read your conversations. With a personal
+                Gemini or Groq key, your key stays in your browser and messages go directly to
+                that provider — our servers only serve the application code. Institutional CTI
+                keys are the one case where a request passes through our backend, and that
+                backend records token counts for budgeting, never conversation content.
               </p>
               <Link href="/" className="text-emerald-600 hover:text-emerald-700 text-sm">
                 Learn about our privacy architecture →
@@ -206,11 +212,15 @@ export default function AboutPage() {
                 },
                 {
                   q: "What AI models does it use?",
-                  a: "You choose your provider: Groq uses Llama 3.3 70B with ~14,400 free requests/day (recommended for extended practice). Google Gemini uses Gemini 2.5 Flash with ~15 requests/min, ~20 free requests/day. You can switch providers anytime in Settings. CTI Program keys are also available for institutional pilots."
+                  a: "Three providers. Google Gemini uses Gemini 2.5 Flash (~15 requests/min, ~20 free requests/day). Groq uses Llama 3.3 70B (~14,400 free requests/day — better for extended practice). Institutions running the CTI backend can issue students CTI Program keys, which use Anthropic's Claude Sonnet against a coordinator-managed token budget. You can switch providers anytime in Settings."
                 },
                 {
                   q: "Is my data private?",
-                  a: "From us, yes — the Dojo runs entirely in your browser and nothing passes through our servers. However, your conversations are sent to your chosen provider's API (Groq or Google), so their respective privacy policies apply. Conversations are not saved between sessions — when you close or refresh the page, your conversation is gone."
+                  a: "With a personal Gemini or Groq key, yes — the Dojo runs in your browser and your conversations go straight to that provider, so their privacy policy governs what they receive. We never see them. If your institution issued you a CTI key, requests are proxied through our backend to Anthropic so your coordinator can manage token budgets; that backend records token counts and never conversation content. In every case, we do not store your conversations."
+                },
+                {
+                  q: "Is anything saved when I close the browser?",
+                  a: "Nothing is saved to our servers. Some things are saved in your browser so you can pick up where you left off — your API key, Practice Dojo session progress, Architect Studio runs, and any belts you've earned in the Code Kata Dojo. A free-form chat conversation is not persisted: close or refresh and it's gone. Use Export, or ask @reflector for a summary, if you want a record."
                 },
                 {
                   q: "Can I use it offline?",
@@ -226,7 +236,11 @@ export default function AboutPage() {
                 },
                 {
                   q: "How long is a typical session?",
-                  a: "Sessions typically run 15-30 minutes, though you can go shorter or longer. The Dojo works well for focused thinking on a specific problem rather than extended conversations."
+                  a: "It depends on the activity. A quick Practice Dojo pathway runs 12-15 minutes; the guided Symbiotic Thinking foundations topic runs 25-35; Career Intelligence sessions run 30-45; and the paired Project Interview activity is built for a full ~60-minute class. Free exploration is as long as you want it to be."
+                },
+                {
+                  q: "What is Symbiotic Thinking, in one sentence?",
+                  a: "Critical thinking, communication, and collaboration — practiced with AI in the room. Those three abilities are what the Dojo is built to develop; everything else (the 3Cs, DIKW, UMPIRE, the Sparring Partners) is method in service of them."
                 }
               ].map((faq, i) => (
                 <details key={i} className="group bg-gray-50 rounded-xl border border-gray-200 overflow-hidden">
