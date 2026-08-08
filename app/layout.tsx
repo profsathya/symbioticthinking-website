@@ -45,9 +45,7 @@ function Footer() {
               <span className="font-semibold text-white">Symbiotic Thinking</span>
             </div>
             <p className="text-gray-400 text-sm max-w-md">
-              Critical thinking, communication, and collaboration — practiced with AI in the
-              room. The Dojo is a free environment for building the three abilities that stay
-              valuable when AI can execute.
+              Building human capability in an age of AI abundance. The Dojo trains judgment and superagency — ensuring AI amplifies your thinking rather than replacing it.
             </p>
           </div>
 
