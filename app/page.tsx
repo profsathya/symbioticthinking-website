@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ABILITIES, ABILITY_COLORS } from "./content/abilities";
 
 export default function HomePage() {
   return (
@@ -13,16 +12,10 @@ export default function HomePage() {
               Learn to think <span className="text-emerald-600">with</span> AI,
                 <br />not <span className="text-gray-400">let it</span> think for you
             </h1>
-            <p className="mt-6 text-xl text-gray-700 leading-relaxed">
-              Symbiotic Thinking is{" "}
-              <strong className="text-gray-900">critical thinking</strong>,{" "}
-              <strong className="text-gray-900">communication</strong>, and{" "}
-              <strong className="text-gray-900">collaboration</strong> — practiced with AI
-              in the room.
-            </p>
-            <p className="mt-4 text-lg text-gray-600 leading-relaxed">
-              The Dojo is a free practice environment for building those three abilities.
-              AI becomes your thinking partner, not your replacement.
+            <p className="mt-6 text-xl text-gray-600 leading-relaxed">
+              The Symbiotic Thinking Dojo is an AI-powered practice environment that builds your
+              judgment, agency, and metacognition. AI becomes your thinking partner,
+              not your replacement.
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <a
@@ -41,61 +34,6 @@ export default function HomePage() {
                 Learn More
               </Link>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* The Three Abilities */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-900">The Three Abilities</h2>
-            <p className="mt-4 text-lg text-gray-600">
-              When AI can execute, these are what stay valuable — and what AI use quietly
-              erodes if you never practice them.
-            </p>
-          </div>
-
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
-            {ABILITIES.map((ability) => {
-              const colors = ABILITY_COLORS[ability.color];
-              return (
-                <div
-                  key={ability.id}
-                  className={`rounded-2xl border-2 ${colors.border} ${colors.bg} p-6 flex flex-col`}
-                >
-                  <div
-                    className={`w-12 h-12 ${colors.iconBg} rounded-xl flex items-center justify-center text-2xl mb-4`}
-                  >
-                    {ability.icon}
-                  </div>
-                  <h3 className={`text-xl font-bold ${colors.heading} mb-1`}>{ability.name}</h3>
-                  <p className={`text-sm ${colors.text} font-medium mb-4`}>{ability.tagline}</p>
-                  <p className="text-sm text-gray-700 leading-relaxed flex-1">
-                    {ability.definition}
-                  </p>
-                  <div className="mt-5 pt-4 border-t border-white/80">
-                    <p className="text-sm text-gray-700">{ability.evidence.stat}</p>
-                    <p className="text-xs text-gray-500 mt-1 italic">{ability.evidence.source}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-3">
-            <Link
-              href="/framework"
-              className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 font-medium"
-            >
-              How the Dojo builds them →
-            </Link>
-            <Link
-              href="/evidence"
-              className="inline-flex items-center gap-2 text-emerald-700 hover:text-emerald-800 font-medium"
-            >
-              See the data behind these three →
-            </Link>
           </div>
         </div>
       </section>
@@ -284,8 +222,8 @@ export default function HomePage() {
           <div className="mt-16">
             <h3 className="text-2xl font-bold text-gray-900 text-center mb-3">Ways to Practice</h3>
             <p className="text-gray-600 text-center max-w-2xl mx-auto mb-10">
-              The Dojo is more than a chat window. Each activity trains a different mix of
-              the three abilities.
+              The Dojo is more than a chat window. Each activity puts a different kind of
+              pressure on your thinking.
             </p>
 
             <div className="grid md:grid-cols-2 gap-6">
@@ -295,28 +233,24 @@ export default function HomePage() {
                   title: "Practice Dojo",
                   description:
                     "Guided, phased topics — Symbiotic Thinking foundations, Ikigai, Map Your Curiosity, course sessions, and more. You commit to a judgment before the AI weighs in.",
-                  trains: ["Critical Thinking", "Communication"],
                 },
                 {
                   icon: "🏛️",
                   title: "Architect Studio",
                   description:
                     "The same architecture decisions worked three ways — Solo, then Delegated to AI, then in open Partnership — so you can see exactly what each mode adds and costs.",
-                  trains: ["Collaboration", "Critical Thinking"],
                 },
                 {
                   icon: "🥋",
                   title: "Code Kata Dojo",
                   description:
                     "Small problems with visible tests, organized into belts from white to black. Includes bug-hunts, predictions, and design katas where you defend a call against a rubric.",
-                  trains: ["Critical Thinking", "Communication"],
                 },
                 {
                   icon: "🎤",
                   title: "Project Interview",
                   description:
                     "Run in pairs: frame your project, get interviewed, then swap devices and coach your partner through interviewing you. Explaining your work to a person, unassisted.",
-                  trains: ["Communication", "Collaboration"],
                 },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-2xl p-6 border border-gray-200">
@@ -324,17 +258,7 @@ export default function HomePage() {
                     <div className="text-2xl flex-shrink-0">{item.icon}</div>
                     <div>
                       <h4 className="text-lg font-semibold text-gray-900 mb-2">{item.title}</h4>
-                      <p className="text-gray-600 text-sm mb-3">{item.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {item.trains.map((t) => (
-                          <span
-                            key={t}
-                            className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
+                      <p className="text-gray-600 text-sm">{item.description}</p>
                     </div>
                   </div>
                 </div>
